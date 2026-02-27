@@ -1,0 +1,88 @@
+name: Microsoft Intune
+description: Microsoft Intune is a cloud-based service that focuses on mobile device management (MDM) and mobile application management (MAM). It helps organizations control how their devices are used, including mobile phones, tablets, and laptops, and enables management of apps on those devices.
+image: https://docs.microsoft.com/en-us/mem/intune/fundamentals/media/what-is-intune/intune-logo.png
+url: https://www.microsoft.com/en-us/security/business/microsoft-intune
+created: '2024'
+modified: '2024'
+specificationVersion: '0.18'
+tags:
+- mobile device management
+- MDM
+- MAM
+- mobile application management
+- endpoint management
+- security
+- compliance
+- azure
+apis:
+- name: Microsoft Intune API
+  description: The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Azure Portal.
+  image: https://docs.microsoft.com/en-us/mem/intune/fundamentals/media/what-is-intune/intune-logo.png
+  humanURL: https://docs.microsoft.com/en-us/graph/api/resources/intune-graph-overview
+  baseURL: https://graph.microsoft.com/v1.0
+  tags:
+  - devices
+  - applications
+  - policies
+  - users
+  - groups
+  - compliance
+  properties:
+  - type: X-documentation
+    url: https://docs.microsoft.com/en-us/graph/api/resources/intune-graph-overview
+  - type: X-openapi
+    url: https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml
+  - type: X-authentication
+    url: https://docs.microsoft.com/en-us/graph/auth/
+  - type: X-postman-collection
+    url: https://www.postman.com/microsoftgraph/workspace/microsoft-graph/overview
+  - type: X-rate-limits
+    url: https://docs.microsoft.com/en-us/graph/throttling
+  - type: X-change-log
+    url: https://docs.microsoft.com/en-us/graph/changelog
+  - type: X-sdks
+    url: https://docs.microsoft.com/en-us/graph/sdks/sdks-overview
+  - type: X-pricing
+    url: https://www.microsoft.com/en-us/security/business/microsoft-intune-pricing
+  contact:
+  - type: X-support
+    url: https://docs.microsoft.com/en-us/mem/get-support
+  - type: X-twitter
+    url: https://twitter.com/MSIntune
+  - type: X-status
+    url: https://status.azure.com/
+- name: Intune Data Warehouse API
+  description: The Intune Data Warehouse API provides access to your Intune data in a machine-readable format for use in your favorite analytics tool. You can use the API to generate reports that provide insight into your mobile environment.
+  humanURL: https://docs.microsoft.com/en-us/mem/intune/developer/reports-nav-create-intune-reports
+  baseURL: https://api.manage.microsoft.com/
+  tags:
+  - analytics
+  - reporting
+  - data warehouse
+  - odata
+  properties:
+  - type: X-documentation
+    url: https://docs.microsoft.com/en-us/mem/intune/developer/reports-nav-intune-data-warehouse
+  - type: X-authentication
+    url: https://docs.microsoft.com/en-us/mem/intune/developer/reports-proc-data-rest
+  - type: X-data-model
+    url: https://docs.microsoft.com/en-us/mem/intune/developer/reports-ref-data-model
+maintainers:
+- name: Microsoft
+  email: support@microsoft.com
+  url: https://www.microsoft.com
+common:
+- type: X-portal
+  url: https://endpoint.microsoft.com/
+- type: X-blog
+  url: https://techcommunity.microsoft.com/t5/microsoft-intune-blog/bg-p/MicrosoftEndpointManagerBlog
+- type: X-learning
+  url: https://docs.microsoft.com/en-us/learn/browse/?products=m365%2Cmem
+- type: X-privacy
+  url: https://privacy.microsoft.com/
+- type: X-terms-of-service
+  url: https://www.microsoft.com/en-us/legal/terms-of-use
+- type: X-status
+  url: https://status.azure.com/
+- type: X-github
+  url: https://github.com/microsoftgraph

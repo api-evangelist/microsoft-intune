@@ -1,0 +1,408 @@
+{
+  "@context": {
+    "@vocab": "https://graph.microsoft.com/v1.0/$metadata#",
+    "microsoft.graph": "https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.",
+    "schema": "https://schema.org/",
+    "intune": "https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+
+    "managedDevice": {
+      "@id": "microsoft.graph:managedDevice",
+      "@context": {
+        "id": {
+          "@id": "microsoft.graph:managedDevice/id",
+          "@type": "xsd:string"
+        },
+        "userId": {
+          "@id": "microsoft.graph:managedDevice/userId",
+          "@type": "xsd:string"
+        },
+        "deviceName": {
+          "@id": "microsoft.graph:managedDevice/deviceName",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:name"
+          }
+        },
+        "managedDeviceOwnerType": {
+          "@id": "microsoft.graph:managedDevice/managedDeviceOwnerType",
+          "@type": "xsd:string"
+        },
+        "enrolledDateTime": {
+          "@id": "microsoft.graph:managedDevice/enrolledDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "lastSyncDateTime": {
+          "@id": "microsoft.graph:managedDevice/lastSyncDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "operatingSystem": {
+          "@id": "microsoft.graph:managedDevice/operatingSystem",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:operatingSystem"
+          }
+        },
+        "complianceState": {
+          "@id": "microsoft.graph:managedDevice/complianceState",
+          "@type": "xsd:string"
+        },
+        "jailBroken": {
+          "@id": "microsoft.graph:managedDevice/jailBroken",
+          "@type": "xsd:string"
+        },
+        "managementAgent": {
+          "@id": "microsoft.graph:managedDevice/managementAgent",
+          "@type": "xsd:string"
+        },
+        "osVersion": {
+          "@id": "microsoft.graph:managedDevice/osVersion",
+          "@type": "xsd:string"
+        },
+        "easActivated": {
+          "@id": "microsoft.graph:managedDevice/easActivated",
+          "@type": "xsd:boolean"
+        },
+        "easDeviceId": {
+          "@id": "microsoft.graph:managedDevice/easDeviceId",
+          "@type": "xsd:string"
+        },
+        "easActivationDateTime": {
+          "@id": "microsoft.graph:managedDevice/easActivationDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "azureADRegistered": {
+          "@id": "microsoft.graph:managedDevice/azureADRegistered",
+          "@type": "xsd:boolean"
+        },
+        "deviceEnrollmentType": {
+          "@id": "microsoft.graph:managedDevice/deviceEnrollmentType",
+          "@type": "xsd:string"
+        },
+        "activationLockBypassCode": {
+          "@id": "microsoft.graph:managedDevice/activationLockBypassCode",
+          "@type": "xsd:string"
+        },
+        "emailAddress": {
+          "@id": "microsoft.graph:managedDevice/emailAddress",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:email"
+          }
+        },
+        "azureADDeviceId": {
+          "@id": "microsoft.graph:managedDevice/azureADDeviceId",
+          "@type": "xsd:string"
+        },
+        "deviceRegistrationState": {
+          "@id": "microsoft.graph:managedDevice/deviceRegistrationState",
+          "@type": "xsd:string"
+        },
+        "deviceCategoryDisplayName": {
+          "@id": "microsoft.graph:managedDevice/deviceCategoryDisplayName",
+          "@type": "xsd:string"
+        },
+        "isSupervised": {
+          "@id": "microsoft.graph:managedDevice/isSupervised",
+          "@type": "xsd:boolean"
+        },
+        "exchangeLastSuccessfulSyncDateTime": {
+          "@id": "microsoft.graph:managedDevice/exchangeLastSuccessfulSyncDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "exchangeAccessState": {
+          "@id": "microsoft.graph:managedDevice/exchangeAccessState",
+          "@type": "xsd:string"
+        },
+        "exchangeAccessStateReason": {
+          "@id": "microsoft.graph:managedDevice/exchangeAccessStateReason",
+          "@type": "xsd:string"
+        },
+        "remoteAssistanceSessionUrl": {
+          "@id": "microsoft.graph:managedDevice/remoteAssistanceSessionUrl",
+          "@type": "xsd:anyURI"
+        },
+        "remoteAssistanceSessionErrorDetails": {
+          "@id": "microsoft.graph:managedDevice/remoteAssistanceSessionErrorDetails",
+          "@type": "xsd:string"
+        },
+        "isEncrypted": {
+          "@id": "microsoft.graph:managedDevice/isEncrypted",
+          "@type": "xsd:boolean"
+        },
+        "userPrincipalName": {
+          "@id": "microsoft.graph:managedDevice/userPrincipalName",
+          "@type": "xsd:string"
+        },
+        "model": {
+          "@id": "microsoft.graph:managedDevice/model",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:model"
+          }
+        },
+        "manufacturer": {
+          "@id": "microsoft.graph:managedDevice/manufacturer",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:manufacturer"
+          }
+        },
+        "imei": {
+          "@id": "microsoft.graph:managedDevice/imei",
+          "@type": "xsd:string"
+        },
+        "complianceGracePeriodExpirationDateTime": {
+          "@id": "microsoft.graph:managedDevice/complianceGracePeriodExpirationDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "serialNumber": {
+          "@id": "microsoft.graph:managedDevice/serialNumber",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:serialNumber"
+          }
+        },
+        "phoneNumber": {
+          "@id": "microsoft.graph:managedDevice/phoneNumber",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:telephone"
+          }
+        },
+        "androidSecurityPatchLevel": {
+          "@id": "microsoft.graph:managedDevice/androidSecurityPatchLevel",
+          "@type": "xsd:string"
+        },
+        "userDisplayName": {
+          "@id": "microsoft.graph:managedDevice/userDisplayName",
+          "@type": "xsd:string"
+        },
+        "configurationManagerClientEnabledFeatures": {
+          "@id": "microsoft.graph:managedDevice/configurationManagerClientEnabledFeatures",
+          "@type": "@id"
+        },
+        "wiFiMacAddress": {
+          "@id": "microsoft.graph:managedDevice/wiFiMacAddress",
+          "@type": "xsd:string"
+        },
+        "deviceHealthAttestationState": {
+          "@id": "microsoft.graph:managedDevice/deviceHealthAttestationState",
+          "@type": "@id"
+        },
+        "subscriberCarrier": {
+          "@id": "microsoft.graph:managedDevice/subscriberCarrier",
+          "@type": "xsd:string"
+        },
+        "meid": {
+          "@id": "microsoft.graph:managedDevice/meid",
+          "@type": "xsd:string"
+        },
+        "totalStorageSpaceInBytes": {
+          "@id": "microsoft.graph:managedDevice/totalStorageSpaceInBytes",
+          "@type": "xsd:long"
+        },
+        "freeStorageSpaceInBytes": {
+          "@id": "microsoft.graph:managedDevice/freeStorageSpaceInBytes",
+          "@type": "xsd:long"
+        },
+        "managedDeviceName": {
+          "@id": "microsoft.graph:managedDevice/managedDeviceName",
+          "@type": "xsd:string"
+        },
+        "partnerReportedThreatState": {
+          "@id": "microsoft.graph:managedDevice/partnerReportedThreatState",
+          "@type": "xsd:string"
+        },
+        "requireUserEnrollmentApproval": {
+          "@id": "microsoft.graph:managedDevice/requireUserEnrollmentApproval",
+          "@type": "xsd:boolean"
+        },
+        "managementCertificateExpirationDate": {
+          "@id": "microsoft.graph:managedDevice/managementCertificateExpirationDate",
+          "@type": "xsd:dateTime"
+        },
+        "iccid": {
+          "@id": "microsoft.graph:managedDevice/iccid",
+          "@type": "xsd:string"
+        },
+        "udid": {
+          "@id": "microsoft.graph:managedDevice/udid",
+          "@type": "xsd:string"
+        },
+        "notes": {
+          "@id": "microsoft.graph:managedDevice/notes",
+          "@type": "xsd:string"
+        },
+        "ethernetMacAddress": {
+          "@id": "microsoft.graph:managedDevice/ethernetMacAddress",
+          "@type": "xsd:string"
+        },
+        "physicalMemoryInBytes": {
+          "@id": "microsoft.graph:managedDevice/physicalMemoryInBytes",
+          "@type": "xsd:long"
+        },
+        "enrollmentProfileName": {
+          "@id": "microsoft.graph:managedDevice/enrollmentProfileName",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "deviceConfiguration": {
+      "@id": "microsoft.graph:deviceConfiguration",
+      "@context": {
+        "id": {
+          "@id": "microsoft.graph:deviceConfiguration/id",
+          "@type": "xsd:string"
+        },
+        "lastModifiedDateTime": {
+          "@id": "microsoft.graph:deviceConfiguration/lastModifiedDateTime",
+          "@type": "xsd:dateTime",
+          "owl:equivalentProperty": {
+            "@id": "schema:dateModified"
+          }
+        },
+        "createdDateTime": {
+          "@id": "microsoft.graph:deviceConfiguration/createdDateTime",
+          "@type": "xsd:dateTime",
+          "owl:equivalentProperty": {
+            "@id": "schema:dateCreated"
+          }
+        },
+        "description": {
+          "@id": "microsoft.graph:deviceConfiguration/description",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:description"
+          }
+        },
+        "displayName": {
+          "@id": "microsoft.graph:deviceConfiguration/displayName",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:name"
+          }
+        },
+        "version": {
+          "@id": "microsoft.graph:deviceConfiguration/version",
+          "@type": "xsd:integer",
+          "owl:equivalentProperty": {
+            "@id": "schema:version"
+          }
+        }
+      }
+    },
+
+    "deviceCompliancePolicy": {
+      "@id": "microsoft.graph:deviceCompliancePolicy",
+      "@context": {
+        "id": {
+          "@id": "microsoft.graph:deviceCompliancePolicy/id",
+          "@type": "xsd:string"
+        },
+        "createdDateTime": {
+          "@id": "microsoft.graph:deviceCompliancePolicy/createdDateTime",
+          "@type": "xsd:dateTime",
+          "owl:equivalentProperty": {
+            "@id": "schema:dateCreated"
+          }
+        },
+        "description": {
+          "@id": "microsoft.graph:deviceCompliancePolicy/description",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:description"
+          }
+        },
+        "lastModifiedDateTime": {
+          "@id": "microsoft.graph:deviceCompliancePolicy/lastModifiedDateTime",
+          "@type": "xsd:dateTime",
+          "owl:equivalentProperty": {
+            "@id": "schema:dateModified"
+          }
+        },
+        "displayName": {
+          "@id": "microsoft.graph:deviceCompliancePolicy/displayName",
+          "@type": "xsd:string",
+          "owl:equivalentProperty": {
+            "@id": "schema:name"
+          }
+        },
+        "version": {
+          "@id": "microsoft.graph:deviceCompliancePolicy/version",
+          "@type": "xsd:integer",
+          "owl:equivalentProperty": {
+            "@id": "schema:version"
+          }
+        }
+      }
+    },
+
+    "configurationManagerClientEnabledFeatures": {
+      "@id": "microsoft.graph:configurationManagerClientEnabledFeatures",
+      "@context": {
+        "inventory": {
+          "@id": "microsoft.graph:configurationManagerClientEnabledFeatures/inventory",
+          "@type": "xsd:boolean"
+        },
+        "modernApps": {
+          "@id": "microsoft.graph:configurationManagerClientEnabledFeatures/modernApps",
+          "@type": "xsd:boolean"
+        },
+        "resourceAccess": {
+          "@id": "microsoft.graph:configurationManagerClientEnabledFeatures/resourceAccess",
+          "@type": "xsd:boolean"
+        },
+        "deviceConfiguration": {
+          "@id": "microsoft.graph:configurationManagerClientEnabledFeatures/deviceConfiguration",
+          "@type": "xsd:boolean"
+        },
+        "compliancePolicy": {
+          "@id": "microsoft.graph:configurationManagerClientEnabledFeatures/compliancePolicy",
+          "@type": "xsd:boolean"
+        },
+        "windowsUpdateForBusiness": {
+          "@id": "microsoft.graph:configurationManagerClientEnabledFeatures/windowsUpdateForBusiness",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "deviceHealthAttestationState": {
+      "@id": "microsoft.graph:deviceHealthAttestationState",
+      "@context": {
+        "lastUpdateDateTime": {
+          "@id": "microsoft.graph:deviceHealthAttestationState/lastUpdateDateTime",
+          "@type": "xsd:string"
+        },
+        "deviceHealthAttestationStatus": {
+          "@id": "microsoft.graph:deviceHealthAttestationState/deviceHealthAttestationStatus",
+          "@type": "xsd:string"
+        },
+        "secureBoot": {
+          "@id": "microsoft.graph:deviceHealthAttestationState/secureBoot",
+          "@type": "xsd:string"
+        },
+        "bitLockerStatus": {
+          "@id": "microsoft.graph:deviceHealthAttestationState/bitLockerStatus",
+          "@type": "xsd:string"
+        },
+        "codeIntegrity": {
+          "@id": "microsoft.graph:deviceHealthAttestationState/codeIntegrity",
+          "@type": "xsd:string"
+        },
+        "tpmVersion": {
+          "@id": "microsoft.graph:deviceHealthAttestationState/tpmVersion",
+          "@type": "xsd:string"
+        },
+        "virtualSecureMode": {
+          "@id": "microsoft.graph:deviceHealthAttestationState/virtualSecureMode",
+          "@type": "xsd:string"
+        }
+      }
+    }
+  }
+}

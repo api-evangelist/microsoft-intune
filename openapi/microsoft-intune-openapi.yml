@@ -1,0 +1,1526 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Intune Graph API
+  description: >-
+    The Microsoft Graph API for Intune enables programmatic access to Intune
+    information and actions for your tenant. The API performs the same Intune
+    operations as those available through the Microsoft Intune admin center,
+    including managed device management, device configuration, and compliance
+    policy enforcement. Requires an active Intune license for the tenant.
+  version: 1.0.0
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  contact:
+    name: Microsoft Graph Support
+    url: https://developer.microsoft.com/graph/support
+  license:
+    name: Microsoft API License
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0 production endpoint
+security:
+  - oauth2:
+      - DeviceManagementManagedDevices.Read.All
+      - DeviceManagementConfiguration.Read.All
+paths:
+  /deviceManagement/managedDevices:
+    get:
+      operationId: listManagedDevices
+      summary: List managed devices
+      description: >-
+        List properties and relationships of the managedDevice objects. Returns
+        all devices managed or pre-enrolled through Intune for the tenant.
+      tags:
+        - Managed Devices
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: A collection of managedDevice objects.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.count':
+                    type: integer
+                  '@odata.nextLink':
+                    type: string
+                    format: uri
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/managedDevice'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.Read.All
+            - DeviceManagementManagedDevices.ReadWrite.All
+    post:
+      operationId: createManagedDevice
+      summary: Create managed device
+      description: Create a new managedDevice object.
+      tags:
+        - Managed Devices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/managedDevice'
+      responses:
+        '201':
+          description: The created managedDevice object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/managedDevice'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+
+  /deviceManagement/managedDevices/{managedDeviceId}:
+    get:
+      operationId: getManagedDevice
+      summary: Get managed device
+      description: >-
+        Read properties and relationships of a managedDevice object. Returns
+        details for a single device managed through Intune.
+      tags:
+        - Managed Devices
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: The requested managedDevice object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/managedDevice'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.Read.All
+            - DeviceManagementManagedDevices.ReadWrite.All
+    patch:
+      operationId: updateManagedDevice
+      summary: Update managed device
+      description: Update the properties of a managedDevice object.
+      tags:
+        - Managed Devices
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/managedDevice'
+      responses:
+        '200':
+          description: The updated managedDevice object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/managedDevice'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+    delete:
+      operationId: deleteManagedDevice
+      summary: Delete managed device
+      description: Deletes a managedDevice.
+      tags:
+        - Managed Devices
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The managedDevice was successfully deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+
+  /deviceManagement/managedDevices/{managedDeviceId}/retire:
+    post:
+      operationId: retireManagedDevice
+      summary: Retire a device
+      description: >-
+        Retire a device. Removes company data from the device while keeping
+        personal data intact. The device is removed from Intune management.
+      tags:
+        - Managed Devices
+        - Remote Actions
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The retire action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+
+  /deviceManagement/managedDevices/{managedDeviceId}/wipe:
+    post:
+      operationId: wipeManagedDevice
+      summary: Wipe a device
+      description: >-
+        Wipe a device. Factory resets the device, removing all data including
+        both company and personal data.
+      tags:
+        - Managed Devices
+        - Remote Actions
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                keepEnrollmentData:
+                  type: boolean
+                  description: Whether to keep enrollment data during the wipe.
+                keepUserData:
+                  type: boolean
+                  description: Whether to keep user data during the wipe.
+                macOsUnlockCode:
+                  type: string
+                  description: The macOS unlock code for the wipe.
+      responses:
+        '204':
+          description: No content. The wipe action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+
+  /deviceManagement/managedDevices/{managedDeviceId}/syncDevice:
+    post:
+      operationId: syncManagedDevice
+      summary: Sync a device
+      description: Trigger a sync for a managed device to check in with Intune.
+      tags:
+        - Managed Devices
+        - Remote Actions
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The sync action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+
+  /deviceManagement/managedDevices/{managedDeviceId}/remoteLock:
+    post:
+      operationId: remoteLockManagedDevice
+      summary: Remote lock a device
+      description: Remotely lock a managed device.
+      tags:
+        - Managed Devices
+        - Remote Actions
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The remote lock action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+
+  /deviceManagement/managedDevices/{managedDeviceId}/resetPasscode:
+    post:
+      operationId: resetPasscodeManagedDevice
+      summary: Reset device passcode
+      description: Reset the passcode on a managed device.
+      tags:
+        - Managed Devices
+        - Remote Actions
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The reset passcode action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+
+  /deviceManagement/managedDevices/{managedDeviceId}/rebootNow:
+    post:
+      operationId: rebootManagedDevice
+      summary: Reboot a device
+      description: Remotely reboot a managed device.
+      tags:
+        - Managed Devices
+        - Remote Actions
+      parameters:
+        - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The reboot action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementManagedDevices.ReadWrite.All
+
+  /deviceManagement/deviceConfigurations:
+    get:
+      operationId: listDeviceConfigurations
+      summary: List device configurations
+      description: >-
+        List properties and relationships of the deviceConfiguration objects.
+        Returns all device configuration profiles defined in the tenant.
+      tags:
+        - Device Configurations
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: A collection of deviceConfiguration objects.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.count':
+                    type: integer
+                  '@odata.nextLink':
+                    type: string
+                    format: uri
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deviceConfiguration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.Read.All
+            - DeviceManagementConfiguration.ReadWrite.All
+
+  /deviceManagement/deviceConfigurations/{deviceConfigurationId}:
+    get:
+      operationId: getDeviceConfiguration
+      summary: Get device configuration
+      description: >-
+        Read properties and relationships of a deviceConfiguration object.
+      tags:
+        - Device Configurations
+      parameters:
+        - $ref: '#/components/parameters/deviceConfigurationId'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: The requested deviceConfiguration object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceConfiguration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.Read.All
+            - DeviceManagementConfiguration.ReadWrite.All
+    patch:
+      operationId: updateDeviceConfiguration
+      summary: Update device configuration
+      description: Update the properties of a deviceConfiguration object.
+      tags:
+        - Device Configurations
+      parameters:
+        - $ref: '#/components/parameters/deviceConfigurationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deviceConfiguration'
+      responses:
+        '200':
+          description: The updated deviceConfiguration object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceConfiguration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.ReadWrite.All
+    delete:
+      operationId: deleteDeviceConfiguration
+      summary: Delete device configuration
+      description: Deletes a deviceConfiguration.
+      tags:
+        - Device Configurations
+      parameters:
+        - $ref: '#/components/parameters/deviceConfigurationId'
+      responses:
+        '204':
+          description: No content. The deviceConfiguration was successfully deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.ReadWrite.All
+
+  /deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign:
+    post:
+      operationId: assignDeviceConfiguration
+      summary: Assign device configuration
+      description: >-
+        Assign a device configuration profile to groups of users or devices.
+      tags:
+        - Device Configurations
+      parameters:
+        - $ref: '#/components/parameters/deviceConfigurationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                assignments:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/deviceConfigurationAssignment'
+      responses:
+        '200':
+          description: The list of assignments for the device configuration.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deviceConfigurationAssignment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.ReadWrite.All
+
+  /deviceManagement/deviceCompliancePolicies:
+    get:
+      operationId: listDeviceCompliancePolicies
+      summary: List device compliance policies
+      description: >-
+        List properties and relationships of the deviceCompliancePolicy objects.
+        Returns all compliance policies defined in the tenant. Compliance
+        policies are platform specific and individual per-platform policies
+        inherit from this base class.
+      tags:
+        - Device Compliance Policies
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: A collection of deviceCompliancePolicy objects.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.count':
+                    type: integer
+                  '@odata.nextLink':
+                    type: string
+                    format: uri
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deviceCompliancePolicy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.Read.All
+            - DeviceManagementConfiguration.ReadWrite.All
+
+  /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}:
+    get:
+      operationId: getDeviceCompliancePolicy
+      summary: Get device compliance policy
+      description: >-
+        Read properties and relationships of a deviceCompliancePolicy object.
+      tags:
+        - Device Compliance Policies
+      parameters:
+        - $ref: '#/components/parameters/deviceCompliancePolicyId'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: The requested deviceCompliancePolicy object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceCompliancePolicy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.Read.All
+            - DeviceManagementConfiguration.ReadWrite.All
+    patch:
+      operationId: updateDeviceCompliancePolicy
+      summary: Update device compliance policy
+      description: Update the properties of a deviceCompliancePolicy object.
+      tags:
+        - Device Compliance Policies
+      parameters:
+        - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deviceCompliancePolicy'
+      responses:
+        '200':
+          description: The updated deviceCompliancePolicy object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceCompliancePolicy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.ReadWrite.All
+    delete:
+      operationId: deleteDeviceCompliancePolicy
+      summary: Delete device compliance policy
+      description: Deletes a deviceCompliancePolicy.
+      tags:
+        - Device Compliance Policies
+      parameters:
+        - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      responses:
+        '204':
+          description: No content. The deviceCompliancePolicy was successfully deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.ReadWrite.All
+
+  /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/assign:
+    post:
+      operationId: assignDeviceCompliancePolicy
+      summary: Assign device compliance policy
+      description: >-
+        Assign a device compliance policy to groups of users or devices.
+      tags:
+        - Device Compliance Policies
+      parameters:
+        - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                assignments:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/deviceCompliancePolicyAssignment'
+      responses:
+        '200':
+          description: The list of assignments for the compliance policy.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deviceCompliancePolicyAssignment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.ReadWrite.All
+
+  /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/scheduleActionsForRules:
+    post:
+      operationId: scheduleActionsForRules
+      summary: Schedule actions for compliance rules
+      description: >-
+        Schedule actions for rules associated with a device compliance policy,
+        such as marking a device as noncompliant or sending notification emails.
+      tags:
+        - Device Compliance Policies
+      parameters:
+        - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deviceComplianceScheduledActionForRules:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/deviceComplianceScheduledActionForRule'
+      responses:
+        '204':
+          description: No content. The scheduled actions were successfully set.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+        - oauth2:
+            - DeviceManagementConfiguration.ReadWrite.All
+
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: >-
+        OAuth 2.0 authorization using Azure Active Directory. Requires an
+        active Intune license for the tenant.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            DeviceManagementManagedDevices.Read.All: Read Microsoft Intune managed devices
+            DeviceManagementManagedDevices.ReadWrite.All: Read and write Microsoft Intune managed devices
+            DeviceManagementConfiguration.Read.All: Read Microsoft Intune device configuration and policies
+            DeviceManagementConfiguration.ReadWrite.All: Read and write Microsoft Intune device configuration and policies
+
+  parameters:
+    managedDeviceId:
+      name: managedDeviceId
+      in: path
+      required: true
+      description: The unique identifier of the managed device.
+      schema:
+        type: string
+    deviceConfigurationId:
+      name: deviceConfigurationId
+      in: path
+      required: true
+      description: The unique identifier of the device configuration.
+      schema:
+        type: string
+    deviceCompliancePolicyId:
+      name: deviceCompliancePolicyId
+      in: path
+      required: true
+      description: The unique identifier of the device compliance policy.
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Number of items to return in a result set.
+      schema:
+        type: integer
+        minimum: 0
+    skip:
+      name: $skip
+      in: query
+      description: Number of items to skip in the result set.
+      schema:
+        type: integer
+        minimum: 0
+    search:
+      name: $search
+      in: query
+      description: Search string for filtering results.
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
+    count:
+      name: $count
+      in: query
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort the result set by.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of relationships to expand and include in the response.
+      schema:
+        type: string
+
+  schemas:
+    managedDevice:
+      type: object
+      description: >-
+        Devices that are managed or pre-enrolled through Intune. Represents a
+        physical or virtual device managed by the Intune service.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.managedDevice'
+        id:
+          type: string
+          description: Unique identifier for the device. Read-only.
+          readOnly: true
+        userId:
+          type: string
+          description: Unique identifier for the user associated with the device. Read-only.
+          readOnly: true
+        deviceName:
+          type: string
+          description: Name of the device. Read-only.
+          readOnly: true
+        managedDeviceOwnerType:
+          type: string
+          description: Ownership of the device. Can be company or personal.
+          enum:
+            - unknown
+            - company
+            - personal
+        enrolledDateTime:
+          type: string
+          format: date-time
+          description: Enrollment time of the device. Read-only.
+          readOnly: true
+        lastSyncDateTime:
+          type: string
+          format: date-time
+          description: >-
+            The date and time that the device last completed a successful sync
+            with Intune. Read-only.
+          readOnly: true
+        operatingSystem:
+          type: string
+          description: Operating system of the device (Windows, iOS, etc.). Read-only.
+          readOnly: true
+        complianceState:
+          type: string
+          description: Compliance state of the device.
+          enum:
+            - unknown
+            - compliant
+            - noncompliant
+            - conflict
+            - error
+            - inGracePeriod
+            - configManager
+        jailBroken:
+          type: string
+          description: Whether the device is jail broken or rooted. Read-only.
+          readOnly: true
+        managementAgent:
+          type: string
+          description: Management channel of the device (Intune, EAS, etc.).
+          enum:
+            - eas
+            - mdm
+            - easMdm
+            - intuneClient
+            - easIntuneClient
+            - configurationManagerClient
+            - configurationManagerClientMdm
+            - configurationManagerClientMdmEas
+            - unknown
+            - jamf
+            - googleCloudDevicePolicyController
+        osVersion:
+          type: string
+          description: Operating system version of the device. Read-only.
+          readOnly: true
+        easActivated:
+          type: boolean
+          description: Whether the device is Exchange ActiveSync activated. Read-only.
+          readOnly: true
+        easDeviceId:
+          type: string
+          description: Exchange ActiveSync Id of the device. Read-only.
+          readOnly: true
+        easActivationDateTime:
+          type: string
+          format: date-time
+          description: Exchange ActivationSync activation time of the device. Read-only.
+          readOnly: true
+        azureADRegistered:
+          type: boolean
+          description: Whether the device is Azure Active Directory registered. Read-only.
+          readOnly: true
+        deviceEnrollmentType:
+          type: string
+          description: Enrollment type of the device. Read-only.
+          readOnly: true
+          enum:
+            - unknown
+            - userEnrollment
+            - deviceEnrollmentManager
+            - appleBulkWithUser
+            - appleBulkWithoutUser
+            - windowsAzureADJoin
+            - windowsBulkUserless
+            - windowsAutoEnrollment
+            - windowsBulkAzureDomainJoin
+            - windowsCoManagement
+            - windowsAzureADJoinUsingDeviceAuth
+            - appleUserEnrollment
+            - appleUserEnrollmentWithServiceAccount
+        activationLockBypassCode:
+          type: string
+          description: >-
+            The code that allows the Activation Lock on managed device to be
+            bypassed. Read-only.
+          readOnly: true
+        emailAddress:
+          type: string
+          description: Email(s) for the user associated with the device. Read-only.
+          readOnly: true
+        azureADDeviceId:
+          type: string
+          description: >-
+            The unique identifier for the Azure Active Directory device. Read-only.
+          readOnly: true
+        deviceRegistrationState:
+          type: string
+          description: Device registration state. Read-only.
+          readOnly: true
+          enum:
+            - notRegistered
+            - registered
+            - revoked
+            - keyConflict
+            - approvalPending
+            - certificateReset
+            - notRegisteredPendingEnrollment
+            - unknown
+        deviceCategoryDisplayName:
+          type: string
+          description: Device category display name. Read-only.
+          readOnly: true
+        isSupervised:
+          type: boolean
+          description: Device supervised status. Read-only.
+          readOnly: true
+        exchangeLastSuccessfulSyncDateTime:
+          type: string
+          format: date-time
+          description: Last time the device contacted Exchange. Read-only.
+          readOnly: true
+        exchangeAccessState:
+          type: string
+          description: The Access State of the device in Exchange. Read-only.
+          readOnly: true
+          enum:
+            - none
+            - unknown
+            - allowed
+            - blocked
+            - quarantined
+        exchangeAccessStateReason:
+          type: string
+          description: The reason for the device's access state in Exchange. Read-only.
+          readOnly: true
+          enum:
+            - none
+            - unknown
+            - exchangeGlobalRule
+            - exchangeIndividualRule
+            - exchangeDeviceRule
+            - exchangeUpgrade
+            - exchangeMailboxPolicy
+            - other
+            - compliant
+            - notCompliant
+            - notEnrolled
+            - unknownLocation
+            - mfaRequired
+            - azureADBlockDueToAccessPolicy
+            - compromisedPassword
+            - deviceNotKnownWithManagedApp
+        remoteAssistanceSessionUrl:
+          type: string
+          format: uri
+          description: >-
+            URL that allows a Remote Assistance session to be established with
+            the device. Read-only.
+          readOnly: true
+        remoteAssistanceSessionErrorDetails:
+          type: string
+          description: >-
+            An error string that identifies issues when creating Remote
+            Assistance session objects. Read-only.
+          readOnly: true
+        isEncrypted:
+          type: boolean
+          description: Device encryption status. Read-only.
+          readOnly: true
+        userPrincipalName:
+          type: string
+          description: Device user principal name. Read-only.
+          readOnly: true
+        model:
+          type: string
+          description: Model of the device. Read-only.
+          readOnly: true
+        manufacturer:
+          type: string
+          description: Manufacturer of the device. Read-only.
+          readOnly: true
+        imei:
+          type: string
+          description: IMEI. Read-only.
+          readOnly: true
+        complianceGracePeriodExpirationDateTime:
+          type: string
+          format: date-time
+          description: >-
+            The DateTime when device compliance grace period expires. Read-only.
+          readOnly: true
+        serialNumber:
+          type: string
+          description: Serial number. Read-only.
+          readOnly: true
+        phoneNumber:
+          type: string
+          description: Phone number of the device. Read-only.
+          readOnly: true
+        androidSecurityPatchLevel:
+          type: string
+          description: Android security patch level. Read-only.
+          readOnly: true
+        userDisplayName:
+          type: string
+          description: User display name. Read-only.
+          readOnly: true
+        configurationManagerClientEnabledFeatures:
+          $ref: '#/components/schemas/configurationManagerClientEnabledFeatures'
+        wiFiMacAddress:
+          type: string
+          description: Wi-Fi MAC address. Read-only.
+          readOnly: true
+        deviceHealthAttestationState:
+          $ref: '#/components/schemas/deviceHealthAttestationState'
+        subscriberCarrier:
+          type: string
+          description: Subscriber carrier. Read-only.
+          readOnly: true
+        meid:
+          type: string
+          description: MEID. Read-only.
+          readOnly: true
+        totalStorageSpaceInBytes:
+          type: integer
+          format: int64
+          description: Total storage in bytes. Read-only.
+          readOnly: true
+        freeStorageSpaceInBytes:
+          type: integer
+          format: int64
+          description: Free storage in bytes. Read-only.
+          readOnly: true
+        managedDeviceName:
+          type: string
+          description: >-
+            Automatically generated name to identify a device. Can be
+            overwritten to a user friendly name.
+        partnerReportedThreatState:
+          type: string
+          description: >-
+            Indicates the threat state of a device when a Mobile Threat Defense
+            partner is in use. Read-only.
+          readOnly: true
+          enum:
+            - unknown
+            - activated
+            - deactivated
+            - secured
+            - lowSeverity
+            - mediumSeverity
+            - highSeverity
+            - unresponsive
+            - compromised
+            - misconfigured
+        requireUserEnrollmentApproval:
+          type: boolean
+          description: Reports if the managed iOS device is user approval enrollment. Read-only.
+          readOnly: true
+        managementCertificateExpirationDate:
+          type: string
+          format: date-time
+          description: Reports device management certificate expiration date. Read-only.
+          readOnly: true
+        iccid:
+          type: string
+          description: >-
+            Integrated Circuit Card Identifier - a SIM card's unique
+            identification number. Read-only.
+          readOnly: true
+        udid:
+          type: string
+          description: Unique Device Identifier for iOS and macOS devices. Read-only.
+          readOnly: true
+        notes:
+          type: string
+          description: Notes on the device created by IT Admin.
+        ethernetMacAddress:
+          type: string
+          description: Ethernet MAC Address of the device. Read-only.
+          readOnly: true
+        physicalMemoryInBytes:
+          type: integer
+          format: int64
+          description: Total memory in bytes. Read-only.
+          readOnly: true
+        enrollmentProfileName:
+          type: string
+          description: >-
+            Name of the enrollment profile assigned to the device. Read-only.
+          readOnly: true
+
+    deviceActionResult:
+      type: object
+      description: Device action result.
+      properties:
+        '@odata.type':
+          type: string
+          default: 'microsoft.graph.deviceActionResult'
+        actionName:
+          type: string
+          description: Action name.
+        actionState:
+          type: string
+          description: State of the action.
+          enum:
+            - none
+            - pending
+            - canceled
+            - active
+            - done
+            - failed
+            - notSupported
+        startDateTime:
+          type: string
+          format: date-time
+          description: Time the action was initiated.
+        lastUpdatedDateTime:
+          type: string
+          format: date-time
+          description: Time the action state was last updated.
+
+    configurationManagerClientEnabledFeatures:
+      type: object
+      description: Configuration Manager client enabled features.
+      properties:
+        '@odata.type':
+          type: string
+          default: 'microsoft.graph.configurationManagerClientEnabledFeatures'
+        inventory:
+          type: boolean
+          description: Whether inventory is managed by Intune.
+        modernApps:
+          type: boolean
+          description: Whether modern application is managed by Intune.
+        resourceAccess:
+          type: boolean
+          description: Whether resource access is managed by Intune.
+        deviceConfiguration:
+          type: boolean
+          description: Whether device configuration is managed by Intune.
+        compliancePolicy:
+          type: boolean
+          description: Whether compliance policy is managed by Intune.
+        windowsUpdateForBusiness:
+          type: boolean
+          description: Whether Windows Update for Business is managed by Intune.
+
+    deviceHealthAttestationState:
+      type: object
+      description: Device health attestation state.
+      properties:
+        '@odata.type':
+          type: string
+          default: 'microsoft.graph.deviceHealthAttestationState'
+        lastUpdateDateTime:
+          type: string
+          description: The timestamp of the last update.
+        contentNamespaceUrl:
+          type: string
+          format: uri
+          description: The DHA report version (namespace version).
+        deviceHealthAttestationStatus:
+          type: string
+          description: The DHA report version (namespace version).
+        contentVersion:
+          type: string
+          description: The HealthAttestation state schema version.
+        issuedDateTime:
+          type: string
+          format: date-time
+          description: The DateTime when device was evaluated or issued to MDM.
+        attestationIdentityKey:
+          type: string
+          description: The attestation identity key.
+        resetCount:
+          type: integer
+          format: int64
+          description: The number of times a PC device has hibernated or resumed.
+        restartCount:
+          type: integer
+          format: int64
+          description: The number of times a PC device has rebooted.
+        bitLockerStatus:
+          type: string
+          description: On or Off of BitLocker Drive Encryption.
+        bootManagerVersion:
+          type: string
+          description: The version of the Boot Manager.
+        secureBoot:
+          type: string
+          description: When Secure Boot is enabled the core components must have correct cryptographic signatures.
+        codeIntegrity:
+          type: string
+          description: When code integrity is enabled code that does not meet the policy is blocked from loading.
+        testSigning:
+          type: string
+          description: When test signing is allowed the device does not enforce signature validation during boot.
+        safeMode:
+          type: string
+          description: Safe mode is a troubleshooting option for Windows that starts the computer in a limited state.
+        windowsPE:
+          type: string
+          description: Operating system running with limited services that is used to prepare a computer for Windows.
+        tpmVersion:
+          type: string
+          description: The security version number of the Boot Application.
+        virtualSecureMode:
+          type: string
+          description: VSM is a container that protects high value assets from a compromised kernel.
+
+    deviceConfiguration:
+      type: object
+      description: >-
+        Device Configuration. Represents a configuration profile that can be
+        assigned to groups of devices. Platform-specific configurations inherit
+        from this base type.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceConfiguration'
+        id:
+          type: string
+          description: Key of the entity.
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was last modified.
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was created.
+          readOnly: true
+        description:
+          type: string
+          description: Admin provided description of the Device Configuration.
+        displayName:
+          type: string
+          description: Admin provided name of the device configuration.
+        version:
+          type: integer
+          format: int32
+          description: Version of the device configuration.
+          readOnly: true
+
+    deviceConfigurationAssignment:
+      type: object
+      description: The device configuration assignment entity assigns a target group to a device configuration.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceConfigurationAssignment'
+        id:
+          type: string
+          description: The key of the assignment.
+        target:
+          $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
+
+    deviceCompliancePolicy:
+      type: object
+      description: >-
+        This is the base class for Compliance policy. Compliance policies are
+        platform specific and individual per-platform compliance policies
+        inherit from here.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceCompliancePolicy'
+        id:
+          type: string
+          description: Key of the entity.
+        createdDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was created.
+          readOnly: true
+        description:
+          type: string
+          description: Admin provided description of the Device Configuration.
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was last modified.
+          readOnly: true
+        displayName:
+          type: string
+          description: Admin provided name of the device configuration.
+        version:
+          type: integer
+          format: int32
+          description: Version of the device configuration.
+          readOnly: true
+
+    deviceCompliancePolicyAssignment:
+      type: object
+      description: Device compliance policy assignment.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceCompliancePolicyAssignment'
+        id:
+          type: string
+          description: Key of the entity.
+        target:
+          $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
+
+    deviceComplianceScheduledActionForRule:
+      type: object
+      description: Scheduled action for a compliance rule.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceComplianceScheduledActionForRule'
+        id:
+          type: string
+          description: Key of the entity.
+        ruleName:
+          type: string
+          description: Name of the rule which this scheduled action applies to.
+        scheduledActionConfigurations:
+          type: array
+          items:
+            $ref: '#/components/schemas/deviceComplianceActionItem'
+          description: The list of scheduled action configurations for this compliance policy.
+
+    deviceComplianceActionItem:
+      type: object
+      description: Scheduled action configuration.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceComplianceActionItem'
+        id:
+          type: string
+          description: Key of the entity.
+        gracePeriodHours:
+          type: integer
+          format: int32
+          description: Number of hours to wait till the action will be enforced.
+        actionType:
+          type: string
+          description: What action to take.
+          enum:
+            - noAction
+            - notification
+            - block
+            - retire
+            - wipe
+            - removeResourceAccessProfiles
+            - pushNotification
+        notificationTemplateId:
+          type: string
+          description: What notification message template to use.
+        notificationMessageCCList:
+          type: array
+          items:
+            type: string
+          description: A list of group IDs to specify who to CC this notification message to.
+
+    deviceAndAppManagementAssignmentTarget:
+      type: object
+      description: Base type for assignment targets.
+      properties:
+        '@odata.type':
+          type: string
+          description: The OData type of the assignment target.
+
+    odataError:
+      type: object
+      description: OData error response.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code.
+            message:
+              type: string
+              description: Error message.
+            innerError:
+              type: object
+              properties:
+                request-id:
+                  type: string
+                  description: Request ID for tracing.
+                date:
+                  type: string
+                  format: date-time
+                  description: Date and time of the error.
+
+  responses:
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+
+tags:
+  - name: Managed Devices
+    description: >-
+      Operations for managing devices enrolled in Intune. Includes listing,
+      retrieving, creating, updating, and deleting managed device records.
+    externalDocs:
+      url: https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0
+  - name: Remote Actions
+    description: >-
+      Remote actions that can be performed on managed devices, including retire,
+      wipe, sync, remote lock, reset passcode, and reboot.
+    externalDocs:
+      url: https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0
+  - name: Device Configurations
+    description: >-
+      Operations for managing device configuration profiles. Configuration
+      profiles define settings that are applied to enrolled devices.
+    externalDocs:
+      url: https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0
+  - name: Device Compliance Policies
+    description: >-
+      Operations for managing device compliance policies. Compliance policies
+      define rules and settings that a device must comply with to be considered
+      compliant.
+    externalDocs:
+      url: https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0
+
+externalDocs:
+  description: Microsoft Graph Intune API Overview
+  url: https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0

@@ -1,10 +1,11 @@
+aid: microsoft-intune
 name: Microsoft Intune
 description: Microsoft Intune is a cloud-based service that focuses on mobile device management (MDM) and mobile application management (MAM). It helps organizations control how their devices are used, including mobile phones, tablets, and laptops, and enables management of apps on those devices.
 image: https://docs.microsoft.com/en-us/mem/intune/fundamentals/media/what-is-intune/intune-logo.png
 url: https://www.microsoft.com/en-us/security/business/microsoft-intune
 created: '2024'
-modified: '2026-03-03'
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 tags:
 - mobile device management
 - MDM
@@ -208,7 +209,7 @@ apis:
   - type: X-create-export-job
     url: https://learn.microsoft.com/en-us/graph/api/intune-reporting-devicemanagementexportjob-create?view=graph-rest-1.0
 maintainers:
-- name: Kin Lane
+- FN: Kin Lane
   email: kin@apievangelist.com
   url: https://apievangelist.com
 common:

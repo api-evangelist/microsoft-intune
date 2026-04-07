@@ -1495,6 +1495,20 @@ components:
             $ref: '#/components/schemas/odataError'
 
 tags:
+  - name: Device Compliance Policies
+    description: >-
+      Operations for managing device compliance policies. Compliance policies
+      define rules and settings that a device must comply with to be considered
+      compliant.
+    externalDocs:
+      url: https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0
+
+  - name: Device Configurations
+    description: >-
+      Operations for managing device configuration profiles. Configuration
+      profiles define settings that are applied to enrolled devices.
+    externalDocs:
+      url: https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0
   - name: Managed Devices
     description: >-
       Operations for managing devices enrolled in Intune. Includes listing,
@@ -1507,20 +1521,6 @@ tags:
       wipe, sync, remote lock, reset passcode, and reboot.
     externalDocs:
       url: https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0
-  - name: Device Configurations
-    description: >-
-      Operations for managing device configuration profiles. Configuration
-      profiles define settings that are applied to enrolled devices.
-    externalDocs:
-      url: https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0
-  - name: Device Compliance Policies
-    description: >-
-      Operations for managing device compliance policies. Compliance policies
-      define rules and settings that a device must comply with to be considered
-      compliant.
-    externalDocs:
-      url: https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0
-
 externalDocs:
   description: Microsoft Graph Intune API Overview
   url: https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0

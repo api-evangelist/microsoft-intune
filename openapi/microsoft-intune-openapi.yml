@@ -26,7 +26,7 @@ paths:
   /deviceManagement/managedDevices:
     get:
       operationId: listManagedDevices
-      summary: List managed devices
+      summary: Microsoft Intune List managed devices
       description: >-
         List properties and relationships of the managedDevice objects. Returns
         all devices managed or pre-enrolled through Intune for the tenant.
@@ -72,7 +72,7 @@ paths:
             - DeviceManagementManagedDevices.ReadWrite.All
     post:
       operationId: createManagedDevice
-      summary: Create managed device
+      summary: Microsoft Intune Create managed device
       description: Create a new managedDevice object.
       tags:
         - Managed Devices
@@ -102,7 +102,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}:
     get:
       operationId: getManagedDevice
-      summary: Get managed device
+      summary: Microsoft Intune Get managed device
       description: >-
         Read properties and relationships of a managedDevice object. Returns
         details for a single device managed through Intune.
@@ -133,7 +133,7 @@ paths:
             - DeviceManagementManagedDevices.ReadWrite.All
     patch:
       operationId: updateManagedDevice
-      summary: Update managed device
+      summary: Microsoft Intune Update managed device
       description: Update the properties of a managedDevice object.
       tags:
         - Managed Devices
@@ -165,7 +165,7 @@ paths:
             - DeviceManagementManagedDevices.ReadWrite.All
     delete:
       operationId: deleteManagedDevice
-      summary: Delete managed device
+      summary: Microsoft Intune Delete managed device
       description: Deletes a managedDevice.
       tags:
         - Managed Devices
@@ -189,7 +189,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}/retire:
     post:
       operationId: retireManagedDevice
-      summary: Retire a device
+      summary: Microsoft Intune Retire a device
       description: >-
         Retire a device. Removes company data from the device while keeping
         personal data intact. The device is removed from Intune management.
@@ -216,7 +216,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}/wipe:
     post:
       operationId: wipeManagedDevice
-      summary: Wipe a device
+      summary: Microsoft Intune Wipe a device
       description: >-
         Wipe a device. Factory resets the device, removing all data including
         both company and personal data.
@@ -258,7 +258,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}/syncDevice:
     post:
       operationId: syncManagedDevice
-      summary: Sync a device
+      summary: Microsoft Intune Sync a device
       description: Trigger a sync for a managed device to check in with Intune.
       tags:
         - Managed Devices
@@ -283,7 +283,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}/remoteLock:
     post:
       operationId: remoteLockManagedDevice
-      summary: Remote lock a device
+      summary: Microsoft Intune Remote lock a device
       description: Remotely lock a managed device.
       tags:
         - Managed Devices
@@ -308,7 +308,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}/resetPasscode:
     post:
       operationId: resetPasscodeManagedDevice
-      summary: Reset device passcode
+      summary: Microsoft Intune Reset device passcode
       description: Reset the passcode on a managed device.
       tags:
         - Managed Devices
@@ -333,7 +333,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}/rebootNow:
     post:
       operationId: rebootManagedDevice
-      summary: Reboot a device
+      summary: Microsoft Intune Reboot a device
       description: Remotely reboot a managed device.
       tags:
         - Managed Devices
@@ -358,7 +358,7 @@ paths:
   /deviceManagement/deviceConfigurations:
     get:
       operationId: listDeviceConfigurations
-      summary: List device configurations
+      summary: Microsoft Intune List device configurations
       description: >-
         List properties and relationships of the deviceConfiguration objects.
         Returns all device configuration profiles defined in the tenant.
@@ -406,7 +406,7 @@ paths:
   /deviceManagement/deviceConfigurations/{deviceConfigurationId}:
     get:
       operationId: getDeviceConfiguration
-      summary: Get device configuration
+      summary: Microsoft Intune Get device configuration
       description: >-
         Read properties and relationships of a deviceConfiguration object.
       tags:
@@ -436,7 +436,7 @@ paths:
             - DeviceManagementConfiguration.ReadWrite.All
     patch:
       operationId: updateDeviceConfiguration
-      summary: Update device configuration
+      summary: Microsoft Intune Update device configuration
       description: Update the properties of a deviceConfiguration object.
       tags:
         - Device Configurations
@@ -468,7 +468,7 @@ paths:
             - DeviceManagementConfiguration.ReadWrite.All
     delete:
       operationId: deleteDeviceConfiguration
-      summary: Delete device configuration
+      summary: Microsoft Intune Delete device configuration
       description: Deletes a deviceConfiguration.
       tags:
         - Device Configurations
@@ -492,7 +492,7 @@ paths:
   /deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign:
     post:
       operationId: assignDeviceConfiguration
-      summary: Assign device configuration
+      summary: Microsoft Intune Assign device configuration
       description: >-
         Assign a device configuration profile to groups of users or devices.
       tags:
@@ -537,7 +537,7 @@ paths:
   /deviceManagement/deviceCompliancePolicies:
     get:
       operationId: listDeviceCompliancePolicies
-      summary: List device compliance policies
+      summary: Microsoft Intune List device compliance policies
       description: >-
         List properties and relationships of the deviceCompliancePolicy objects.
         Returns all compliance policies defined in the tenant. Compliance
@@ -587,7 +587,7 @@ paths:
   /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}:
     get:
       operationId: getDeviceCompliancePolicy
-      summary: Get device compliance policy
+      summary: Microsoft Intune Get device compliance policy
       description: >-
         Read properties and relationships of a deviceCompliancePolicy object.
       tags:
@@ -617,7 +617,7 @@ paths:
             - DeviceManagementConfiguration.ReadWrite.All
     patch:
       operationId: updateDeviceCompliancePolicy
-      summary: Update device compliance policy
+      summary: Microsoft Intune Update device compliance policy
       description: Update the properties of a deviceCompliancePolicy object.
       tags:
         - Device Compliance Policies
@@ -649,7 +649,7 @@ paths:
             - DeviceManagementConfiguration.ReadWrite.All
     delete:
       operationId: deleteDeviceCompliancePolicy
-      summary: Delete device compliance policy
+      summary: Microsoft Intune Delete device compliance policy
       description: Deletes a deviceCompliancePolicy.
       tags:
         - Device Compliance Policies
@@ -673,7 +673,7 @@ paths:
   /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/assign:
     post:
       operationId: assignDeviceCompliancePolicy
-      summary: Assign device compliance policy
+      summary: Microsoft Intune Assign device compliance policy
       description: >-
         Assign a device compliance policy to groups of users or devices.
       tags:
@@ -718,7 +718,7 @@ paths:
   /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/scheduleActionsForRules:
     post:
       operationId: scheduleActionsForRules
-      summary: Schedule actions for compliance rules
+      summary: Microsoft Intune Schedule actions for compliance rules
       description: >-
         Schedule actions for rules associated with a device compliance policy,
         such as marking a device as noncompliant or sending notification emails.

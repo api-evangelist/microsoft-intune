@@ -4,7 +4,7 @@ description: Microsoft Intune is a cloud-based service that focuses on mobile de
 image: https://docs.microsoft.com/en-us/mem/intune/fundamentals/media/what-is-intune/intune-logo.png
 url: https://www.microsoft.com/en-us/security/business/microsoft-intune
 created: '2024'
-modified: '2026-03-16'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 tags:
   - App Protection

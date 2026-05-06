@@ -1,0 +1,700 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Intune Graph API
+  description: The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant.
+    The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed
+    device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the
+    tenant.
+  tags:
+  - Microsoft
+  - Intune
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft-intune
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Intune Graph API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{MICROSOFT_INTUNE_TOKEN}}'
+    resources:
+    - name: devicemanagement-manageddevices
+      path: /deviceManagement/managedDevices
+      operations:
+      - name: listmanageddevices
+        method: GET
+        description: Microsoft Intune List managed devices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createmanageddevice
+        method: POST
+        description: Microsoft Intune Create managed device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-manageddevices-manageddeviceid
+      path: /deviceManagement/managedDevices/{managedDeviceId}
+      operations:
+      - name: getmanageddevice
+        method: GET
+        description: Microsoft Intune Get managed device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatemanageddevice
+        method: PATCH
+        description: Microsoft Intune Update managed device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemanageddevice
+        method: DELETE
+        description: Microsoft Intune Delete managed device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-manageddevices-manageddeviceid-
+      path: /deviceManagement/managedDevices/{managedDeviceId}/retire
+      operations:
+      - name: retiremanageddevice
+        method: POST
+        description: Microsoft Intune Retire a device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-manageddevices-manageddeviceid-
+      path: /deviceManagement/managedDevices/{managedDeviceId}/wipe
+      operations:
+      - name: wipemanageddevice
+        method: POST
+        description: Microsoft Intune Wipe a device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-manageddevices-manageddeviceid-
+      path: /deviceManagement/managedDevices/{managedDeviceId}/syncDevice
+      operations:
+      - name: syncmanageddevice
+        method: POST
+        description: Microsoft Intune Sync a device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-manageddevices-manageddeviceid-
+      path: /deviceManagement/managedDevices/{managedDeviceId}/remoteLock
+      operations:
+      - name: remotelockmanageddevice
+        method: POST
+        description: Microsoft Intune Remote lock a device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-manageddevices-manageddeviceid-
+      path: /deviceManagement/managedDevices/{managedDeviceId}/resetPasscode
+      operations:
+      - name: resetpasscodemanageddevice
+        method: POST
+        description: Microsoft Intune Reset device passcode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-manageddevices-manageddeviceid-
+      path: /deviceManagement/managedDevices/{managedDeviceId}/rebootNow
+      operations:
+      - name: rebootmanageddevice
+        method: POST
+        description: Microsoft Intune Reboot a device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-deviceconfigurations
+      path: /deviceManagement/deviceConfigurations
+      operations:
+      - name: listdeviceconfigurations
+        method: GET
+        description: Microsoft Intune List device configurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-deviceconfigurations-deviceconf
+      path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+      operations:
+      - name: getdeviceconfiguration
+        method: GET
+        description: Microsoft Intune Get device configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedeviceconfiguration
+        method: PATCH
+        description: Microsoft Intune Update device configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletedeviceconfiguration
+        method: DELETE
+        description: Microsoft Intune Delete device configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-deviceconfigurations-deviceconf
+      path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign
+      operations:
+      - name: assigndeviceconfiguration
+        method: POST
+        description: Microsoft Intune Assign device configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-devicecompliancepolicies
+      path: /deviceManagement/deviceCompliancePolicies
+      operations:
+      - name: listdevicecompliancepolicies
+        method: GET
+        description: Microsoft Intune List device compliance policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-devicecompliancepolicies-device
+      path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+      operations:
+      - name: getdevicecompliancepolicy
+        method: GET
+        description: Microsoft Intune Get device compliance policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedevicecompliancepolicy
+        method: PATCH
+        description: Microsoft Intune Update device compliance policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletedevicecompliancepolicy
+        method: DELETE
+        description: Microsoft Intune Delete device compliance policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-devicecompliancepolicies-device
+      path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/assign
+      operations:
+      - name: assigndevicecompliancepolicy
+        method: POST
+        description: Microsoft Intune Assign device compliance policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devicemanagement-devicecompliancepolicies-device
+      path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/scheduleActionsForRules
+      operations:
+      - name: scheduleactionsforrules
+        method: POST
+        description: Microsoft Intune Schedule actions for compliance rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: microsoft-intune-rest
+    description: REST adapter for Microsoft Intune Graph API.
+    resources:
+    - path: /deviceManagement/managedDevices
+      name: listmanageddevices
+      operations:
+      - method: GET
+        name: listmanageddevices
+        description: Microsoft Intune List managed devices
+        call: microsoft-intune.listmanageddevices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices
+      name: createmanageddevice
+      operations:
+      - method: POST
+        name: createmanageddevice
+        description: Microsoft Intune Create managed device
+        call: microsoft-intune.createmanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}
+      name: getmanageddevice
+      operations:
+      - method: GET
+        name: getmanageddevice
+        description: Microsoft Intune Get managed device
+        call: microsoft-intune.getmanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}
+      name: updatemanageddevice
+      operations:
+      - method: PATCH
+        name: updatemanageddevice
+        description: Microsoft Intune Update managed device
+        call: microsoft-intune.updatemanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}
+      name: deletemanageddevice
+      operations:
+      - method: DELETE
+        name: deletemanageddevice
+        description: Microsoft Intune Delete managed device
+        call: microsoft-intune.deletemanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}/retire
+      name: retiremanageddevice
+      operations:
+      - method: POST
+        name: retiremanageddevice
+        description: Microsoft Intune Retire a device
+        call: microsoft-intune.retiremanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}/wipe
+      name: wipemanageddevice
+      operations:
+      - method: POST
+        name: wipemanageddevice
+        description: Microsoft Intune Wipe a device
+        call: microsoft-intune.wipemanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}/syncDevice
+      name: syncmanageddevice
+      operations:
+      - method: POST
+        name: syncmanageddevice
+        description: Microsoft Intune Sync a device
+        call: microsoft-intune.syncmanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}/remoteLock
+      name: remotelockmanageddevice
+      operations:
+      - method: POST
+        name: remotelockmanageddevice
+        description: Microsoft Intune Remote lock a device
+        call: microsoft-intune.remotelockmanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}/resetPasscode
+      name: resetpasscodemanageddevice
+      operations:
+      - method: POST
+        name: resetpasscodemanageddevice
+        description: Microsoft Intune Reset device passcode
+        call: microsoft-intune.resetpasscodemanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/managedDevices/{managedDeviceId}/rebootNow
+      name: rebootmanageddevice
+      operations:
+      - method: POST
+        name: rebootmanageddevice
+        description: Microsoft Intune Reboot a device
+        call: microsoft-intune.rebootmanageddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceConfigurations
+      name: listdeviceconfigurations
+      operations:
+      - method: GET
+        name: listdeviceconfigurations
+        description: Microsoft Intune List device configurations
+        call: microsoft-intune.listdeviceconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+      name: getdeviceconfiguration
+      operations:
+      - method: GET
+        name: getdeviceconfiguration
+        description: Microsoft Intune Get device configuration
+        call: microsoft-intune.getdeviceconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+      name: updatedeviceconfiguration
+      operations:
+      - method: PATCH
+        name: updatedeviceconfiguration
+        description: Microsoft Intune Update device configuration
+        call: microsoft-intune.updatedeviceconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+      name: deletedeviceconfiguration
+      operations:
+      - method: DELETE
+        name: deletedeviceconfiguration
+        description: Microsoft Intune Delete device configuration
+        call: microsoft-intune.deletedeviceconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign
+      name: assigndeviceconfiguration
+      operations:
+      - method: POST
+        name: assigndeviceconfiguration
+        description: Microsoft Intune Assign device configuration
+        call: microsoft-intune.assigndeviceconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceCompliancePolicies
+      name: listdevicecompliancepolicies
+      operations:
+      - method: GET
+        name: listdevicecompliancepolicies
+        description: Microsoft Intune List device compliance policies
+        call: microsoft-intune.listdevicecompliancepolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+      name: getdevicecompliancepolicy
+      operations:
+      - method: GET
+        name: getdevicecompliancepolicy
+        description: Microsoft Intune Get device compliance policy
+        call: microsoft-intune.getdevicecompliancepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+      name: updatedevicecompliancepolicy
+      operations:
+      - method: PATCH
+        name: updatedevicecompliancepolicy
+        description: Microsoft Intune Update device compliance policy
+        call: microsoft-intune.updatedevicecompliancepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+      name: deletedevicecompliancepolicy
+      operations:
+      - method: DELETE
+        name: deletedevicecompliancepolicy
+        description: Microsoft Intune Delete device compliance policy
+        call: microsoft-intune.deletedevicecompliancepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/assign
+      name: assigndevicecompliancepolicy
+      operations:
+      - method: POST
+        name: assigndevicecompliancepolicy
+        description: Microsoft Intune Assign device compliance policy
+        call: microsoft-intune.assigndevicecompliancepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/scheduleActionsForRules
+      name: scheduleactionsforrules
+      operations:
+      - method: POST
+        name: scheduleactionsforrules
+        description: Microsoft Intune Schedule actions for compliance rules
+        call: microsoft-intune.scheduleactionsforrules
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: microsoft-intune-mcp
+    transport: http
+    description: MCP adapter for Microsoft Intune Graph API for AI agent use.
+    tools:
+    - name: listmanageddevices
+      description: Microsoft Intune List managed devices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-intune.listmanageddevices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createmanageddevice
+      description: Microsoft Intune Create managed device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.createmanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmanageddevice
+      description: Microsoft Intune Get managed device
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-intune.getmanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatemanageddevice
+      description: Microsoft Intune Update managed device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.updatemanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemanageddevice
+      description: Microsoft Intune Delete managed device
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: microsoft-intune.deletemanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retiremanageddevice
+      description: Microsoft Intune Retire a device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.retiremanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: wipemanageddevice
+      description: Microsoft Intune Wipe a device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.wipemanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: syncmanageddevice
+      description: Microsoft Intune Sync a device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.syncmanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remotelockmanageddevice
+      description: Microsoft Intune Remote lock a device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.remotelockmanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: resetpasscodemanageddevice
+      description: Microsoft Intune Reset device passcode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.resetpasscodemanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: rebootmanageddevice
+      description: Microsoft Intune Reboot a device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.rebootmanageddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listdeviceconfigurations
+      description: Microsoft Intune List device configurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-intune.listdeviceconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdeviceconfiguration
+      description: Microsoft Intune Get device configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-intune.getdeviceconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatedeviceconfiguration
+      description: Microsoft Intune Update device configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.updatedeviceconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletedeviceconfiguration
+      description: Microsoft Intune Delete device configuration
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: microsoft-intune.deletedeviceconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assigndeviceconfiguration
+      description: Microsoft Intune Assign device configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.assigndeviceconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listdevicecompliancepolicies
+      description: Microsoft Intune List device compliance policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-intune.listdevicecompliancepolicies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdevicecompliancepolicy
+      description: Microsoft Intune Get device compliance policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-intune.getdevicecompliancepolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatedevicecompliancepolicy
+      description: Microsoft Intune Update device compliance policy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.updatedevicecompliancepolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletedevicecompliancepolicy
+      description: Microsoft Intune Delete device compliance policy
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: microsoft-intune.deletedevicecompliancepolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assigndevicecompliancepolicy
+      description: Microsoft Intune Assign device compliance policy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.assigndevicecompliancepolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: scheduleactionsforrules
+      description: Microsoft Intune Schedule actions for compliance rules
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune.scheduleactionsforrules
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_INTUNE_TOKEN: MICROSOFT_INTUNE_TOKEN

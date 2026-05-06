@@ -4,216 +4,210 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Microsoft Intune
 providerId: microsoft-intune
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - App Protection
-  - Azure
-  - Compliance
-  - Device Configuration
   - Endpoint Management
-  - Enrollment
-  - MAM
   - MDM
-  - Microsoft Graph
-  - Mobile Application Management
-  - Mobile Device Management
-  - Security
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - MAM
+  - Intune
+  - Microsoft
+description: Microsoft Intune is sold as a tiered per-user subscription (Plan 1, Plan 2, Suite) with several
+  per-user add-ons (Endpoint Privilege Management, Remote Help, Advanced Analytics, Enterprise Application
+  Management, Microsoft Cloud PKI). Plan 1 is also bundled into Microsoft 365 E3 / E5 / F3 and Enterprise
+  Mobility + Security (EMS) E3 / E5. Programmatic access is via Microsoft Graph and is included with the
+  seat licence at no incremental per-call charge.
+sources:
+  - https://www.microsoft.com/en-us/security/business/microsoft-intune-pricing
+  - https://learn.microsoft.com/en-us/intune/intune-service/
 plans:
-  - id: microsoft-intune-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Microsoft Intune API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+  - id: microsoft-intune-plan-1
+    name: Microsoft Intune Plan 1
+    type: subscription
+    description: Cross-platform endpoint management, mobile application management, endpoint security,
+      Configuration Manager co-management. $8.00/user/month, paid yearly.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://graph.microsoft.com/v1.0
-          - https://api.manage.microsoft.com/
-          - https://graph.microsoft.com/v1.0/deviceManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
-          - https://graph.microsoft.com/beta/deviceAppManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/reports
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://graph.microsoft.com/v1.0
-          - https://api.manage.microsoft.com/
-          - https://graph.microsoft.com/v1.0/deviceManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
-          - https://graph.microsoft.com/beta/deviceAppManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/reports
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Microsoft Intune API
-      - name: Intune Data Warehouse API
-      - name: Intune Device Management API
-      - name: Intune Device Configuration API
-      - name: Intune Device Compliance API
-      - name: Intune Device Enrollment API
-      - name: Intune Mobile App Management API
-      - name: Intune Reports Export API
-  - id: microsoft-intune-pro
-    name: Professional
-    type: paid
-    description: Production tier for Microsoft Intune. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://graph.microsoft.com/v1.0
-          - https://api.manage.microsoft.com/
-          - https://graph.microsoft.com/v1.0/deviceManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
-          - https://graph.microsoft.com/beta/deviceAppManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/reports
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://graph.microsoft.com/v1.0
-          - https://api.manage.microsoft.com/
-          - https://graph.microsoft.com/v1.0/deviceManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
-          - https://graph.microsoft.com/beta/deviceAppManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/reports
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
+      - label: Per user, paid yearly
+        name: intune_plan_1
+        type: subscription
+        metric: seat
         limit: -1
         timeFrame: month
         geo: global
-        domains:
-          - https://graph.microsoft.com/v1.0
-          - https://api.manage.microsoft.com/
-          - https://graph.microsoft.com/v1.0/deviceManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
-          - https://graph.microsoft.com/beta/deviceAppManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/reports
-        unit: 1000
-        price: TBD
-        userMultiplied: false
+        unit: 1
+        price: '8.00'
+        userMultiplied: true
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Microsoft Intune API
-      - name: Intune Data Warehouse API
-      - name: Intune Device Management API
-      - name: Intune Device Configuration API
-      - name: Intune Device Compliance API
-      - name: Intune Device Enrollment API
-      - name: Intune Mobile App Management API
-      - name: Intune Reports Export API
-  - id: microsoft-intune-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Microsoft Intune. Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+      - name: Cross-platform endpoint management (Windows, macOS, iOS, Android, Linux)
+      - name: Built-in endpoint security
+      - name: Mobile application management (MAM)
+      - name: Endpoint analytics
+      - name: Microsoft Configuration Manager (co-management)
+  - id: microsoft-intune-plan-2
+    name: Microsoft Intune Plan 2
+    type: subscription
+    description: Add-on to Plan 1; advanced endpoint management. $4.00/user/month, paid yearly.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Per user add-on, paid yearly
+        name: intune_plan_2
+        type: subscription
+        metric: seat
         limit: -1
         timeFrame: month
-        geo: configurable
-        domains:
-          - https://graph.microsoft.com/v1.0
-          - https://api.manage.microsoft.com/
-          - https://graph.microsoft.com/v1.0/deviceManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
-          - https://graph.microsoft.com/beta/deviceAppManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/reports
+        geo: global
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://graph.microsoft.com/v1.0
-          - https://api.manage.microsoft.com/
-          - https://graph.microsoft.com/v1.0/deviceManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
-          - https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
-          - https://graph.microsoft.com/beta/deviceAppManagement
-          - https://graph.microsoft.com/v1.0/deviceManagement/reports
-        unit: 1
-        price: custom
-        userMultiplied: false
+        price: '4.00'
+        userMultiplied: true
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Microsoft Intune API
-      - name: Intune Data Warehouse API
-      - name: Intune Device Management API
-      - name: Intune Device Configuration API
-      - name: Intune Device Compliance API
-      - name: Intune Device Enrollment API
-      - name: Intune Mobile App Management API
-      - name: Intune Reports Export API
+      - name: Microsoft Intune Tunnel for MAM
+      - name: Specialty device management (AR/VR, smart screens)
+      - name: Firmware-over-the-air (FOTA) updates
+  - id: microsoft-intune-suite
+    name: Microsoft Intune Suite
+    type: subscription
+    description: Add-on to Plan 1; unifies advanced endpoint management and security. $10.00/user/month,
+      paid yearly.
+    entries:
+      - label: Per user add-on, paid yearly
+        name: intune_suite
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '10.00'
+        userMultiplied: true
+    elements:
+      - name: Endpoint Privilege Management
+      - name: Remote Help
+      - name: Advanced Analytics
+      - name: Enterprise Application Management
+      - name: Microsoft Cloud PKI
+      - name: Microsoft Tunnel for MAM
+  - id: microsoft-intune-epm
+    name: Endpoint Privilege Management add-on
+    type: subscription
+    description: Just-in-time admin elevation. $3.00/user/month, paid yearly.
+    entries:
+      - label: Per user add-on, paid yearly
+        name: intune_epm
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '3.00'
+        userMultiplied: true
+    elements:
+      - name: Just-in-time admin rights
+      - name: Elevation rules
+      - name: Audit reporting
+  - id: microsoft-intune-remote-help
+    name: Remote Help add-on
+    type: subscription
+    description: Secure cloud-based remote-assistance for Plan 2. $3.50/user/month, paid yearly.
+    entries:
+      - label: Per user add-on, paid yearly
+        name: remote_help
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '3.50'
+        userMultiplied: true
+    elements:
+      - name: Secure remote-help session
+      - name: Conditional Access integration
+  - id: microsoft-intune-advanced-analytics
+    name: Advanced Analytics add-on
+    type: subscription
+    description: Anomaly detection, on-demand device timelines. $5.00/user/month, paid yearly.
+    entries:
+      - label: Per user add-on, paid yearly
+        name: advanced_analytics
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '5.00'
+        userMultiplied: true
+    elements:
+      - name: Anomaly detection
+      - name: On-demand device timelines
+      - name: Battery health
+  - id: microsoft-intune-enterprise-app-management
+    name: Enterprise Application Management add-on
+    type: subscription
+    description: Catalogue and manage enterprise apps. $2.00/user/month, paid yearly.
+    entries:
+      - label: Per user add-on, paid yearly
+        name: enterprise_app_mgmt
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '2.00'
+        userMultiplied: true
+    elements:
+      - name: Curated enterprise app catalogue
+      - name: Auto-update of catalogued apps
+  - id: microsoft-intune-cloud-pki
+    name: Microsoft Cloud PKI add-on
+    type: subscription
+    description: Cloud-based certificate authority for Intune-managed devices. $2.00/user/month, paid
+      yearly.
+    entries:
+      - label: Per user add-on, paid yearly
+        name: cloud_pki
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '2.00'
+        userMultiplied: true
+    elements:
+      - name: Cloud certificate authority
+      - name: Auto-enrollment via Intune
+  - id: microsoft-intune-via-m365
+    name: Microsoft Intune via Microsoft 365 / EMS bundles
+    type: subscription
+    description: Intune Plan 1 is included with Microsoft 365 E3 / E5 / F3 and Enterprise Mobility + Security
+      E3 / E5.
+    entries:
+      - label: Microsoft 365 E3 (per user, yearly)
+        name: m365_e3
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '36.00'
+        userMultiplied: true
+      - label: Microsoft 365 E5 (per user, yearly)
+        name: m365_e5
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '57.00'
+        userMultiplied: true
+    elements:
+      - name: Bundled Intune Plan 1
+      - name: Bundled Entra ID P1 (E3) / P2 (E5)
+      - name: Bundled Defender for Endpoint (E5)
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-    url: https://apievangelist.com

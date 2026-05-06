@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,198 +9,85 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Microsoft Intune
 providerId: microsoft-intune
-publisherName: Microsoft Intune
-serviceCategory: API
+publisherName: Microsoft Corporation
+serviceCategory: Endpoint Management
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - App Protection
-  - Azure
-  - Compliance
-  - Device Configuration
   - Endpoint Management
-  - Enrollment
-  - MAM
-  - MDM
-  - Microsoft Graph
-  - Mobile Application Management
-  - Mobile Device Management
-  - Security
+  - Intune
+  - Microsoft
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Microsoft Intune API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+description: 'FOCUS-aligned FinOps for Microsoft Intune: tiered per-user-per-month subscription (Plan
+  1, Plan 2, Suite) plus per-user add-ons; Plan 1 is bundled in Microsoft 365 E3 / E5 / F3 and EMS E3
+  / E5. No per-call API charge.'
+sources:
+  - https://www.microsoft.com/en-us/security/business/microsoft-intune-pricing
+  - https://learn.microsoft.com/en-us/intune/intune-service/
 billingModel:
-  pricingCategory: Usage-Based
+  pricingCategory: Tiered Subscription
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
     - Usage
     - Purchase
     - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
   ServiceName: Microsoft Intune
-  ServiceCategory: Developer Tools / API
-  ProviderName: Microsoft Intune
-  PublisherName: Microsoft Intune
-  InvoiceIssuerName: Microsoft Intune
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceCategory: Endpoint Management
+  ProviderName: Microsoft
+  PublisherName: Microsoft Corporation
+  InvoiceIssuerName: Microsoft Corporation
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-  - name: api_requests
-    description: Count of billable API requests
+  - name: intune_seats
+    description: Microsoft Intune seat licences (Plan 1 / Plan 2 / Suite or bundled M365 / EMS SKU)
+    unit: seat
+    aggregation: sum
+    dimensions:
+      - tenant
+      - sku
+  - name: intune_addon_seats
+    description: Add-on seats (EPM, Remote Help, Advanced Analytics, Enterprise App Mgmt, Cloud PKI)
+    unit: seat
+    aggregation: sum
+    dimensions:
+      - tenant
+      - addon
+  - name: managed_devices
+    description: Devices currently enrolled in Intune
+    unit: device
+    aggregation: max
+    dimensions:
+      - tenant
+      - os
+      - ownership
+  - name: graph_api_requests
+    description: Microsoft Graph deviceManagement API calls (no charge; tracked for throttling)
     unit: request
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Microsoft Intune API
-    baseURL: https://graph.microsoft.com/v1.0
-    tags:
-      - Applications
-      - Compliance
-      - Devices
-      - Groups
-      - Policies
-      - Users
-    serviceName: Microsoft Intune API
-    serviceCategory: API
-  - name: Intune Data Warehouse API
-    baseURL: https://api.manage.microsoft.com/
-    tags:
-      - Analytics
-      - Data Warehouse
-      - Odata
-      - Reporting
-    serviceName: Intune Data Warehouse API
-    serviceCategory: API
-  - name: Intune Device Management API
-    baseURL: https://graph.microsoft.com/v1.0/deviceManagement
-    tags:
-      - Device Compliance
-      - Devices
-      - Managed Devices
-      - Remote Actions
-    serviceName: Intune Device Management API
-    serviceCategory: API
-  - name: Intune Device Configuration API
-    baseURL: https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations
-    tags:
-      - CSP
-      - Device Configuration
-      - Policies
-      - Settings
-    serviceName: Intune Device Configuration API
-    serviceCategory: API
-  - name: Intune Device Compliance API
-    baseURL: https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies
-    tags:
-      - Compliance
-      - Device Compliance
-      - Policies
-      - Security
-    serviceName: Intune Device Compliance API
-    serviceCategory: API
-  - name: Intune Device Enrollment API
-    baseURL: https://graph.microsoft.com/v1.0/deviceManagement
-    tags:
-      - Corporate Devices
-      - Enrollment
-      - Onboarding
-    serviceName: Intune Device Enrollment API
-    serviceCategory: API
-  - name: Intune Mobile App Management API
-    baseURL: https://graph.microsoft.com/beta/deviceAppManagement
-    tags:
-      - App Protection
-      - Applications
-      - MAM
-      - Mobile App Management
-    serviceName: Intune Mobile App Management API
-    serviceCategory: API
-  - name: Intune Reports Export API
-    baseURL: https://graph.microsoft.com/v1.0/deviceManagement/reports
-    tags:
-      - Analytics
-      - Compliance Reports
-      - Export
-      - Reports
-    serviceName: Intune Reports Export API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - application
+      - tenant
+principles:
+  - name: Visibility
+    description: Use the Microsoft 365 admin centre licence report and the Intune admin centre device
+      and compliance reports for consumption visibility; capture Graph throttling telemetry from response
+      headers.
+  - name: Allocation
+    description: Map seat licences to Entra groups bound to cost-centres; tag enrolled devices with team
+      / business-unit attributes.
+  - name: Optimization
+    description: Stack Plan 1 + targeted add-ons rather than the Suite when only one or two add-ons are
+      needed; eliminate duplicate licensing where M365 E3/E5/F3 already includes Intune; audit enrolment
+      of unmanaged or orphaned devices.
+  - name: Accountability
+    description: Endpoint engineering owns enrolment and policy authoring; security owns compliance baseline;
+      finance owns the M365 / EMS / Intune SKU mix.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-    url: https://apievangelist.com

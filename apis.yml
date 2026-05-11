@@ -208,6 +208,16 @@ apis:
         url: https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/reports-export-graph-available-reports
       - type: X-create-export-job
         url: https://learn.microsoft.com/en-us/graph/api/intune-reporting-devicemanagementexportjob-create?view=graph-rest-1.0
+integrations:
+  - name: Microsoft
+  - name: Two people looking at a computer.
+  - name: This is placeholder text for
+  - name: IDC
+  - name: Nationwide
+  - name: RSA company
+  - name: Teleperformance
+  - name: A woman smiling at a laptop
+  - name: A man holding a laptop.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
@@ -247,3 +257,5 @@ common:
     url: https://twitter.com/MSIntune
   - type: X-whatsnew
     url: https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development
+  - type: Integrations
+    url: https://www.microsoft.com/en-us/marketplace

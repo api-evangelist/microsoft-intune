@@ -1,0 +1,246 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Intune Graph API — Device Compliance Policies
+  description: 'Microsoft Intune Graph API — Device Compliance Policies. 6 operations. Lead operation: Microsoft Intune List
+    device compliance policies. Self-contained Naftiko capability covering one Microsoft Intune business surface.'
+  tags:
+  - Microsoft Intune
+  - Device Compliance Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_INTUNE_API_KEY: MICROSOFT_INTUNE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft-intune-device-compliance-policies
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Intune Graph API — Device Compliance Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: deviceManagement-deviceCompliancePolicies
+      path: /deviceManagement/deviceCompliancePolicies
+      operations:
+      - name: listdevicecompliancepolicies
+        method: GET
+        description: Microsoft Intune List device compliance policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deviceManagement-deviceCompliancePolicies-deviceCompliancePolicyId
+      path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+      operations:
+      - name: getdevicecompliancepolicy
+        method: GET
+        description: Microsoft Intune Get device compliance policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedevicecompliancepolicy
+        method: PATCH
+        description: Microsoft Intune Update device compliance policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedevicecompliancepolicy
+        method: DELETE
+        description: Microsoft Intune Delete device compliance policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deviceManagement-deviceCompliancePolicies-deviceCompliancePolicyId-assign
+      path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/assign
+      operations:
+      - name: assigndevicecompliancepolicy
+        method: POST
+        description: Microsoft Intune Assign device compliance policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: deviceManagement-deviceCompliancePolicies-deviceCompliancePolicyId-scheduleActio
+      path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/scheduleActionsForRules
+      operations:
+      - name: scheduleactionsforrules
+        method: POST
+        description: Microsoft Intune Schedule actions for compliance rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_INTUNE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: microsoft-intune-device-compliance-policies-rest
+    port: 8080
+    description: REST adapter for Microsoft Intune Graph API — Device Compliance Policies. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/devicemanagement/devicecompliancepolicies
+      name: devicemanagement-devicecompliancepolicies
+      description: REST surface for deviceManagement-deviceCompliancePolicies.
+      operations:
+      - method: GET
+        name: listdevicecompliancepolicies
+        description: Microsoft Intune List device compliance policies
+        call: microsoft-intune-device-compliance-policies.listdevicecompliancepolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devicemanagement/devicecompliancepolicies/{devicecompliancepolicyid}
+      name: devicemanagement-devicecompliancepolicies-devicecompliancepolicyid
+      description: REST surface for deviceManagement-deviceCompliancePolicies-deviceCompliancePolicyId.
+      operations:
+      - method: GET
+        name: getdevicecompliancepolicy
+        description: Microsoft Intune Get device compliance policy
+        call: microsoft-intune-device-compliance-policies.getdevicecompliancepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatedevicecompliancepolicy
+        description: Microsoft Intune Update device compliance policy
+        call: microsoft-intune-device-compliance-policies.updatedevicecompliancepolicy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedevicecompliancepolicy
+        description: Microsoft Intune Delete device compliance policy
+        call: microsoft-intune-device-compliance-policies.deletedevicecompliancepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devicemanagement/devicecompliancepolicies/{devicecompliancepolicyid}/assign
+      name: devicemanagement-devicecompliancepolicies-devicecompliancepolicyid-assign
+      description: REST surface for deviceManagement-deviceCompliancePolicies-deviceCompliancePolicyId-assign.
+      operations:
+      - method: POST
+        name: assigndevicecompliancepolicy
+        description: Microsoft Intune Assign device compliance policy
+        call: microsoft-intune-device-compliance-policies.assigndevicecompliancepolicy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devicemanagement/devicecompliancepolicies/{devicecompliancepolicyid}/scheduleactionsforrules
+      name: devicemanagement-devicecompliancepolicies-devicecompliancepolicyid-scheduleactio
+      description: REST surface for deviceManagement-deviceCompliancePolicies-deviceCompliancePolicyId-scheduleActio.
+      operations:
+      - method: POST
+        name: scheduleactionsforrules
+        description: Microsoft Intune Schedule actions for compliance rules
+        call: microsoft-intune-device-compliance-policies.scheduleactionsforrules
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: microsoft-intune-device-compliance-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Intune Graph API — Device Compliance Policies. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-intune-list-device-compliance
+      description: Microsoft Intune List device compliance policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-intune-device-compliance-policies.listdevicecompliancepolicies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-intune-get-device-compliance
+      description: Microsoft Intune Get device compliance policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-intune-device-compliance-policies.getdevicecompliancepolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-intune-update-device-compliance
+      description: Microsoft Intune Update device compliance policy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: microsoft-intune-device-compliance-policies.updatedevicecompliancepolicy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-intune-delete-device-compliance
+      description: Microsoft Intune Delete device compliance policy
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: microsoft-intune-device-compliance-policies.deletedevicecompliancepolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-intune-assign-device-compliance
+      description: Microsoft Intune Assign device compliance policy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune-device-compliance-policies.assigndevicecompliancepolicy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-intune-schedule-actions-compliance
+      description: Microsoft Intune Schedule actions for compliance rules
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: microsoft-intune-device-compliance-policies.scheduleactionsforrules
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

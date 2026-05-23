@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deviceCompliancePolicyAssignment",
+  "title": "deviceCompliancePolicyAssignment",
+  "type": "object",
+  "description": "Device compliance policy assignment.",
+  "properties": {
+    "@odata.type": {
+      "type": "string",
+      "default": "#microsoft.graph.deviceCompliancePolicyAssignment"
+    },
+    "id": {
+      "type": "string",
+      "description": "Key of the entity."
+    },
+    "target": {
+      "$ref": "#/components/schemas/deviceAndAppManagementAssignmentTarget"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deviceComplianceScheduledActionForRule",
+  "title": "deviceComplianceScheduledActionForRule",
+  "type": "object",
+  "description": "Scheduled action for a compliance rule.",
+  "properties": {
+    "@odata.type": {
+      "type": "string",
+      "default": "#microsoft.graph.deviceComplianceScheduledActionForRule"
+    },
+    "id": {
+      "type": "string",
+      "description": "Key of the entity."
+    },
+    "ruleName": {
+      "type": "string",
+      "description": "Name of the rule which this scheduled action applies to."
+    },
+    "scheduledActionConfigurations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/deviceComplianceActionItem"
+      },
+      "description": "The list of scheduled action configurations for this compliance policy."
+    }
+  }
+}

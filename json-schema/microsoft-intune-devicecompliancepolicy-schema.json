@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deviceCompliancePolicy",
+  "title": "deviceCompliancePolicy",
+  "type": "object",
+  "description": "This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.",
+  "properties": {
+    "@odata.type": {
+      "type": "string",
+      "default": "#microsoft.graph.deviceCompliancePolicy"
+    },
+    "id": {
+      "type": "string",
+      "description": "Key of the entity."
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "DateTime the object was created.",
+      "readOnly": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Admin provided description of the Device Configuration."
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "DateTime the object was last modified.",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Admin provided name of the device configuration."
+    },
+    "version": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Version of the device configuration.",
+      "readOnly": true
+    }
+  }
+}

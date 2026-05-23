@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deviceActionResult",
+  "title": "deviceActionResult",
+  "type": "object",
+  "description": "Device action result.",
+  "properties": {
+    "@odata.type": {
+      "type": "string",
+      "default": "microsoft.graph.deviceActionResult"
+    },
+    "actionName": {
+      "type": "string",
+      "description": "Action name."
+    },
+    "actionState": {
+      "type": "string",
+      "description": "State of the action.",
+      "enum": [
+        "none",
+        "pending",
+        "canceled",
+        "active",
+        "done",
+        "failed",
+        "notSupported"
+      ]
+    },
+    "startDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the action was initiated."
+    },
+    "lastUpdatedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the action state was last updated."
+    }
+  }
+}

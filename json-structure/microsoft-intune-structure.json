@@ -1,0 +1,288 @@
+{
+  "provider": "Microsoft Intune",
+  "providerId": "microsoft-intune",
+  "kind": "json-structure",
+  "description": "Structural overview of the Microsoft Intune API surface; extracted from openapi/.",
+  "schemaCount": 12,
+  "operationCount": 22,
+  "schemas": [
+    {
+      "name": "managedDevice",
+      "type": "object",
+      "propertyCount": 55,
+      "required": []
+    },
+    {
+      "name": "deviceActionResult",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "configurationManagerClientEnabledFeatures",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "deviceHealthAttestationState",
+      "type": "object",
+      "propertyCount": 18,
+      "required": []
+    },
+    {
+      "name": "deviceConfiguration",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "deviceConfigurationAssignment",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "deviceCompliancePolicy",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "deviceCompliancePolicyAssignment",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "deviceComplianceScheduledActionForRule",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "deviceComplianceActionItem",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "deviceAndAppManagementAssignmentTarget",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "odataError",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/deviceManagement/managedDevices",
+      "operationId": "listManagedDevices",
+      "summary": "Microsoft Intune List managed devices",
+      "tags": [
+        "Managed Devices"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/managedDevices",
+      "operationId": "createManagedDevice",
+      "summary": "Microsoft Intune Create managed device",
+      "tags": [
+        "Managed Devices"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}",
+      "operationId": "getManagedDevice",
+      "summary": "Microsoft Intune Get managed device",
+      "tags": [
+        "Managed Devices"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}",
+      "operationId": "deleteManagedDevice",
+      "summary": "Microsoft Intune Delete managed device",
+      "tags": [
+        "Managed Devices"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}",
+      "operationId": "updateManagedDevice",
+      "summary": "Microsoft Intune Update managed device",
+      "tags": [
+        "Managed Devices"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}/retire",
+      "operationId": "retireManagedDevice",
+      "summary": "Microsoft Intune Retire a device",
+      "tags": [
+        "Managed Devices",
+        "Remote Actions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}/wipe",
+      "operationId": "wipeManagedDevice",
+      "summary": "Microsoft Intune Wipe a device",
+      "tags": [
+        "Managed Devices",
+        "Remote Actions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}/syncDevice",
+      "operationId": "syncManagedDevice",
+      "summary": "Microsoft Intune Sync a device",
+      "tags": [
+        "Managed Devices",
+        "Remote Actions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}/remoteLock",
+      "operationId": "remoteLockManagedDevice",
+      "summary": "Microsoft Intune Remote lock a device",
+      "tags": [
+        "Managed Devices",
+        "Remote Actions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}/resetPasscode",
+      "operationId": "resetPasscodeManagedDevice",
+      "summary": "Microsoft Intune Reset device passcode",
+      "tags": [
+        "Managed Devices",
+        "Remote Actions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/managedDevices/{managedDeviceId}/rebootNow",
+      "operationId": "rebootManagedDevice",
+      "summary": "Microsoft Intune Reboot a device",
+      "tags": [
+        "Managed Devices",
+        "Remote Actions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deviceManagement/deviceConfigurations",
+      "operationId": "listDeviceConfigurations",
+      "summary": "Microsoft Intune List device configurations",
+      "tags": [
+        "Device Configurations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deviceManagement/deviceConfigurations/{deviceConfigurationId}",
+      "operationId": "getDeviceConfiguration",
+      "summary": "Microsoft Intune Get device configuration",
+      "tags": [
+        "Device Configurations"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/deviceManagement/deviceConfigurations/{deviceConfigurationId}",
+      "operationId": "deleteDeviceConfiguration",
+      "summary": "Microsoft Intune Delete device configuration",
+      "tags": [
+        "Device Configurations"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/deviceManagement/deviceConfigurations/{deviceConfigurationId}",
+      "operationId": "updateDeviceConfiguration",
+      "summary": "Microsoft Intune Update device configuration",
+      "tags": [
+        "Device Configurations"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign",
+      "operationId": "assignDeviceConfiguration",
+      "summary": "Microsoft Intune Assign device configuration",
+      "tags": [
+        "Device Configurations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deviceManagement/deviceCompliancePolicies",
+      "operationId": "listDeviceCompliancePolicies",
+      "summary": "Microsoft Intune List device compliance policies",
+      "tags": [
+        "Device Compliance Policies"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}",
+      "operationId": "getDeviceCompliancePolicy",
+      "summary": "Microsoft Intune Get device compliance policy",
+      "tags": [
+        "Device Compliance Policies"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}",
+      "operationId": "deleteDeviceCompliancePolicy",
+      "summary": "Microsoft Intune Delete device compliance policy",
+      "tags": [
+        "Device Compliance Policies"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}",
+      "operationId": "updateDeviceCompliancePolicy",
+      "summary": "Microsoft Intune Update device compliance policy",
+      "tags": [
+        "Device Compliance Policies"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/assign",
+      "operationId": "assignDeviceCompliancePolicy",
+      "summary": "Microsoft Intune Assign device compliance policy",
+      "tags": [
+        "Device Compliance Policies"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/scheduleActionsForRules",
+      "operationId": "scheduleActionsForRules",
+      "summary": "Microsoft Intune Schedule actions for compliance rules",
+      "tags": [
+        "Device Compliance Policies"
+      ]
+    }
+  ]
+}

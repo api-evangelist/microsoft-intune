@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deviceComplianceActionItem",
+  "title": "deviceComplianceActionItem",
+  "type": "object",
+  "description": "Scheduled action configuration.",
+  "properties": {
+    "@odata.type": {
+      "type": "string",
+      "default": "#microsoft.graph.deviceComplianceActionItem"
+    },
+    "id": {
+      "type": "string",
+      "description": "Key of the entity."
+    },
+    "gracePeriodHours": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of hours to wait till the action will be enforced."
+    },
+    "actionType": {
+      "type": "string",
+      "description": "What action to take.",
+      "enum": [
+        "noAction",
+        "notification",
+        "block",
+        "retire",
+        "wipe",
+        "removeResourceAccessProfiles",
+        "pushNotification"
+      ]
+    },
+    "notificationTemplateId": {
+      "type": "string",
+      "description": "What notification message template to use."
+    },
+    "notificationMessageCCList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of group IDs to specify who to CC this notification message to."
+    }
+  }
+}

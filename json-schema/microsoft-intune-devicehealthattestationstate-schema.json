@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deviceHealthAttestationState",
+  "title": "deviceHealthAttestationState",
+  "type": "object",
+  "description": "Device health attestation state.",
+  "properties": {
+    "@odata.type": {
+      "type": "string",
+      "default": "microsoft.graph.deviceHealthAttestationState"
+    },
+    "lastUpdateDateTime": {
+      "type": "string",
+      "description": "The timestamp of the last update."
+    },
+    "contentNamespaceUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The DHA report version (namespace version)."
+    },
+    "deviceHealthAttestationStatus": {
+      "type": "string",
+      "description": "The DHA report version (namespace version)."
+    },
+    "contentVersion": {
+      "type": "string",
+      "description": "The HealthAttestation state schema version."
+    },
+    "issuedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The DateTime when device was evaluated or issued to MDM."
+    },
+    "attestationIdentityKey": {
+      "type": "string",
+      "description": "The attestation identity key."
+    },
+    "resetCount": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The number of times a PC device has hibernated or resumed."
+    },
+    "restartCount": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The number of times a PC device has rebooted."
+    },
+    "bitLockerStatus": {
+      "type": "string",
+      "description": "On or Off of BitLocker Drive Encryption."
+    },
+    "bootManagerVersion": {
+      "type": "string",
+      "description": "The version of the Boot Manager."
+    },
+    "secureBoot": {
+      "type": "string",
+      "description": "When Secure Boot is enabled the core components must have correct cryptographic signatures."
+    },
+    "codeIntegrity": {
+      "type": "string",
+      "description": "When code integrity is enabled code that does not meet the policy is blocked from loading."
+    },
+    "testSigning": {
+      "type": "string",
+      "description": "When test signing is allowed the device does not enforce signature validation during boot."
+    },
+    "safeMode": {
+      "type": "string",
+      "description": "Safe mode is a troubleshooting option for Windows that starts the computer in a limited state."
+    },
+    "windowsPE": {
+      "type": "string",
+      "description": "Operating system running with limited services that is used to prepare a computer for Windows."
+    },
+    "tpmVersion": {
+      "type": "string",
+      "description": "The security version number of the Boot Application."
+    },
+    "virtualSecureMode": {
+      "type": "string",
+      "description": "VSM is a container that protects high value assets from a compromised kernel."
+    }
+  }
+}

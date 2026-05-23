@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deviceAndAppManagementAssignmentTarget",
+  "title": "deviceAndAppManagementAssignmentTarget",
+  "type": "object",
+  "description": "Base type for assignment targets.",
+  "properties": {
+    "@odata.type": {
+      "type": "string",
+      "description": "The OData type of the assignment target."
+    }
+  }
+}

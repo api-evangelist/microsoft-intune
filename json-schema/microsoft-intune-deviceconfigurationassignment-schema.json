@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deviceConfigurationAssignment",
+  "title": "deviceConfigurationAssignment",
+  "type": "object",
+  "description": "The device configuration assignment entity assigns a target group to a device configuration.",
+  "properties": {
+    "@odata.type": {
+      "type": "string",
+      "default": "#microsoft.graph.deviceConfigurationAssignment"
+    },
+    "id": {
+      "type": "string",
+      "description": "The key of the assignment."
+    },
+    "target": {
+      "$ref": "#/components/schemas/deviceAndAppManagementAssignmentTarget"
+    }
+  }
+}

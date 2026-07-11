@@ -229,6 +229,12 @@ maintainers:
     email: kin@apievangelist.com
     url: https://apievangelist.com
 common:
+  - type: VulnerabilityDisclosure
+    url: security/microsoft-intune-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/microsoft-intune-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-intune-authentication.yml
   - type: OAuthScopes
     url: scopes/microsoft-intune-scopes.yml
   - type: LinkedIn

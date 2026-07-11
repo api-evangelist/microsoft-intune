@@ -229,6 +229,8 @@ maintainers:
     email: kin@apievangelist.com
     url: https://apievangelist.com
 common:
+  - type: OAuthScopes
+    url: scopes/microsoft-intune-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/microsoft-intune-product
   - type: X-portal
@@ -267,3 +269,5 @@ common:
     url: https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development
   - type: Integrations
     url: https://www.microsoft.com/en-us/marketplace
+  - url: https://www.microsoft.com/en-us/security/blog/product/microsoft-intune/feed/
+    type: Blog

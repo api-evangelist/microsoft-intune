@@ -1,0 +1,383 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/microsoft-intune-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 22
+  by_action_class:
+    connected: 6
+    acting: 16
+  by_consequence:
+    read: 6
+    write: 14
+    safety-critical: 2
+  human_in_the_loop_required: 2
+operations:
+- path: /deviceManagement/managedDevices
+  method: get
+  operationId: listManagedDevices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - DeviceManagementManagedDevices.Read.All
+    - DeviceManagementManagedDevices.ReadWrite.All
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /deviceManagement/managedDevices
+  method: post
+  operationId: createManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/managedDevices/{managedDeviceId}
+  method: get
+  operationId: getManagedDevice
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - DeviceManagementManagedDevices.Read.All
+    - DeviceManagementManagedDevices.ReadWrite.All
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /deviceManagement/managedDevices/{managedDeviceId}
+  method: patch
+  operationId: updateManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/managedDevices/{managedDeviceId}
+  method: delete
+  operationId: deleteManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/managedDevices/{managedDeviceId}/retire
+  method: post
+  operationId: retireManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/managedDevices/{managedDeviceId}/wipe
+  method: post
+  operationId: wipeManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/managedDevices/{managedDeviceId}/syncDevice
+  method: post
+  operationId: syncManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/managedDevices/{managedDeviceId}/remoteLock
+  method: post
+  operationId: remoteLockManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/managedDevices/{managedDeviceId}/resetPasscode
+  method: post
+  operationId: resetPasscodeManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /deviceManagement/managedDevices/{managedDeviceId}/rebootNow
+  method: post
+  operationId: rebootManagedDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    scope:
+    - DeviceManagementManagedDevices.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /deviceManagement/deviceConfigurations
+  method: get
+  operationId: listDeviceConfigurations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - DeviceManagementConfiguration.Read.All
+    - DeviceManagementConfiguration.ReadWrite.All
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+  method: get
+  operationId: getDeviceConfiguration
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - DeviceManagementConfiguration.Read.All
+    - DeviceManagementConfiguration.ReadWrite.All
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+  method: patch
+  operationId: updateDeviceConfiguration
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementConfiguration.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}
+  method: delete
+  operationId: deleteDeviceConfiguration
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementConfiguration.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign
+  method: post
+  operationId: assignDeviceConfiguration
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementConfiguration.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/deviceCompliancePolicies
+  method: get
+  operationId: listDeviceCompliancePolicies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - DeviceManagementConfiguration.Read.All
+    - DeviceManagementConfiguration.ReadWrite.All
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+  method: get
+  operationId: getDeviceCompliancePolicy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - DeviceManagementConfiguration.Read.All
+    - DeviceManagementConfiguration.ReadWrite.All
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+  method: patch
+  operationId: updateDeviceCompliancePolicy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementConfiguration.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}
+  method: delete
+  operationId: deleteDeviceCompliancePolicy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementConfiguration.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/assign
+  method: post
+  operationId: assignDeviceCompliancePolicy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementConfiguration.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/scheduleActionsForRules
+  method: post
+  operationId: scheduleActionsForRules
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - DeviceManagementConfiguration.ReadWrite.All
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required

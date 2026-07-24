@@ -1,0 +1,252 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Intune Graph Device Compliance Policies Remote Actions API
+  description: The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the tenant.
+  version: 1.0.0
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  contact:
+    name: Microsoft Graph Support
+    url: https://developer.microsoft.com/graph/support
+  license:
+    name: Microsoft API License
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 production endpoint
+security:
+- oauth2:
+  - DeviceManagementManagedDevices.Read.All
+  - DeviceManagementConfiguration.Read.All
+tags:
+- name: Remote Actions
+  description: Remote actions that can be performed on managed devices, including retire, wipe, sync, remote lock, reset passcode, and reboot.
+  externalDocs:
+    url: https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0
+paths:
+  /deviceManagement/managedDevices/{managedDeviceId}/retire:
+    post:
+      operationId: retireManagedDevice
+      summary: Microsoft Intune Retire a device
+      description: Retire a device. Removes company data from the device while keeping personal data intact. The device is removed from Intune management.
+      tags:
+      - Remote Actions
+      parameters:
+      - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The retire action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementManagedDevices.ReadWrite.All
+  /deviceManagement/managedDevices/{managedDeviceId}/wipe:
+    post:
+      operationId: wipeManagedDevice
+      summary: Microsoft Intune Wipe a device
+      description: Wipe a device. Factory resets the device, removing all data including both company and personal data.
+      tags:
+      - Remote Actions
+      parameters:
+      - $ref: '#/components/parameters/managedDeviceId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                keepEnrollmentData:
+                  type: boolean
+                  description: Whether to keep enrollment data during the wipe.
+                keepUserData:
+                  type: boolean
+                  description: Whether to keep user data during the wipe.
+                macOsUnlockCode:
+                  type: string
+                  description: The macOS unlock code for the wipe.
+      responses:
+        '204':
+          description: No content. The wipe action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementManagedDevices.ReadWrite.All
+  /deviceManagement/managedDevices/{managedDeviceId}/syncDevice:
+    post:
+      operationId: syncManagedDevice
+      summary: Microsoft Intune Sync a device
+      description: Trigger a sync for a managed device to check in with Intune.
+      tags:
+      - Remote Actions
+      parameters:
+      - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The sync action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementManagedDevices.ReadWrite.All
+  /deviceManagement/managedDevices/{managedDeviceId}/remoteLock:
+    post:
+      operationId: remoteLockManagedDevice
+      summary: Microsoft Intune Remote lock a device
+      description: Remotely lock a managed device.
+      tags:
+      - Remote Actions
+      parameters:
+      - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The remote lock action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementManagedDevices.ReadWrite.All
+  /deviceManagement/managedDevices/{managedDeviceId}/resetPasscode:
+    post:
+      operationId: resetPasscodeManagedDevice
+      summary: Microsoft Intune Reset device passcode
+      description: Reset the passcode on a managed device.
+      tags:
+      - Remote Actions
+      parameters:
+      - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The reset passcode action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementManagedDevices.ReadWrite.All
+  /deviceManagement/managedDevices/{managedDeviceId}/rebootNow:
+    post:
+      operationId: rebootManagedDevice
+      summary: Microsoft Intune Reboot a device
+      description: Remotely reboot a managed device.
+      tags:
+      - Remote Actions
+      parameters:
+      - $ref: '#/components/parameters/managedDeviceId'
+      responses:
+        '204':
+          description: No content. The reboot action was successfully initiated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementManagedDevices.ReadWrite.All
+components:
+  responses:
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+  schemas:
+    odataError:
+      type: object
+      description: OData error response.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code.
+            message:
+              type: string
+              description: Error message.
+            innerError:
+              type: object
+              properties:
+                request-id:
+                  type: string
+                  description: Request ID for tracing.
+                date:
+                  type: string
+                  format: date-time
+                  description: Date and time of the error.
+  parameters:
+    managedDeviceId:
+      name: managedDeviceId
+      in: path
+      required: true
+      description: The unique identifier of the managed device.
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization using Azure Active Directory. Requires an active Intune license for the tenant.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            DeviceManagementManagedDevices.Read.All: Read Microsoft Intune managed devices
+            DeviceManagementManagedDevices.ReadWrite.All: Read and write Microsoft Intune managed devices
+            DeviceManagementConfiguration.Read.All: Read Microsoft Intune device configuration and policies
+            DeviceManagementConfiguration.ReadWrite.All: Read and write Microsoft Intune device configuration and policies
+externalDocs:
+  description: Microsoft Graph Intune API Overview
+  url: https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0

@@ -1,0 +1,371 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Intune Graph Device Compliance Policies Device Configurations API
+  description: The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the tenant.
+  version: 1.0.0
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  contact:
+    name: Microsoft Graph Support
+    url: https://developer.microsoft.com/graph/support
+  license:
+    name: Microsoft API License
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 production endpoint
+security:
+- oauth2:
+  - DeviceManagementManagedDevices.Read.All
+  - DeviceManagementConfiguration.Read.All
+tags:
+- name: Device Configurations
+  description: Operations for managing device configuration profiles. Configuration profiles define settings that are applied to enrolled devices.
+  externalDocs:
+    url: https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0
+paths:
+  /deviceManagement/deviceConfigurations:
+    get:
+      operationId: listDeviceConfigurations
+      summary: Microsoft Intune List device configurations
+      description: List properties and relationships of the deviceConfiguration objects. Returns all device configuration profiles defined in the tenant.
+      tags:
+      - Device Configurations
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/count'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: A collection of deviceConfiguration objects.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.count':
+                    type: integer
+                  '@odata.nextLink':
+                    type: string
+                    format: uri
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deviceConfiguration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.Read.All
+        - DeviceManagementConfiguration.ReadWrite.All
+  /deviceManagement/deviceConfigurations/{deviceConfigurationId}:
+    get:
+      operationId: getDeviceConfiguration
+      summary: Microsoft Intune Get device configuration
+      description: Read properties and relationships of a deviceConfiguration object.
+      tags:
+      - Device Configurations
+      parameters:
+      - $ref: '#/components/parameters/deviceConfigurationId'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: The requested deviceConfiguration object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceConfiguration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.Read.All
+        - DeviceManagementConfiguration.ReadWrite.All
+    patch:
+      operationId: updateDeviceConfiguration
+      summary: Microsoft Intune Update device configuration
+      description: Update the properties of a deviceConfiguration object.
+      tags:
+      - Device Configurations
+      parameters:
+      - $ref: '#/components/parameters/deviceConfigurationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deviceConfiguration'
+      responses:
+        '200':
+          description: The updated deviceConfiguration object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceConfiguration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.ReadWrite.All
+    delete:
+      operationId: deleteDeviceConfiguration
+      summary: Microsoft Intune Delete device configuration
+      description: Deletes a deviceConfiguration.
+      tags:
+      - Device Configurations
+      parameters:
+      - $ref: '#/components/parameters/deviceConfigurationId'
+      responses:
+        '204':
+          description: No content. The deviceConfiguration was successfully deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.ReadWrite.All
+  /deviceManagement/deviceConfigurations/{deviceConfigurationId}/assign:
+    post:
+      operationId: assignDeviceConfiguration
+      summary: Microsoft Intune Assign device configuration
+      description: Assign a device configuration profile to groups of users or devices.
+      tags:
+      - Device Configurations
+      parameters:
+      - $ref: '#/components/parameters/deviceConfigurationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                assignments:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/deviceConfigurationAssignment'
+      responses:
+        '200':
+          description: The list of assignments for the device configuration.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deviceConfigurationAssignment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.ReadWrite.All
+components:
+  responses:
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+  schemas:
+    deviceConfigurationAssignment:
+      type: object
+      description: The device configuration assignment entity assigns a target group to a device configuration.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceConfigurationAssignment'
+        id:
+          type: string
+          description: The key of the assignment.
+        target:
+          $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
+    deviceAndAppManagementAssignmentTarget:
+      type: object
+      description: Base type for assignment targets.
+      properties:
+        '@odata.type':
+          type: string
+          description: The OData type of the assignment target.
+    deviceConfiguration:
+      type: object
+      description: Device Configuration. Represents a configuration profile that can be assigned to groups of devices. Platform-specific configurations inherit from this base type.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceConfiguration'
+        id:
+          type: string
+          description: Key of the entity.
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was last modified.
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was created.
+          readOnly: true
+        description:
+          type: string
+          description: Admin provided description of the Device Configuration.
+        displayName:
+          type: string
+          description: Admin provided name of the device configuration.
+        version:
+          type: integer
+          format: int32
+          description: Version of the device configuration.
+          readOnly: true
+    odataError:
+      type: object
+      description: OData error response.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code.
+            message:
+              type: string
+              description: Error message.
+            innerError:
+              type: object
+              properties:
+                request-id:
+                  type: string
+                  description: Request ID for tracing.
+                date:
+                  type: string
+                  format: date-time
+                  description: Date and time of the error.
+  parameters:
+    deviceConfigurationId:
+      name: deviceConfigurationId
+      in: path
+      required: true
+      description: The unique identifier of the device configuration.
+      schema:
+        type: string
+    expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of relationships to expand and include in the response.
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of items to skip in the result set.
+      schema:
+        type: integer
+        minimum: 0
+    count:
+      name: $count
+      in: query
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    top:
+      name: $top
+      in: query
+      description: Number of items to return in a result set.
+      schema:
+        type: integer
+        minimum: 0
+    search:
+      name: $search
+      in: query
+      description: Search string for filtering results.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort the result set by.
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization using Azure Active Directory. Requires an active Intune license for the tenant.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            DeviceManagementManagedDevices.Read.All: Read Microsoft Intune managed devices
+            DeviceManagementManagedDevices.ReadWrite.All: Read and write Microsoft Intune managed devices
+            DeviceManagementConfiguration.Read.All: Read Microsoft Intune device configuration and policies
+            DeviceManagementConfiguration.ReadWrite.All: Read and write Microsoft Intune device configuration and policies
+externalDocs:
+  description: Microsoft Graph Intune API Overview
+  url: https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0

@@ -1,0 +1,456 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Intune Graph Device Compliance Policies API
+  description: The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the tenant.
+  version: 1.0.0
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  contact:
+    name: Microsoft Graph Support
+    url: https://developer.microsoft.com/graph/support
+  license:
+    name: Microsoft API License
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 production endpoint
+security:
+- oauth2:
+  - DeviceManagementManagedDevices.Read.All
+  - DeviceManagementConfiguration.Read.All
+tags:
+- name: Device Compliance Policies
+  description: Operations for managing device compliance policies. Compliance policies define rules and settings that a device must comply with to be considered compliant.
+  externalDocs:
+    url: https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0
+paths:
+  /deviceManagement/deviceCompliancePolicies:
+    get:
+      operationId: listDeviceCompliancePolicies
+      summary: Microsoft Intune List device compliance policies
+      description: List properties and relationships of the deviceCompliancePolicy objects. Returns all compliance policies defined in the tenant. Compliance policies are platform specific and individual per-platform policies inherit from this base class.
+      tags:
+      - Device Compliance Policies
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/search'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/count'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: A collection of deviceCompliancePolicy objects.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.count':
+                    type: integer
+                  '@odata.nextLink':
+                    type: string
+                    format: uri
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deviceCompliancePolicy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.Read.All
+        - DeviceManagementConfiguration.ReadWrite.All
+  /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}:
+    get:
+      operationId: getDeviceCompliancePolicy
+      summary: Microsoft Intune Get device compliance policy
+      description: Read properties and relationships of a deviceCompliancePolicy object.
+      tags:
+      - Device Compliance Policies
+      parameters:
+      - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: The requested deviceCompliancePolicy object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceCompliancePolicy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.Read.All
+        - DeviceManagementConfiguration.ReadWrite.All
+    patch:
+      operationId: updateDeviceCompliancePolicy
+      summary: Microsoft Intune Update device compliance policy
+      description: Update the properties of a deviceCompliancePolicy object.
+      tags:
+      - Device Compliance Policies
+      parameters:
+      - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deviceCompliancePolicy'
+      responses:
+        '200':
+          description: The updated deviceCompliancePolicy object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceCompliancePolicy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.ReadWrite.All
+    delete:
+      operationId: deleteDeviceCompliancePolicy
+      summary: Microsoft Intune Delete device compliance policy
+      description: Deletes a deviceCompliancePolicy.
+      tags:
+      - Device Compliance Policies
+      parameters:
+      - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      responses:
+        '204':
+          description: No content. The deviceCompliancePolicy was successfully deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.ReadWrite.All
+  /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/assign:
+    post:
+      operationId: assignDeviceCompliancePolicy
+      summary: Microsoft Intune Assign device compliance policy
+      description: Assign a device compliance policy to groups of users or devices.
+      tags:
+      - Device Compliance Policies
+      parameters:
+      - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                assignments:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/deviceCompliancePolicyAssignment'
+      responses:
+        '200':
+          description: The list of assignments for the compliance policy.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deviceCompliancePolicyAssignment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.ReadWrite.All
+  /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicyId}/scheduleActionsForRules:
+    post:
+      operationId: scheduleActionsForRules
+      summary: Microsoft Intune Schedule actions for compliance rules
+      description: Schedule actions for rules associated with a device compliance policy, such as marking a device as noncompliant or sending notification emails.
+      tags:
+      - Device Compliance Policies
+      parameters:
+      - $ref: '#/components/parameters/deviceCompliancePolicyId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deviceComplianceScheduledActionForRules:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/deviceComplianceScheduledActionForRule'
+      responses:
+        '204':
+          description: No content. The scheduled actions were successfully set.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/ODataError'
+      security:
+      - oauth2:
+        - DeviceManagementConfiguration.ReadWrite.All
+components:
+  schemas:
+    deviceComplianceActionItem:
+      type: object
+      description: Scheduled action configuration.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceComplianceActionItem'
+        id:
+          type: string
+          description: Key of the entity.
+        gracePeriodHours:
+          type: integer
+          format: int32
+          description: Number of hours to wait till the action will be enforced.
+        actionType:
+          type: string
+          description: What action to take.
+          enum:
+          - noAction
+          - notification
+          - block
+          - retire
+          - wipe
+          - removeResourceAccessProfiles
+          - pushNotification
+        notificationTemplateId:
+          type: string
+          description: What notification message template to use.
+        notificationMessageCCList:
+          type: array
+          items:
+            type: string
+          description: A list of group IDs to specify who to CC this notification message to.
+    deviceCompliancePolicyAssignment:
+      type: object
+      description: Device compliance policy assignment.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceCompliancePolicyAssignment'
+        id:
+          type: string
+          description: Key of the entity.
+        target:
+          $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
+    deviceComplianceScheduledActionForRule:
+      type: object
+      description: Scheduled action for a compliance rule.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceComplianceScheduledActionForRule'
+        id:
+          type: string
+          description: Key of the entity.
+        ruleName:
+          type: string
+          description: Name of the rule which this scheduled action applies to.
+        scheduledActionConfigurations:
+          type: array
+          items:
+            $ref: '#/components/schemas/deviceComplianceActionItem'
+          description: The list of scheduled action configurations for this compliance policy.
+    deviceCompliancePolicy:
+      type: object
+      description: This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceCompliancePolicy'
+        id:
+          type: string
+          description: Key of the entity.
+        createdDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was created.
+          readOnly: true
+        description:
+          type: string
+          description: Admin provided description of the Device Configuration.
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was last modified.
+          readOnly: true
+        displayName:
+          type: string
+          description: Admin provided name of the device configuration.
+        version:
+          type: integer
+          format: int32
+          description: Version of the device configuration.
+          readOnly: true
+    odataError:
+      type: object
+      description: OData error response.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code.
+            message:
+              type: string
+              description: Error message.
+            innerError:
+              type: object
+              properties:
+                request-id:
+                  type: string
+                  description: Request ID for tracing.
+                date:
+                  type: string
+                  format: date-time
+                  description: Date and time of the error.
+    deviceAndAppManagementAssignmentTarget:
+      type: object
+      description: Base type for assignment targets.
+      properties:
+        '@odata.type':
+          type: string
+          description: The OData type of the assignment target.
+  parameters:
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Number of items to return in a result set.
+      schema:
+        type: integer
+        minimum: 0
+    search:
+      name: $search
+      in: query
+      description: Search string for filtering results.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of items to skip in the result set.
+      schema:
+        type: integer
+        minimum: 0
+    count:
+      name: $count
+      in: query
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of relationships to expand and include in the response.
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
+    deviceCompliancePolicyId:
+      name: deviceCompliancePolicyId
+      in: path
+      required: true
+      description: The unique identifier of the device compliance policy.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort the result set by.
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization using Azure Active Directory. Requires an active Intune license for the tenant.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            DeviceManagementManagedDevices.Read.All: Read Microsoft Intune managed devices
+            DeviceManagementManagedDevices.ReadWrite.All: Read and write Microsoft Intune managed devices
+            DeviceManagementConfiguration.Read.All: Read Microsoft Intune device configuration and policies
+            DeviceManagementConfiguration.ReadWrite.All: Read and write Microsoft Intune device configuration and policies
+externalDocs:
+  description: Microsoft Graph Intune API Overview
+  url: https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0

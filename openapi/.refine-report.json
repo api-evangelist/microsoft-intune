@@ -1,0 +1,20 @@
+{
+  "provider": "microsoft-intune",
+  "sources": [
+    "microsoft-intune-device-compliance-policies-api-openapi.yml",
+    "microsoft-intune-device-configurations-api-openapi.yml",
+    "microsoft-intune-managed-devices-api-openapi.yml",
+    "microsoft-intune-remote-actions-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-intune-device-compliance-policies-api-openapi.yml",
+    "microsoft-intune-device-configurations-api-openapi.yml",
+    "microsoft-intune-managed-devices-api-openapi.yml",
+    "microsoft-intune-remote-actions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -58,7 +58,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml
   - type: X-openapi-intune
-    url: openapi/microsoft-intune-openapi.yml
+    url: openapi/_original/microsoft-intune-openapi.yml
   - type: X-json-schema-managed-device
     url: json-schema/microsoft-intune-managed-device-schema.json
   - type: X-json-ld-context
@@ -123,7 +123,7 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0
   - type: X-openapi
-    url: openapi/microsoft-intune-openapi.yml
+    url: openapi/_original/microsoft-intune-openapi.yml
   - type: X-json-schema
     url: json-schema/microsoft-intune-managed-device-schema.json
   - type: X-json-ld-context
@@ -151,7 +151,7 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0
   - type: X-openapi
-    url: openapi/microsoft-intune-openapi.yml
+    url: openapi/_original/microsoft-intune-openapi.yml
   - type: X-json-ld-context
     url: json-ld/microsoft-intune-context.jsonld
   - type: X-graph-apis
@@ -175,7 +175,7 @@ apis:
     url: >-
       https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0
   - type: X-openapi
-    url: openapi/microsoft-intune-openapi.yml
+    url: openapi/_original/microsoft-intune-openapi.yml
   - type: X-json-ld-context
     url: json-ld/microsoft-intune-context.jsonld
   - type: X-overview

@@ -1,0 +1,237 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Intune Graph Device Compliance Policies Device Configurations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Device Configurations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Intune List device configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return in a result set."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip in the result set."
+              },
+              {
+                "name": "$search",
+                "value": "",
+                "type": "query",
+                "description": "Search string for filtering results."
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression for filtering results."
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "Include count of items in the result set."
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to sort the result set by."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of relationships to expand and include in the response."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List properties and relationships of the deviceConfiguration objects. Returns all device configuration profiles defined in the tenant."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Get device configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/:deviceConfigurationId",
+            "params": [
+              {
+                "name": "deviceConfigurationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device configuration."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of relationships to expand and include in the response."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Read properties and relationships of a deviceConfiguration object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Update device configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/:deviceConfigurationId",
+            "params": [
+              {
+                "name": "deviceConfigurationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device configuration."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update the properties of a deviceConfiguration object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Delete device configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/:deviceConfigurationId",
+            "params": [
+              {
+                "name": "deviceConfigurationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device configuration."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deletes a deviceConfiguration."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Assign device configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations/:deviceConfigurationId/assign",
+            "params": [
+              {
+                "name": "deviceConfigurationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device configuration."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Assign a device configuration profile to groups of users or devices."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

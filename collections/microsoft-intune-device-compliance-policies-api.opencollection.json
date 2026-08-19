@@ -1,0 +1,270 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Intune Graph Device Compliance Policies API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Device Compliance Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Intune List device compliance policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return in a result set."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip in the result set."
+              },
+              {
+                "name": "$search",
+                "value": "",
+                "type": "query",
+                "description": "Search string for filtering results."
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression for filtering results."
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "Include count of items in the result set."
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to sort the result set by."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of relationships to expand and include in the response."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List properties and relationships of the deviceCompliancePolicy objects. Returns all compliance policies defined in the tenant. Compliance policies are platform specific and individual per-platform policies inherit from this base class."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Get device compliance policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/:deviceCompliancePolicyId",
+            "params": [
+              {
+                "name": "deviceCompliancePolicyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device compliance policy."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of relationships to expand and include in the response."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Read properties and relationships of a deviceCompliancePolicy object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Update device compliance policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/:deviceCompliancePolicyId",
+            "params": [
+              {
+                "name": "deviceCompliancePolicyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device compliance policy."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update the properties of a deviceCompliancePolicy object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Delete device compliance policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/:deviceCompliancePolicyId",
+            "params": [
+              {
+                "name": "deviceCompliancePolicyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device compliance policy."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deletes a deviceCompliancePolicy."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Assign device compliance policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/:deviceCompliancePolicyId/assign",
+            "params": [
+              {
+                "name": "deviceCompliancePolicyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device compliance policy."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Assign a device compliance policy to groups of users or devices."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Schedule actions for compliance rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/:deviceCompliancePolicyId/scheduleActionsForRules",
+            "params": [
+              {
+                "name": "deviceCompliancePolicyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the device compliance policy."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Schedule actions for rules associated with a device compliance policy, such as marking a device as noncompliant or sending notification emails."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

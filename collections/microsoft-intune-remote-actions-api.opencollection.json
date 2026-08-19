@@ -1,0 +1,208 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Intune Graph Device Compliance Policies Remote Actions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Remote Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Intune Retire a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId/retire",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the managed device."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retire a device. Removes company data from the device while keeping personal data intact. The device is removed from Intune management."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Wipe a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId/wipe",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the managed device."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Wipe a device. Factory resets the device, removing all data including both company and personal data."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Sync a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId/syncDevice",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the managed device."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Trigger a sync for a managed device to check in with Intune."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Remote lock a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId/remoteLock",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the managed device."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Remotely lock a managed device."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Reset device passcode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId/resetPasscode",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the managed device."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Reset the passcode on a managed device."
+        },
+        {
+          "info": {
+            "name": "Microsoft Intune Reboot a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId/rebootNow",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the managed device."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+              "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Remotely reboot a managed device."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2337 @@
+{
+  "item": [
+    {
+      "id": "42d4ac1c-5c75-46c8-ab48-5b2e75465611",
+      "name": "Device Compliance Policies",
+      "description": {
+        "content": "Operations for managing device compliance policies. Compliance policies define rules and settings that a device must comply with to be considered compliant.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38b31116-588e-49ab-9fba-90b7cf9d07d9",
+          "name": "Microsoft Intune List device compliance policies",
+          "request": {
+            "name": "Microsoft Intune List device compliance policies",
+            "description": {
+              "content": "List properties and relationships of the deviceCompliancePolicy objects. Returns all compliance policies defined in the tenant. Compliance policies are platform specific and individual per-platform policies inherit from this base class.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "deviceCompliancePolicies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Number of items to return in a result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of items to skip in the result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "$search",
+                  "value": "<string>",
+                  "description": "Search string for filtering results."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression for filtering results."
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>",
+                  "description": "Include count of items in the result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort the result set by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of relationships to expand and include in the response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0dd03233-43b8-4ee5-a0cc-3741134366ed",
+              "name": "A collection of deviceCompliancePolicy objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 5873,\n  \"@odata.nextLink\": \"http://ZbrNFZfBXmbEowmJxefEkrljyM.mpowrMWB\",\n  \"value\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n      \"id\": \"string\",\n      \"createdDateTime\": \"2000-02-12T19:34:56.827Z\",\n      \"description\": \"string\",\n      \"lastModifiedDateTime\": \"1977-04-08T08:35:40.844Z\",\n      \"displayName\": \"string\",\n      \"version\": 1760\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n      \"id\": \"string\",\n      \"createdDateTime\": \"1981-12-03T23:26:42.269Z\",\n      \"description\": \"string\",\n      \"lastModifiedDateTime\": \"2001-03-04T08:57:59.573Z\",\n      \"displayName\": \"string\",\n      \"version\": 641\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39149644-2d43-4fd6-ae63-41fcf3f04f19",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "722b7371-2501-4d20-a7fd-c92f81eff15f",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0987a126-728f-4f92-b18a-196ee607d76c",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8369d6ba-b5c1-4503-b54e-7db6979aca71",
+          "name": "Microsoft Intune Get device compliance policy",
+          "request": {
+            "name": "Microsoft Intune Get device compliance policy",
+            "description": {
+              "content": "Read properties and relationships of a deviceCompliancePolicy object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "deviceCompliancePolicies",
+                ":deviceCompliancePolicyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of relationships to expand and include in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceCompliancePolicyId",
+                  "description": "(Required) The unique identifier of the device compliance policy."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7daecbe8-39a1-4b26-b899-1014a469ee50",
+              "name": "The requested deviceCompliancePolicy object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n  \"id\": \"string\",\n  \"createdDateTime\": \"1969-09-30T18:17:20.657Z\",\n  \"description\": \"string\",\n  \"lastModifiedDateTime\": \"1966-04-17T04:24:50.080Z\",\n  \"displayName\": \"string\",\n  \"version\": 5332\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea6091cb-4e4f-4015-8900-dce508fe8edb",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a21e741f-f28b-4707-9497-10be69401a21",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bdb01a3-967e-444e-826e-ffddf31d8179",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "794880f6-145f-4dc0-985c-41cc5a4c0af7",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "617b436f-9d73-418f-9fbc-dc6ecea9062a",
+          "name": "Microsoft Intune Update device compliance policy",
+          "request": {
+            "name": "Microsoft Intune Update device compliance policy",
+            "description": {
+              "content": "Update the properties of a deviceCompliancePolicy object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "deviceCompliancePolicies",
+                ":deviceCompliancePolicyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceCompliancePolicyId",
+                  "description": "(Required) The unique identifier of the device compliance policy."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "094d9f8b-b20b-46d3-8ba8-4076b711d314",
+              "name": "The updated deviceCompliancePolicy object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n  \"id\": \"string\",\n  \"createdDateTime\": \"1969-09-30T18:17:20.657Z\",\n  \"description\": \"string\",\n  \"lastModifiedDateTime\": \"1966-04-17T04:24:50.080Z\",\n  \"displayName\": \"string\",\n  \"version\": 5332\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21c23124-791f-4147-8b46-2c300ede8f40",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b3895fc-7aa1-4212-bde4-7224857d51b0",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1134e552-1fd5-4de6-8230-b4a9b2b948ca",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70488695-4887-4397-8eca-44fcad8cf1da",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicy\",\n  \"id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf6b8799-37a0-4938-b886-31501acbcc64",
+          "name": "Microsoft Intune Delete device compliance policy",
+          "request": {
+            "name": "Microsoft Intune Delete device compliance policy",
+            "description": {
+              "content": "Deletes a deviceCompliancePolicy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "deviceCompliancePolicies",
+                ":deviceCompliancePolicyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceCompliancePolicyId",
+                  "description": "(Required) The unique identifier of the device compliance policy."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "779d67a6-24f2-4dfa-bd8c-f3bfdf1d4a5d",
+              "name": "No content. The deviceCompliancePolicy was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbc8470f-1e8b-4e69-9676-7b33ee45c479",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23f6edf9-9089-4038-a043-f419dedc3ce1",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f20a9d12-888c-43f7-aa48-44adcb971a4d",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3439533e-79d7-4da2-8a6f-1d2180b285e9",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72d37154-004c-415d-b35f-49aa4b3ccaad",
+          "name": "Microsoft Intune Assign device compliance policy",
+          "request": {
+            "name": "Microsoft Intune Assign device compliance policy",
+            "description": {
+              "content": "Assign a device compliance policy to groups of users or devices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "deviceCompliancePolicies",
+                ":deviceCompliancePolicyId",
+                "assign"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceCompliancePolicyId",
+                  "description": "(Required) The unique identifier of the device compliance policy."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assignments\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"<string>\",\n      \"target\": {\n        \"@odata.type\": \"<string>\"\n      }\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"<string>\",\n      \"target\": {\n        \"@odata.type\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c374bdaf-290f-40db-8c01-a81eba9d38b3",
+              "name": "The list of assignments for the compliance policy.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "assign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assignments\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d30e4f54-db74-40d6-9be8-65b91cd63587",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "assign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assignments\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0eef0be-64d8-4e0d-87a8-e21691dab863",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "assign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assignments\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ebccc4f-d0e7-4cd0-a4fb-841b07a19c16",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "assign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assignments\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa98d90a-ccdd-4375-95e0-dd4ca8f6cd06",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "assign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assignments\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceCompliancePolicyAssignment\",\n      \"id\": \"string\",\n      \"target\": {\n        \"@odata.type\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1b2ed8c-d008-49cc-b236-21b4ba1713b5",
+          "name": "Microsoft Intune Schedule actions for compliance rules",
+          "request": {
+            "name": "Microsoft Intune Schedule actions for compliance rules",
+            "description": {
+              "content": "Schedule actions for rules associated with a device compliance policy, such as marking a device as noncompliant or sending notification emails.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "deviceCompliancePolicies",
+                ":deviceCompliancePolicyId",
+                "scheduleActionsForRules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceCompliancePolicyId",
+                  "description": "(Required) The unique identifier of the device compliance policy."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceComplianceScheduledActionForRules\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"<string>\",\n      \"ruleName\": \"<string>\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"<string>\",\n          \"gracePeriodHours\": \"<integer>\",\n          \"actionType\": \"<string>\",\n          \"notificationTemplateId\": \"<string>\",\n          \"notificationMessageCCList\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"<string>\",\n          \"gracePeriodHours\": \"<integer>\",\n          \"actionType\": \"<string>\",\n          \"notificationTemplateId\": \"<string>\",\n          \"notificationMessageCCList\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"<string>\",\n      \"ruleName\": \"<string>\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"<string>\",\n          \"gracePeriodHours\": \"<integer>\",\n          \"actionType\": \"<string>\",\n          \"notificationTemplateId\": \"<string>\",\n          \"notificationMessageCCList\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"<string>\",\n          \"gracePeriodHours\": \"<integer>\",\n          \"actionType\": \"<string>\",\n          \"notificationTemplateId\": \"<string>\",\n          \"notificationMessageCCList\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98ab6a6c-926a-47b7-a427-a1fb214c38d5",
+              "name": "No content. The scheduled actions were successfully set.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "scheduleActionsForRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceComplianceScheduledActionForRules\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 9524,\n          \"actionType\": \"pushNotification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 7077,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2637,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2280,\n          \"actionType\": \"retire\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1efdf9a3-85f6-4f6e-a217-14a9e0dbb6f7",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "scheduleActionsForRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceComplianceScheduledActionForRules\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 9524,\n          \"actionType\": \"pushNotification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 7077,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2637,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2280,\n          \"actionType\": \"retire\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46edd815-7322-4bb4-828d-0be006518e63",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "scheduleActionsForRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceComplianceScheduledActionForRules\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 9524,\n          \"actionType\": \"pushNotification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 7077,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2637,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2280,\n          \"actionType\": \"retire\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c4a346c-b3fc-4915-aa8d-5009670113eb",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "scheduleActionsForRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceComplianceScheduledActionForRules\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 9524,\n          \"actionType\": \"pushNotification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 7077,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2637,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2280,\n          \"actionType\": \"retire\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d57658cc-75db-43ca-967b-ce0ccfd05ecd",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "deviceCompliancePolicies",
+                    ":deviceCompliancePolicyId",
+                    "scheduleActionsForRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceCompliancePolicyId",
+                      "description": "(Required) The unique identifier of the device compliance policy."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceComplianceScheduledActionForRules\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 9524,\n          \"actionType\": \"pushNotification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 7077,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.deviceComplianceScheduledActionForRule\",\n      \"id\": \"string\",\n      \"ruleName\": \"string\",\n      \"scheduledActionConfigurations\": [\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2637,\n          \"actionType\": \"notification\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"@odata.type\": \"#microsoft.graph.deviceComplianceActionItem\",\n          \"id\": \"string\",\n          \"gracePeriodHours\": 2280,\n          \"actionType\": \"retire\",\n          \"notificationTemplateId\": \"string\",\n          \"notificationMessageCCList\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2025-11-14T19:20:19.655Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.microsoft.com/v1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "babc1ee2-bbac-4894-9016-cd8d8cb48a0b",
+    "name": "Microsoft Intune Graph Device Compliance Policies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the tenant.\n\nContact Support:\n Name: Microsoft Graph Support",
+      "type": "text/plain"
+    }
+  }
+}

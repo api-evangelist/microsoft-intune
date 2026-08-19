@@ -1,0 +1,3885 @@
+{
+  "item": [
+    {
+      "id": "4c8a8307-14fe-4305-9583-e88cbf1b3ce0",
+      "name": "Managed Devices",
+      "description": {
+        "content": "Operations for managing devices enrolled in Intune. Includes listing, retrieving, creating, updating, and deleting managed device records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d0368899-f6e3-4506-9dfc-d75057db890d",
+          "name": "Microsoft Intune List managed devices",
+          "request": {
+            "name": "Microsoft Intune List managed devices",
+            "description": {
+              "content": "List properties and relationships of the managedDevice objects. Returns all devices managed or pre-enrolled through Intune for the tenant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Number of items to return in a result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of items to skip in the result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "$search",
+                  "value": "<string>",
+                  "description": "Search string for filtering results."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression for filtering results."
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>",
+                  "description": "Include count of items in the result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort the result set by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of relationships to expand and include in the response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8bef57b4-6cb4-42c3-8043-95cf7546facc",
+              "name": "A collection of managedDevice objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.count\": 2846,\n  \"@odata.nextLink\": \"https://hEPwVNZssXxFxUDRqz.gdm80iqUo7R.CQr,MUaS0TcPo01Wd,rRW4YW7kI3M8BMKjpr7rVoHd82XD\",\n  \"value\": [\n    {\n      \"@odata.type\": \"#microsoft.graph.managedDevice\",\n      \"id\": \"string\",\n      \"userId\": \"string\",\n      \"deviceName\": \"string\",\n      \"managedDeviceOwnerType\": \"company\",\n      \"enrolledDateTime\": \"1958-09-12T23:13:35.593Z\",\n      \"lastSyncDateTime\": \"2024-02-20T12:53:49.451Z\",\n      \"operatingSystem\": \"string\",\n      \"complianceState\": \"error\",\n      \"jailBroken\": \"string\",\n      \"managementAgent\": \"configurationManagerClientMdm\",\n      \"osVersion\": \"string\",\n      \"easActivated\": false,\n      \"easDeviceId\": \"string\",\n      \"easActivationDateTime\": \"1983-10-04T13:30:25.445Z\",\n      \"azureADRegistered\": false,\n      \"deviceEnrollmentType\": \"deviceEnrollmentManager\",\n      \"activationLockBypassCode\": \"string\",\n      \"emailAddress\": \"string\",\n      \"azureADDeviceId\": \"string\",\n      \"deviceRegistrationState\": \"certificateReset\",\n      \"deviceCategoryDisplayName\": \"string\",\n      \"isSupervised\": true,\n      \"exchangeLastSuccessfulSyncDateTime\": \"1972-10-16T13:35:09.400Z\",\n      \"exchangeAccessState\": \"unknown\",\n      \"exchangeAccessStateReason\": \"exchangeDeviceRule\",\n      \"remoteAssistanceSessionUrl\": \"https://GNbvDjpWxUnPdhUG.dwduk3HSrgBk7YLD\",\n      \"remoteAssistanceSessionErrorDetails\": \"string\",\n      \"isEncrypted\": true,\n      \"userPrincipalName\": \"string\",\n      \"model\": \"string\",\n      \"manufacturer\": \"string\",\n      \"imei\": \"string\",\n      \"complianceGracePeriodExpirationDateTime\": \"2011-02-18T10:50:05.197Z\",\n      \"serialNumber\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"androidSecurityPatchLevel\": \"string\",\n      \"userDisplayName\": \"string\",\n      \"configurationManagerClientEnabledFeatures\": {\n        \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n        \"inventory\": true,\n        \"modernApps\": false,\n        \"resourceAccess\": false,\n        \"deviceConfiguration\": false,\n        \"compliancePolicy\": false,\n        \"windowsUpdateForBusiness\": true\n      },\n      \"wiFiMacAddress\": \"string\",\n      \"deviceHealthAttestationState\": {\n        \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n        \"lastUpdateDateTime\": \"string\",\n        \"contentNamespaceUrl\": \"http://zDZptxWHsVXXGtRArKAZ.btlehW4bBQd7djH7OZKiC23ql+m7HtAfxIGhkUaYFOkvsop\",\n        \"deviceHealthAttestationStatus\": \"string\",\n        \"contentVersion\": \"string\",\n        \"issuedDateTime\": \"1953-01-28T01:32:16.299Z\",\n        \"attestationIdentityKey\": \"string\",\n        \"resetCount\": 428,\n        \"restartCount\": 9739,\n        \"bitLockerStatus\": \"string\",\n        \"bootManagerVersion\": \"string\",\n        \"secureBoot\": \"string\",\n        \"codeIntegrity\": \"string\",\n        \"testSigning\": \"string\",\n        \"safeMode\": \"string\",\n        \"windowsPE\": \"string\",\n        \"tpmVersion\": \"string\",\n        \"virtualSecureMode\": \"string\"\n      },\n      \"subscriberCarrier\": \"string\",\n      \"meid\": \"string\",\n      \"totalStorageSpaceInBytes\": 6530,\n      \"freeStorageSpaceInBytes\": 548,\n      \"managedDeviceName\": \"string\",\n      \"partnerReportedThreatState\": \"activated\",\n      \"requireUserEnrollmentApproval\": true,\n      \"managementCertificateExpirationDate\": \"1961-10-30T20:57:54.367Z\",\n      \"iccid\": \"string\",\n      \"udid\": \"string\",\n      \"notes\": \"string\",\n      \"ethernetMacAddress\": \"string\",\n      \"physicalMemoryInBytes\": 493,\n      \"enrollmentProfileName\": \"string\"\n    },\n    {\n      \"@odata.type\": \"#microsoft.graph.managedDevice\",\n      \"id\": \"string\",\n      \"userId\": \"string\",\n      \"deviceName\": \"string\",\n      \"managedDeviceOwnerType\": \"unknown\",\n      \"enrolledDateTime\": \"2018-02-07T08:59:05.803Z\",\n      \"lastSyncDateTime\": \"1987-04-08T00:42:00.544Z\",\n      \"operatingSystem\": \"string\",\n      \"complianceState\": \"compliant\",\n      \"jailBroken\": \"string\",\n      \"managementAgent\": \"unknown\",\n      \"osVersion\": \"string\",\n      \"easActivated\": true,\n      \"easDeviceId\": \"string\",\n      \"easActivationDateTime\": \"2009-03-24T09:03:32.209Z\",\n      \"azureADRegistered\": true,\n      \"deviceEnrollmentType\": \"windowsAzureADJoin\",\n      \"activationLockBypassCode\": \"string\",\n      \"emailAddress\": \"string\",\n      \"azureADDeviceId\": \"string\",\n      \"deviceRegistrationState\": \"certificateReset\",\n      \"deviceCategoryDisplayName\": \"string\",\n      \"isSupervised\": true,\n      \"exchangeLastSuccessfulSyncDateTime\": \"1962-07-12T09:44:22.337Z\",\n      \"exchangeAccessState\": \"blocked\",\n      \"exchangeAccessStateReason\": \"compromisedPassword\",\n      \"remoteAssistanceSessionUrl\": \"https://NqlXnUvOj.ehRfw4+uIBQVlYtRYtWhozYO.\",\n      \"remoteAssistanceSessionErrorDetails\": \"string\",\n      \"isEncrypted\": false,\n      \"userPrincipalName\": \"string\",\n      \"model\": \"string\",\n      \"manufacturer\": \"string\",\n      \"imei\": \"string\",\n      \"complianceGracePeriodExpirationDateTime\": \"1998-05-10T10:11:56.443Z\",\n      \"serialNumber\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"androidSecurityPatchLevel\": \"string\",\n      \"userDisplayName\": \"string\",\n      \"configurationManagerClientEnabledFeatures\": {\n        \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n        \"inventory\": true,\n        \"modernApps\": false,\n        \"resourceAccess\": true,\n        \"deviceConfiguration\": true,\n        \"compliancePolicy\": false,\n        \"windowsUpdateForBusiness\": false\n      },\n      \"wiFiMacAddress\": \"string\",\n      \"deviceHealthAttestationState\": {\n        \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n        \"lastUpdateDateTime\": \"string\",\n        \"contentNamespaceUrl\": \"https://eHcvaioXj.eiDIEfr0tI\",\n        \"deviceHealthAttestationStatus\": \"string\",\n        \"contentVersion\": \"string\",\n        \"issuedDateTime\": \"1980-03-16T22:23:54.316Z\",\n        \"attestationIdentityKey\": \"string\",\n        \"resetCount\": 4583,\n        \"restartCount\": 7910,\n        \"bitLockerStatus\": \"string\",\n        \"bootManagerVersion\": \"string\",\n        \"secureBoot\": \"string\",\n        \"codeIntegrity\": \"string\",\n        \"testSigning\": \"string\",\n        \"safeMode\": \"string\",\n        \"windowsPE\": \"string\",\n        \"tpmVersion\": \"string\",\n        \"virtualSecureMode\": \"string\"\n      },\n      \"subscriberCarrier\": \"string\",\n      \"meid\": \"string\",\n      \"totalStorageSpaceInBytes\": 8250,\n      \"freeStorageSpaceInBytes\": 3409,\n      \"managedDeviceName\": \"string\",\n      \"partnerReportedThreatState\": \"compromised\",\n      \"requireUserEnrollmentApproval\": true,\n      \"managementCertificateExpirationDate\": \"1963-06-08T12:59:27.720Z\",\n      \"iccid\": \"string\",\n      \"udid\": \"string\",\n      \"notes\": \"string\",\n      \"ethernetMacAddress\": \"string\",\n      \"physicalMemoryInBytes\": 7269,\n      \"enrollmentProfileName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91f24da1-b886-46f1-8ad3-221236696acf",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3486518-f5b0-4661-a478-72895d700c81",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ec95e10-2b15-474e-a10f-787bb168023a",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2404ff5-e1b7-4bbf-9df4-9ddc3fc4d43b",
+          "name": "Microsoft Intune Create managed device",
+          "request": {
+            "name": "Microsoft Intune Create managed device",
+            "description": {
+              "content": "Create a new managedDevice object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": \"<boolean>\",\n    \"modernApps\": \"<boolean>\",\n    \"resourceAccess\": \"<boolean>\",\n    \"deviceConfiguration\": \"<boolean>\",\n    \"compliancePolicy\": \"<boolean>\",\n    \"windowsUpdateForBusiness\": \"<boolean>\"\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"<string>\",\n    \"contentNamespaceUrl\": \"<uri>\",\n    \"deviceHealthAttestationStatus\": \"<string>\",\n    \"contentVersion\": \"<string>\",\n    \"issuedDateTime\": \"<dateTime>\",\n    \"attestationIdentityKey\": \"<string>\",\n    \"resetCount\": \"<long>\",\n    \"restartCount\": \"<long>\",\n    \"bitLockerStatus\": \"<string>\",\n    \"bootManagerVersion\": \"<string>\",\n    \"secureBoot\": \"<string>\",\n    \"codeIntegrity\": \"<string>\",\n    \"testSigning\": \"<string>\",\n    \"safeMode\": \"<string>\",\n    \"windowsPE\": \"<string>\",\n    \"tpmVersion\": \"<string>\",\n    \"virtualSecureMode\": \"<string>\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5dc125f2-f0da-4015-af33-88658d3c0101",
+              "name": "The created managedDevice object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"id\": \"string\",\n  \"userId\": \"string\",\n  \"deviceName\": \"string\",\n  \"managedDeviceOwnerType\": \"company\",\n  \"enrolledDateTime\": \"1990-01-04T13:43:36.519Z\",\n  \"lastSyncDateTime\": \"1987-02-25T09:36:27.462Z\",\n  \"operatingSystem\": \"string\",\n  \"complianceState\": \"error\",\n  \"jailBroken\": \"string\",\n  \"managementAgent\": \"unknown\",\n  \"osVersion\": \"string\",\n  \"easActivated\": false,\n  \"easDeviceId\": \"string\",\n  \"easActivationDateTime\": \"2024-05-21T14:53:26.100Z\",\n  \"azureADRegistered\": false,\n  \"deviceEnrollmentType\": \"deviceEnrollmentManager\",\n  \"activationLockBypassCode\": \"string\",\n  \"emailAddress\": \"string\",\n  \"azureADDeviceId\": \"string\",\n  \"deviceRegistrationState\": \"revoked\",\n  \"deviceCategoryDisplayName\": \"string\",\n  \"isSupervised\": true,\n  \"exchangeLastSuccessfulSyncDateTime\": \"1987-01-08T03:33:34.878Z\",\n  \"exchangeAccessState\": \"allowed\",\n  \"exchangeAccessStateReason\": \"mfaRequired\",\n  \"remoteAssistanceSessionUrl\": \"http://uUXTwyEnwZLlugIutn.iix+IZtjORXvnQBcV7jo4,\",\n  \"remoteAssistanceSessionErrorDetails\": \"string\",\n  \"isEncrypted\": true,\n  \"userPrincipalName\": \"string\",\n  \"model\": \"string\",\n  \"manufacturer\": \"string\",\n  \"imei\": \"string\",\n  \"complianceGracePeriodExpirationDateTime\": \"2012-12-25T19:53:25.899Z\",\n  \"serialNumber\": \"string\",\n  \"phoneNumber\": \"string\",\n  \"androidSecurityPatchLevel\": \"string\",\n  \"userDisplayName\": \"string\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": true,\n    \"resourceAccess\": true,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": true,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"wiFiMacAddress\": \"string\",\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://bWmkQNYkUGvThIVPWnFUeP.hhyjRjlx6456lcZYyaVuAQsQAEc0y\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"1952-09-03T16:37:09.893Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 2823,\n    \"restartCount\": 7803,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"subscriberCarrier\": \"string\",\n  \"meid\": \"string\",\n  \"totalStorageSpaceInBytes\": 187,\n  \"freeStorageSpaceInBytes\": 8713,\n  \"managedDeviceName\": \"string\",\n  \"partnerReportedThreatState\": \"lowSeverity\",\n  \"requireUserEnrollmentApproval\": true,\n  \"managementCertificateExpirationDate\": \"1986-11-13T21:59:33.426Z\",\n  \"iccid\": \"string\",\n  \"udid\": \"string\",\n  \"notes\": \"string\",\n  \"ethernetMacAddress\": \"string\",\n  \"physicalMemoryInBytes\": 6076,\n  \"enrollmentProfileName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a2a6798-5b1e-47a4-8e42-45f02b06adee",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "168e275a-85b1-4ce5-95ca-a5011ce4f7b9",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf24131f-8c2a-41b6-9335-b56c84346ea8",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b593db0-bece-4281-a791-c6ff3b9c2939",
+          "name": "Microsoft Intune Get managed device",
+          "request": {
+            "name": "Microsoft Intune Get managed device",
+            "description": {
+              "content": "Read properties and relationships of a managedDevice object. Returns details for a single device managed through Intune.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of relationships to expand and include in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "282fd919-d641-401a-95fb-a91bf16aa219",
+              "name": "The requested managedDevice object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"id\": \"string\",\n  \"userId\": \"string\",\n  \"deviceName\": \"string\",\n  \"managedDeviceOwnerType\": \"company\",\n  \"enrolledDateTime\": \"1990-01-04T13:43:36.519Z\",\n  \"lastSyncDateTime\": \"1987-02-25T09:36:27.462Z\",\n  \"operatingSystem\": \"string\",\n  \"complianceState\": \"error\",\n  \"jailBroken\": \"string\",\n  \"managementAgent\": \"unknown\",\n  \"osVersion\": \"string\",\n  \"easActivated\": false,\n  \"easDeviceId\": \"string\",\n  \"easActivationDateTime\": \"2024-05-21T14:53:26.100Z\",\n  \"azureADRegistered\": false,\n  \"deviceEnrollmentType\": \"deviceEnrollmentManager\",\n  \"activationLockBypassCode\": \"string\",\n  \"emailAddress\": \"string\",\n  \"azureADDeviceId\": \"string\",\n  \"deviceRegistrationState\": \"revoked\",\n  \"deviceCategoryDisplayName\": \"string\",\n  \"isSupervised\": true,\n  \"exchangeLastSuccessfulSyncDateTime\": \"1987-01-08T03:33:34.878Z\",\n  \"exchangeAccessState\": \"allowed\",\n  \"exchangeAccessStateReason\": \"mfaRequired\",\n  \"remoteAssistanceSessionUrl\": \"http://uUXTwyEnwZLlugIutn.iix+IZtjORXvnQBcV7jo4,\",\n  \"remoteAssistanceSessionErrorDetails\": \"string\",\n  \"isEncrypted\": true,\n  \"userPrincipalName\": \"string\",\n  \"model\": \"string\",\n  \"manufacturer\": \"string\",\n  \"imei\": \"string\",\n  \"complianceGracePeriodExpirationDateTime\": \"2012-12-25T19:53:25.899Z\",\n  \"serialNumber\": \"string\",\n  \"phoneNumber\": \"string\",\n  \"androidSecurityPatchLevel\": \"string\",\n  \"userDisplayName\": \"string\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": true,\n    \"resourceAccess\": true,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": true,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"wiFiMacAddress\": \"string\",\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://bWmkQNYkUGvThIVPWnFUeP.hhyjRjlx6456lcZYyaVuAQsQAEc0y\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"1952-09-03T16:37:09.893Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 2823,\n    \"restartCount\": 7803,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"subscriberCarrier\": \"string\",\n  \"meid\": \"string\",\n  \"totalStorageSpaceInBytes\": 187,\n  \"freeStorageSpaceInBytes\": 8713,\n  \"managedDeviceName\": \"string\",\n  \"partnerReportedThreatState\": \"lowSeverity\",\n  \"requireUserEnrollmentApproval\": true,\n  \"managementCertificateExpirationDate\": \"1986-11-13T21:59:33.426Z\",\n  \"iccid\": \"string\",\n  \"udid\": \"string\",\n  \"notes\": \"string\",\n  \"ethernetMacAddress\": \"string\",\n  \"physicalMemoryInBytes\": 6076,\n  \"enrollmentProfileName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21a1fc88-3355-41d1-81b9-cf9b7cbf1111",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1449b069-45bd-4514-846f-d06832f7da24",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e20d92f-a861-4ff9-8252-196655e76d7d",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43dd10dc-657f-4408-8236-5a96cab2564f",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f347499-d729-4635-ac67-d031f739ae86",
+          "name": "Microsoft Intune Update managed device",
+          "request": {
+            "name": "Microsoft Intune Update managed device",
+            "description": {
+              "content": "Update the properties of a managedDevice object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": \"<boolean>\",\n    \"modernApps\": \"<boolean>\",\n    \"resourceAccess\": \"<boolean>\",\n    \"deviceConfiguration\": \"<boolean>\",\n    \"compliancePolicy\": \"<boolean>\",\n    \"windowsUpdateForBusiness\": \"<boolean>\"\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"<string>\",\n    \"contentNamespaceUrl\": \"<uri>\",\n    \"deviceHealthAttestationStatus\": \"<string>\",\n    \"contentVersion\": \"<string>\",\n    \"issuedDateTime\": \"<dateTime>\",\n    \"attestationIdentityKey\": \"<string>\",\n    \"resetCount\": \"<long>\",\n    \"restartCount\": \"<long>\",\n    \"bitLockerStatus\": \"<string>\",\n    \"bootManagerVersion\": \"<string>\",\n    \"secureBoot\": \"<string>\",\n    \"codeIntegrity\": \"<string>\",\n    \"testSigning\": \"<string>\",\n    \"safeMode\": \"<string>\",\n    \"windowsPE\": \"<string>\",\n    \"tpmVersion\": \"<string>\",\n    \"virtualSecureMode\": \"<string>\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70f7fa5f-25eb-4e2c-9d49-37c7f5a6920a",
+              "name": "The updated managedDevice object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"id\": \"string\",\n  \"userId\": \"string\",\n  \"deviceName\": \"string\",\n  \"managedDeviceOwnerType\": \"company\",\n  \"enrolledDateTime\": \"1990-01-04T13:43:36.519Z\",\n  \"lastSyncDateTime\": \"1987-02-25T09:36:27.462Z\",\n  \"operatingSystem\": \"string\",\n  \"complianceState\": \"error\",\n  \"jailBroken\": \"string\",\n  \"managementAgent\": \"unknown\",\n  \"osVersion\": \"string\",\n  \"easActivated\": false,\n  \"easDeviceId\": \"string\",\n  \"easActivationDateTime\": \"2024-05-21T14:53:26.100Z\",\n  \"azureADRegistered\": false,\n  \"deviceEnrollmentType\": \"deviceEnrollmentManager\",\n  \"activationLockBypassCode\": \"string\",\n  \"emailAddress\": \"string\",\n  \"azureADDeviceId\": \"string\",\n  \"deviceRegistrationState\": \"revoked\",\n  \"deviceCategoryDisplayName\": \"string\",\n  \"isSupervised\": true,\n  \"exchangeLastSuccessfulSyncDateTime\": \"1987-01-08T03:33:34.878Z\",\n  \"exchangeAccessState\": \"allowed\",\n  \"exchangeAccessStateReason\": \"mfaRequired\",\n  \"remoteAssistanceSessionUrl\": \"http://uUXTwyEnwZLlugIutn.iix+IZtjORXvnQBcV7jo4,\",\n  \"remoteAssistanceSessionErrorDetails\": \"string\",\n  \"isEncrypted\": true,\n  \"userPrincipalName\": \"string\",\n  \"model\": \"string\",\n  \"manufacturer\": \"string\",\n  \"imei\": \"string\",\n  \"complianceGracePeriodExpirationDateTime\": \"2012-12-25T19:53:25.899Z\",\n  \"serialNumber\": \"string\",\n  \"phoneNumber\": \"string\",\n  \"androidSecurityPatchLevel\": \"string\",\n  \"userDisplayName\": \"string\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": true,\n    \"resourceAccess\": true,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": true,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"wiFiMacAddress\": \"string\",\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://bWmkQNYkUGvThIVPWnFUeP.hhyjRjlx6456lcZYyaVuAQsQAEc0y\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"1952-09-03T16:37:09.893Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 2823,\n    \"restartCount\": 7803,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"subscriberCarrier\": \"string\",\n  \"meid\": \"string\",\n  \"totalStorageSpaceInBytes\": 187,\n  \"freeStorageSpaceInBytes\": 8713,\n  \"managedDeviceName\": \"string\",\n  \"partnerReportedThreatState\": \"lowSeverity\",\n  \"requireUserEnrollmentApproval\": true,\n  \"managementCertificateExpirationDate\": \"1986-11-13T21:59:33.426Z\",\n  \"iccid\": \"string\",\n  \"udid\": \"string\",\n  \"notes\": \"string\",\n  \"ethernetMacAddress\": \"string\",\n  \"physicalMemoryInBytes\": 6076,\n  \"enrollmentProfileName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f6c9dcc-3fb4-4e0d-a478-3317cf475430",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b62ed20-b9c3-4bbe-8d5d-78ada5a5dab2",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a197c727-2744-4312-96fd-8d101010c83b",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54eba58c-abfd-4c38-ac8a-520eb91614e9",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"@odata.type\": \"#microsoft.graph.managedDevice\",\n  \"managedDeviceOwnerType\": \"<string>\",\n  \"complianceState\": \"<string>\",\n  \"managementAgent\": \"<string>\",\n  \"configurationManagerClientEnabledFeatures\": {\n    \"@odata.type\": \"microsoft.graph.configurationManagerClientEnabledFeatures\",\n    \"inventory\": true,\n    \"modernApps\": false,\n    \"resourceAccess\": false,\n    \"deviceConfiguration\": true,\n    \"compliancePolicy\": false,\n    \"windowsUpdateForBusiness\": true\n  },\n  \"deviceHealthAttestationState\": {\n    \"@odata.type\": \"microsoft.graph.deviceHealthAttestationState\",\n    \"lastUpdateDateTime\": \"string\",\n    \"contentNamespaceUrl\": \"http://CzixibdEUCREmLFyyvUM.uzqYpII6ZTvO5AIRXtBuplT3ctwcp+P-59YCc+rv3W8v\",\n    \"deviceHealthAttestationStatus\": \"string\",\n    \"contentVersion\": \"string\",\n    \"issuedDateTime\": \"2023-01-30T15:50:02.750Z\",\n    \"attestationIdentityKey\": \"string\",\n    \"resetCount\": 6931,\n    \"restartCount\": 2117,\n    \"bitLockerStatus\": \"string\",\n    \"bootManagerVersion\": \"string\",\n    \"secureBoot\": \"string\",\n    \"codeIntegrity\": \"string\",\n    \"testSigning\": \"string\",\n    \"safeMode\": \"string\",\n    \"windowsPE\": \"string\",\n    \"tpmVersion\": \"string\",\n    \"virtualSecureMode\": \"string\"\n  },\n  \"managedDeviceName\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0199399-6f73-4be1-be4a-b954f98124e6",
+          "name": "Microsoft Intune Delete managed device",
+          "request": {
+            "name": "Microsoft Intune Delete managed device",
+            "description": {
+              "content": "Deletes a managedDevice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fe1d54f6-7643-4986-b3f5-12c068e55146",
+              "name": "No content. The managedDevice was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f5e4b1cc-f286-4142-bd16-5a386845f031",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b99a5ff5-5464-4786-accb-aedfe9df7eba",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82078188-90eb-4f2e-aa77-d3270ae375fe",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff6d0d82-60f0-41c4-872f-a96b9c9262b7",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9b5fa4c-0799-4c8c-8abb-d59cc9bb0652",
+          "name": "Microsoft Intune Retire a device",
+          "request": {
+            "name": "Microsoft Intune Retire a device",
+            "description": {
+              "content": "Retire a device. Removes company data from the device while keeping personal data intact. The device is removed from Intune management.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId",
+                "retire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "82b0e241-00c2-46dc-bcae-2b8b5adea5a5",
+              "name": "No content. The retire action was successfully initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "retire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8eb9da5-b1dd-43c0-9711-fa1cce0bbed6",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "retire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c685dbcd-e339-41e4-b8c5-d263a8f8cf46",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "retire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da0fe93b-ac46-4c15-bb17-d0053a08e3f3",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "retire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "554e3c83-67a0-4500-b048-7275c1f4ef64",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "retire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7343535-fbd0-4175-a16d-38119601a05b",
+          "name": "Microsoft Intune Wipe a device",
+          "request": {
+            "name": "Microsoft Intune Wipe a device",
+            "description": {
+              "content": "Wipe a device. Factory resets the device, removing all data including both company and personal data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId",
+                "wipe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keepEnrollmentData\": \"<boolean>\",\n  \"keepUserData\": \"<boolean>\",\n  \"macOsUnlockCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2594c8fb-1dce-4ed9-8e9a-ed1505e9725e",
+              "name": "No content. The wipe action was successfully initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keepEnrollmentData\": \"<boolean>\",\n  \"keepUserData\": \"<boolean>\",\n  \"macOsUnlockCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de95aa6c-650b-4b9a-b2d1-d8e2768bf5ad",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keepEnrollmentData\": \"<boolean>\",\n  \"keepUserData\": \"<boolean>\",\n  \"macOsUnlockCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd342f20-6e4a-41df-83fd-ac6384a4ca11",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keepEnrollmentData\": \"<boolean>\",\n  \"keepUserData\": \"<boolean>\",\n  \"macOsUnlockCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58840c2a-2b5c-460e-af58-9dec4cb23f4a",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keepEnrollmentData\": \"<boolean>\",\n  \"keepUserData\": \"<boolean>\",\n  \"macOsUnlockCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c607f847-a5c6-4e16-84fb-d1f47bd24549",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keepEnrollmentData\": \"<boolean>\",\n  \"keepUserData\": \"<boolean>\",\n  \"macOsUnlockCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c256f18e-2926-4fec-a5b3-fb5a892a5e42",
+          "name": "Microsoft Intune Sync a device",
+          "request": {
+            "name": "Microsoft Intune Sync a device",
+            "description": {
+              "content": "Trigger a sync for a managed device to check in with Intune.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId",
+                "syncDevice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "538c2c0d-16bd-4e4b-9c90-818f2f0ff6a5",
+              "name": "No content. The sync action was successfully initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "syncDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53794601-af3a-4d03-adf0-8753b9b55280",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "syncDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48088c0e-c665-4a43-9545-3fe1b4728b1e",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "syncDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "651645fd-a834-4c1c-bca4-c733e859724b",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "syncDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b917f774-ddac-456a-a6c1-2a698f192ac4",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "syncDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3050134-8143-40b4-8fcc-cce08e11f685",
+          "name": "Microsoft Intune Remote lock a device",
+          "request": {
+            "name": "Microsoft Intune Remote lock a device",
+            "description": {
+              "content": "Remotely lock a managed device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId",
+                "remoteLock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "af04a3e2-02a0-4a65-96f9-d0e22efd8338",
+              "name": "No content. The remote lock action was successfully initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "remoteLock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0abf2ab8-8650-4791-ba07-95247279fd3e",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "remoteLock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85258fdd-e50e-416f-adbb-94ea3a315b39",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "remoteLock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4e44076-e506-495b-98a9-97727c366f67",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "remoteLock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68821b29-4186-4908-b31a-ed5e01e11f8b",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "remoteLock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1de63ee-894f-4881-9357-e2100c18c0a6",
+          "name": "Microsoft Intune Reset device passcode",
+          "request": {
+            "name": "Microsoft Intune Reset device passcode",
+            "description": {
+              "content": "Reset the passcode on a managed device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId",
+                "resetPasscode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c711c72a-6ca6-4c39-93ff-bcf5f8f52c71",
+              "name": "No content. The reset passcode action was successfully initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "resetPasscode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ede1131-0d91-4a52-8e14-473cd009e624",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "resetPasscode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a7dd6ad-1e54-43f6-9462-00faa67ac057",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "resetPasscode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29ba0993-f764-4dd4-a993-14d012042a28",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "resetPasscode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7582f2a-f7fd-49b0-9d8e-bfb062fa8a19",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "resetPasscode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ee2ae62-cb86-4ea3-9100-8e7142879c10",
+          "name": "Microsoft Intune Reboot a device",
+          "request": {
+            "name": "Microsoft Intune Reboot a device",
+            "description": {
+              "content": "Remotely reboot a managed device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deviceManagement",
+                "managedDevices",
+                ":managedDeviceId",
+                "rebootNow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "managedDeviceId",
+                  "description": "(Required) The unique identifier of the managed device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b985fbdb-26c4-42d7-8c8c-77b35740d22b",
+              "name": "No content. The reboot action was successfully initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "rebootNow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0611df1d-5459-474b-b79e-e26a03bc908a",
+              "name": "Unauthorized. The request requires valid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "rebootNow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e741149-9f23-4069-a70b-381f1da228c5",
+              "name": "Forbidden. The caller does not have the required permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "rebootNow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c75d7b11-4a06-421a-8056-18e28c1d8d79",
+              "name": "Not found. The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "rebootNow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0052870-feaa-4839-919a-c3fc6e8040e2",
+              "name": "An unexpected error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices",
+                    ":managedDeviceId",
+                    "rebootNow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "managedDeviceId",
+                      "description": "(Required) The unique identifier of the managed device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"request-id\": \"string\",\n      \"date\": \"2017-04-24T03:56:54.249Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.microsoft.com/v1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "DeviceManagementManagedDevices.Read.All DeviceManagementManagedDevices.ReadWrite.All DeviceManagementConfiguration.Read.All DeviceManagementConfiguration.ReadWrite.All"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8cc84d9e-085f-4a5a-bd34-b832db279bbb",
+    "name": "Microsoft Intune Graph Device Compliance Policies Managed Devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the tenant.\n\nContact Support:\n Name: Microsoft Graph Support",
+      "type": "text/plain"
+    }
+  }
+}

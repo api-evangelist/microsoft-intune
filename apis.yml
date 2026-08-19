@@ -21,7 +21,7 @@ image: https://docs.microsoft.com/en-us/mem/intune/fundamentals/media/what-is-in
 url: https://www.microsoft.com/en-us/security/business/microsoft-intune
 created: '2024'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 tags:
   - App Protection
   - Azure

@@ -45,6 +45,13 @@ apis:
   humanURL: https://docs.microsoft.com/en-us/graph/api/resources/intune-graph-overview
   baseURL: https://graph.microsoft.com/v1.0
   tags:
+  - Application
+  - Compliance
+  - Devices
+  - Group
+  - Policies
+  - User
+  tags_raw:
   - Applications
   - Compliance
   - Devices
@@ -94,6 +101,11 @@ apis:
   humanURL: https://docs.microsoft.com/en-us/mem/intune/developer/reports-nav-create-intune-reports
   baseURL: https://api.manage.microsoft.com/
   tags:
+  - Analytics
+  - Data Warehouse
+  - OData
+  - Reporting
+  tags_raw:
   - Analytics
   - Data Warehouse
   - Odata
@@ -209,6 +221,11 @@ apis:
     https://learn.microsoft.com/en-us/graph/api/resources/intune-mam-conceptual?view=graph-rest-beta
   baseURL: https://graph.microsoft.com/beta/deviceAppManagement
   tags:
+  - App Protection
+  - Application
+  - MAM
+  - Mobile App Management
+  tags_raw:
   - App Protection
   - Applications
   - MAM

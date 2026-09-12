@@ -388,5 +388,5 @@ common:
     url: https://www.microsoft.com/en-us/marketplace
   - url: https://www.microsoft.com/en-us/security/blog/product/microsoft-intune/feed/
     type: Blog
-x-parent: microsoft
+x-parent: microsoft-entra
 x-relationship: product

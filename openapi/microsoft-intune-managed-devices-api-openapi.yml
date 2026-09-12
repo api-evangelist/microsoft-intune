@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Intune Graph Device Compliance Policies Managed Devices API
   description: The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the tenant.
@@ -335,6 +335,18 @@ paths:
         - DeviceManagementManagedDevices.ReadWrite.All
 components:
   responses:
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
     Forbidden:
       description: Forbidden. The caller does not have the required permissions.
       content:
@@ -347,67 +359,65 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/odataError'
-    Unauthorized:
-      description: Unauthorized. The request requires valid authentication credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    ODataError:
-      description: An unexpected error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
+  parameters:
+    search:
+      name: $search
+      in: query
+      description: Search string for filtering results.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Number of items to return in a result set.
+      schema:
+        type: integer
+        minimum: 0
+    skip:
+      name: $skip
+      in: query
+      description: Number of items to skip in the result set.
+      schema:
+        type: integer
+        minimum: 0
+    expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of relationships to expand and include in the response.
+      schema:
+        type: string
+    count:
+      name: $count
+      in: query
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
+    managedDeviceId:
+      name: managedDeviceId
+      in: path
+      required: true
+      description: The unique identifier of the managed device.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort the result set by.
+      schema:
+        type: string
   schemas:
-    configurationManagerClientEnabledFeatures:
-      type: object
-      description: Configuration Manager client enabled features.
-      properties:
-        '@odata.type':
-          type: string
-          default: microsoft.graph.configurationManagerClientEnabledFeatures
-        inventory:
-          type: boolean
-          description: Whether inventory is managed by Intune.
-        modernApps:
-          type: boolean
-          description: Whether modern application is managed by Intune.
-        resourceAccess:
-          type: boolean
-          description: Whether resource access is managed by Intune.
-        deviceConfiguration:
-          type: boolean
-          description: Whether device configuration is managed by Intune.
-        compliancePolicy:
-          type: boolean
-          description: Whether compliance policy is managed by Intune.
-        windowsUpdateForBusiness:
-          type: boolean
-          description: Whether Windows Update for Business is managed by Intune.
-    odataError:
-      type: object
-      description: OData error response.
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code.
-            message:
-              type: string
-              description: Error message.
-            innerError:
-              type: object
-              properties:
-                request-id:
-                  type: string
-                  description: Request ID for tracing.
-                date:
-                  type: string
-                  format: date-time
-                  description: Date and time of the error.
     managedDevice:
       type: object
       description: Devices that are managed or pre-enrolled through Intune. Represents a physical or virtual device managed by the Intune service.
@@ -713,6 +723,29 @@ components:
           type: string
           description: Name of the enrollment profile assigned to the device. Read-only.
           readOnly: true
+    odataError:
+      type: object
+      description: OData error response.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code.
+            message:
+              type: string
+              description: Error message.
+            innerError:
+              type: object
+              properties:
+                request-id:
+                  type: string
+                  description: Request ID for tracing.
+                date:
+                  type: string
+                  format: date-time
+                  description: Date and time of the error.
     deviceHealthAttestationState:
       type: object
       description: Device health attestation state.
@@ -775,64 +808,31 @@ components:
         virtualSecureMode:
           type: string
           description: VSM is a container that protects high value assets from a compromised kernel.
-  parameters:
-    expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of relationships to expand and include in the response.
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression for filtering results.
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      description: Number of items to skip in the result set.
-      schema:
-        type: integer
-        minimum: 0
-    count:
-      name: $count
-      in: query
-      description: Include count of items in the result set.
-      schema:
-        type: boolean
-    top:
-      name: $top
-      in: query
-      description: Number of items to return in a result set.
-      schema:
-        type: integer
-        minimum: 0
-    managedDeviceId:
-      name: managedDeviceId
-      in: path
-      required: true
-      description: The unique identifier of the managed device.
-      schema:
-        type: string
-    search:
-      name: $search
-      in: query
-      description: Search string for filtering results.
-      schema:
-        type: string
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort the result set by.
-      schema:
-        type: string
+    configurationManagerClientEnabledFeatures:
+      type: object
+      description: Configuration Manager client enabled features.
+      properties:
+        '@odata.type':
+          type: string
+          default: microsoft.graph.configurationManagerClientEnabledFeatures
+        inventory:
+          type: boolean
+          description: Whether inventory is managed by Intune.
+        modernApps:
+          type: boolean
+          description: Whether modern application is managed by Intune.
+        resourceAccess:
+          type: boolean
+          description: Whether resource access is managed by Intune.
+        deviceConfiguration:
+          type: boolean
+          description: Whether device configuration is managed by Intune.
+        compliancePolicy:
+          type: boolean
+          description: Whether compliance policy is managed by Intune.
+        windowsUpdateForBusiness:
+          type: boolean
+          description: Whether Windows Update for Business is managed by Intune.
   securitySchemes:
     oauth2:
       type: oauth2

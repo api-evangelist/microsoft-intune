@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Intune Graph Device Compliance Policies Remote Actions API
   description: The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the tenant.
@@ -178,14 +178,8 @@ paths:
         - DeviceManagementManagedDevices.ReadWrite.All
 components:
   responses:
-    Forbidden:
-      description: Forbidden. The caller does not have the required permissions.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    NotFound:
-      description: Not found. The requested resource does not exist.
+    ODataError:
+      description: An unexpected error occurred.
       content:
         application/json:
           schema:
@@ -196,8 +190,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/odataError'
-    ODataError:
-      description: An unexpected error occurred.
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    NotFound:
+      description: Not found. The requested resource does not exist.
       content:
         application/json:
           schema:

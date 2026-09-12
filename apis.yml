@@ -336,6 +336,8 @@ maintainers:
     email: kin@apievangelist.com
     url: https://apievangelist.com
 common:
+  - type: Website
+    url: https://www.microsoft.com/
   - type: AgenticAccess
     url: agentic-access/microsoft-intune-agentic-access.yml
   - type: VulnerabilityDisclosure
@@ -386,3 +388,5 @@ common:
     url: https://www.microsoft.com/en-us/marketplace
   - url: https://www.microsoft.com/en-us/security/blog/product/microsoft-intune/feed/
     type: Blog
+x-parent: microsoft
+x-relationship: product

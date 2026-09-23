@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Intune Graph Device Compliance Policies Device Configurations API
+  title: Microsoft Intune Graph Device Configurations API
   description: The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Microsoft Intune admin center, including managed device management, device configuration, and compliance policy enforcement. Requires an active Intune license for the tenant.
   version: 1.0.0
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
@@ -197,18 +197,6 @@ paths:
         - DeviceManagementConfiguration.ReadWrite.All
 components:
   responses:
-    ODataError:
-      description: An unexpected error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    Unauthorized:
-      description: Unauthorized. The request requires valid authentication credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
     Forbidden:
       description: Forbidden. The caller does not have the required permissions.
       content:
@@ -221,65 +209,38 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/odataError'
-  parameters:
-    search:
-      name: $search
-      in: query
-      description: Search string for filtering results.
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Number of items to return in a result set.
-      schema:
-        type: integer
-        minimum: 0
-    deviceConfigurationId:
-      name: deviceConfigurationId
-      in: path
-      required: true
-      description: The unique identifier of the device configuration.
-      schema:
-        type: string
-    expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of relationships to expand and include in the response.
-      schema:
-        type: string
-    count:
-      name: $count
-      in: query
-      description: Include count of items in the result set.
-      schema:
-        type: boolean
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression for filtering results.
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      description: Number of items to skip in the result set.
-      schema:
-        type: integer
-        minimum: 0
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort the result set by.
-      schema:
-        type: string
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
   schemas:
+    deviceAndAppManagementAssignmentTarget:
+      type: object
+      description: Base type for assignment targets.
+      properties:
+        '@odata.type':
+          type: string
+          description: The OData type of the assignment target.
+    deviceConfigurationAssignment:
+      type: object
+      description: The device configuration assignment entity assigns a target group to a device configuration.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceConfigurationAssignment'
+        id:
+          type: string
+          description: The key of the assignment.
+        target:
+          $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
     deviceConfiguration:
       type: object
       description: Device Configuration. Represents a configuration profile that can be assigned to groups of devices. Platform-specific configurations inherit from this base type.
@@ -334,25 +295,64 @@ components:
                   type: string
                   format: date-time
                   description: Date and time of the error.
-    deviceAndAppManagementAssignmentTarget:
-      type: object
-      description: Base type for assignment targets.
-      properties:
-        '@odata.type':
-          type: string
-          description: The OData type of the assignment target.
-    deviceConfigurationAssignment:
-      type: object
-      description: The device configuration assignment entity assigns a target group to a device configuration.
-      properties:
-        '@odata.type':
-          type: string
-          default: '#microsoft.graph.deviceConfigurationAssignment'
-        id:
-          type: string
-          description: The key of the assignment.
-        target:
-          $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort the result set by.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of items to skip in the result set.
+      schema:
+        type: integer
+        minimum: 0
+    deviceConfigurationId:
+      name: deviceConfigurationId
+      in: path
+      required: true
+      description: The unique identifier of the device configuration.
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Number of items to return in a result set.
+      schema:
+        type: integer
+        minimum: 0
+    count:
+      name: $count
+      in: query
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of relationships to expand and include in the response.
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      description: Search string for filtering results.
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

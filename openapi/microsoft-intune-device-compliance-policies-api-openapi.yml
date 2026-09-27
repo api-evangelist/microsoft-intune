@@ -231,6 +231,12 @@ paths:
         - DeviceManagementConfiguration.ReadWrite.All
 components:
   parameters:
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort the result set by.
+      schema:
+        type: string
     deviceCompliancePolicyId:
       name: deviceCompliancePolicyId
       in: path
@@ -238,10 +244,10 @@ components:
       description: The unique identifier of the device compliance policy.
       schema:
         type: string
-    orderby:
-      name: $orderby
+    select:
+      name: $select
       in: query
-      description: Comma-separated list of properties to sort the result set by.
+      description: Comma-separated list of properties to include in the response.
       schema:
         type: string
     top:
@@ -251,16 +257,28 @@ components:
       schema:
         type: integer
         minimum: 0
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
     search:
       name: $search
       in: query
       description: Search string for filtering results.
       schema:
         type: string
-    filter:
-      name: $filter
+    count:
+      name: $count
       in: query
-      description: OData filter expression for filtering results.
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of relationships to expand and include in the response.
       schema:
         type: string
     skip:
@@ -270,24 +288,31 @@ components:
       schema:
         type: integer
         minimum: 0
-    count:
-      name: $count
-      in: query
-      description: Include count of items in the result set.
-      schema:
-        type: boolean
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of relationships to expand and include in the response.
-      schema:
-        type: string
+  responses:
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
   schemas:
     deviceAndAppManagementAssignmentTarget:
       type: object
@@ -296,57 +321,6 @@ components:
         '@odata.type':
           type: string
           description: The OData type of the assignment target.
-    deviceComplianceActionItem:
-      type: object
-      description: Scheduled action configuration.
-      properties:
-        '@odata.type':
-          type: string
-          default: '#microsoft.graph.deviceComplianceActionItem'
-        id:
-          type: string
-          description: Key of the entity.
-        gracePeriodHours:
-          type: integer
-          format: int32
-          description: Number of hours to wait till the action will be enforced.
-        actionType:
-          type: string
-          description: What action to take.
-          enum:
-          - noAction
-          - notification
-          - block
-          - retire
-          - wipe
-          - removeResourceAccessProfiles
-          - pushNotification
-        notificationTemplateId:
-          type: string
-          description: What notification message template to use.
-        notificationMessageCCList:
-          type: array
-          items:
-            type: string
-          description: A list of group IDs to specify who to CC this notification message to.
-    deviceComplianceScheduledActionForRule:
-      type: object
-      description: Scheduled action for a compliance rule.
-      properties:
-        '@odata.type':
-          type: string
-          default: '#microsoft.graph.deviceComplianceScheduledActionForRule'
-        id:
-          type: string
-          description: Key of the entity.
-        ruleName:
-          type: string
-          description: Name of the rule which this scheduled action applies to.
-        scheduledActionConfigurations:
-          type: array
-          items:
-            $ref: '#/components/schemas/deviceComplianceActionItem'
-          description: The list of scheduled action configurations for this compliance policy.
     deviceCompliancePolicy:
       type: object
       description: This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.
@@ -390,6 +364,57 @@ components:
           description: Key of the entity.
         target:
           $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
+    deviceComplianceScheduledActionForRule:
+      type: object
+      description: Scheduled action for a compliance rule.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceComplianceScheduledActionForRule'
+        id:
+          type: string
+          description: Key of the entity.
+        ruleName:
+          type: string
+          description: Name of the rule which this scheduled action applies to.
+        scheduledActionConfigurations:
+          type: array
+          items:
+            $ref: '#/components/schemas/deviceComplianceActionItem'
+          description: The list of scheduled action configurations for this compliance policy.
+    deviceComplianceActionItem:
+      type: object
+      description: Scheduled action configuration.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceComplianceActionItem'
+        id:
+          type: string
+          description: Key of the entity.
+        gracePeriodHours:
+          type: integer
+          format: int32
+          description: Number of hours to wait till the action will be enforced.
+        actionType:
+          type: string
+          description: What action to take.
+          enum:
+          - noAction
+          - notification
+          - block
+          - retire
+          - wipe
+          - removeResourceAccessProfiles
+          - pushNotification
+        notificationTemplateId:
+          type: string
+          description: What notification message template to use.
+        notificationMessageCCList:
+          type: array
+          items:
+            type: string
+          description: A list of group IDs to specify who to CC this notification message to.
     odataError:
       type: object
       description: OData error response.
@@ -413,31 +438,6 @@ components:
                   type: string
                   format: date-time
                   description: Date and time of the error.
-  responses:
-    Unauthorized:
-      description: Unauthorized. The request requires valid authentication credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    Forbidden:
-      description: Forbidden. The caller does not have the required permissions.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    NotFound:
-      description: Not found. The requested resource does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    ODataError:
-      description: An unexpected error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
   securitySchemes:
     oauth2:
       type: oauth2

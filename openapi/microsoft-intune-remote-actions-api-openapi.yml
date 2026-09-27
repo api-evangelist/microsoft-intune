@@ -177,6 +177,14 @@ paths:
       - oauth2:
         - DeviceManagementManagedDevices.ReadWrite.All
 components:
+  parameters:
+    managedDeviceId:
+      name: managedDeviceId
+      in: path
+      required: true
+      description: The unique identifier of the managed device.
+      schema:
+        type: string
   responses:
     Forbidden:
       description: Forbidden. The caller does not have the required permissions.
@@ -184,14 +192,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/odataError'
-    NotFound:
-      description: Not found. The requested resource does not exist.
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/odataError'
-    Unauthorized:
-      description: Unauthorized. The request requires valid authentication credentials.
+    NotFound:
+      description: Not found. The requested resource does not exist.
       content:
         application/json:
           schema:
@@ -226,14 +234,6 @@ components:
                   type: string
                   format: date-time
                   description: Date and time of the error.
-  parameters:
-    managedDeviceId:
-      name: managedDeviceId
-      in: path
-      required: true
-      description: The unique identifier of the managed device.
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2

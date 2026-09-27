@@ -334,57 +334,14 @@ paths:
       - oauth2:
         - DeviceManagementManagedDevices.ReadWrite.All
 components:
-  responses:
-    Forbidden:
-      description: Forbidden. The caller does not have the required permissions.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    NotFound:
-      description: Not found. The requested resource does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    Unauthorized:
-      description: Unauthorized. The request requires valid authentication credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    ODataError:
-      description: An unexpected error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
   parameters:
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression for filtering results.
+    managedDeviceId:
+      name: managedDeviceId
+      in: path
+      required: true
+      description: The unique identifier of the managed device.
       schema:
         type: string
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort the result set by.
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      description: Number of items to skip in the result set.
-      schema:
-        type: integer
-        minimum: 0
     search:
       name: $search
       in: query
@@ -398,49 +355,44 @@ components:
       schema:
         type: integer
         minimum: 0
-    count:
-      name: $count
-      in: query
-      description: Include count of items in the result set.
-      schema:
-        type: boolean
     expand:
       name: $expand
       in: query
       description: Comma-separated list of relationships to expand and include in the response.
       schema:
         type: string
-    managedDeviceId:
-      name: managedDeviceId
-      in: path
-      required: true
-      description: The unique identifier of the managed device.
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort the result set by.
       schema:
         type: string
+    count:
+      name: $count
+      in: query
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of items to skip in the result set.
+      schema:
+        type: integer
+        minimum: 0
   schemas:
-    odataError:
-      type: object
-      description: OData error response.
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code.
-            message:
-              type: string
-              description: Error message.
-            innerError:
-              type: object
-              properties:
-                request-id:
-                  type: string
-                  description: Request ID for tracing.
-                date:
-                  type: string
-                  format: date-time
-                  description: Date and time of the error.
     deviceHealthAttestationState:
       type: object
       description: Device health attestation state.
@@ -528,6 +480,29 @@ components:
         windowsUpdateForBusiness:
           type: boolean
           description: Whether Windows Update for Business is managed by Intune.
+    odataError:
+      type: object
+      description: OData error response.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code.
+            message:
+              type: string
+              description: Error message.
+            innerError:
+              type: object
+              properties:
+                request-id:
+                  type: string
+                  description: Request ID for tracing.
+                date:
+                  type: string
+                  format: date-time
+                  description: Date and time of the error.
     managedDevice:
       type: object
       description: Devices that are managed or pre-enrolled through Intune. Represents a physical or virtual device managed by the Intune service.
@@ -833,6 +808,31 @@ components:
           type: string
           description: Name of the enrollment profile assigned to the device. Read-only.
           readOnly: true
+  responses:
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
   securitySchemes:
     oauth2:
       type: oauth2

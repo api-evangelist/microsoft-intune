@@ -196,39 +196,7 @@ paths:
       - oauth2:
         - DeviceManagementConfiguration.ReadWrite.All
 components:
-  responses:
-    Forbidden:
-      description: Forbidden. The caller does not have the required permissions.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    NotFound:
-      description: Not found. The requested resource does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    Unauthorized:
-      description: Unauthorized. The request requires valid authentication credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    ODataError:
-      description: An unexpected error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
   schemas:
-    deviceAndAppManagementAssignmentTarget:
-      type: object
-      description: Base type for assignment targets.
-      properties:
-        '@odata.type':
-          type: string
-          description: The OData type of the assignment target.
     deviceConfigurationAssignment:
       type: object
       description: The device configuration assignment entity assigns a target group to a device configuration.
@@ -241,6 +209,36 @@ components:
           description: The key of the assignment.
         target:
           $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
+    odataError:
+      type: object
+      description: OData error response.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code.
+            message:
+              type: string
+              description: Error message.
+            innerError:
+              type: object
+              properties:
+                request-id:
+                  type: string
+                  description: Request ID for tracing.
+                date:
+                  type: string
+                  format: date-time
+                  description: Date and time of the error.
+    deviceAndAppManagementAssignmentTarget:
+      type: object
+      description: Base type for assignment targets.
+      properties:
+        '@odata.type':
+          type: string
+          description: The OData type of the assignment target.
     deviceConfiguration:
       type: object
       description: Device Configuration. Represents a configuration profile that can be assigned to groups of devices. Platform-specific configurations inherit from this base type.
@@ -272,55 +270,13 @@ components:
           format: int32
           description: Version of the device configuration.
           readOnly: true
-    odataError:
-      type: object
-      description: OData error response.
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code.
-            message:
-              type: string
-              description: Error message.
-            innerError:
-              type: object
-              properties:
-                request-id:
-                  type: string
-                  description: Request ID for tracing.
-                date:
-                  type: string
-                  format: date-time
-                  description: Date and time of the error.
   parameters:
-    filter:
-      name: $filter
+    search:
+      name: $search
       in: query
-      description: OData filter expression for filtering results.
+      description: Search string for filtering results.
       schema:
         type: string
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort the result set by.
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      description: Number of items to skip in the result set.
-      schema:
-        type: integer
-        minimum: 0
     deviceConfigurationId:
       name: deviceConfigurationId
       in: path
@@ -335,24 +291,68 @@ components:
       schema:
         type: integer
         minimum: 0
-    count:
-      name: $count
+    orderby:
+      name: $orderby
       in: query
-      description: Include count of items in the result set.
+      description: Comma-separated list of properties to sort the result set by.
       schema:
-        type: boolean
+        type: string
     expand:
       name: $expand
       in: query
       description: Comma-separated list of relationships to expand and include in the response.
       schema:
         type: string
-    search:
-      name: $search
+    count:
+      name: $count
       in: query
-      description: Search string for filtering results.
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response.
       schema:
         type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of items to skip in the result set.
+      schema:
+        type: integer
+        minimum: 0
+  responses:
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
   securitySchemes:
     oauth2:
       type: oauth2

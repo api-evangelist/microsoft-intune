@@ -177,39 +177,6 @@ paths:
       - oauth2:
         - DeviceManagementManagedDevices.ReadWrite.All
 components:
-  parameters:
-    managedDeviceId:
-      name: managedDeviceId
-      in: path
-      required: true
-      description: The unique identifier of the managed device.
-      schema:
-        type: string
-  responses:
-    Forbidden:
-      description: Forbidden. The caller does not have the required permissions.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    Unauthorized:
-      description: Unauthorized. The request requires valid authentication credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    NotFound:
-      description: Not found. The requested resource does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    ODataError:
-      description: An unexpected error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
   schemas:
     odataError:
       type: object
@@ -234,6 +201,39 @@ components:
                   type: string
                   format: date-time
                   description: Date and time of the error.
+  responses:
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+  parameters:
+    managedDeviceId:
+      name: managedDeviceId
+      in: path
+      required: true
+      description: The unique identifier of the managed device.
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

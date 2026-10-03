@@ -230,140 +230,7 @@ paths:
       - oauth2:
         - DeviceManagementConfiguration.ReadWrite.All
 components:
-  parameters:
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort the result set by.
-      schema:
-        type: string
-    deviceCompliancePolicyId:
-      name: deviceCompliancePolicyId
-      in: path
-      required: true
-      description: The unique identifier of the device compliance policy.
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Number of items to return in a result set.
-      schema:
-        type: integer
-        minimum: 0
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression for filtering results.
-      schema:
-        type: string
-    search:
-      name: $search
-      in: query
-      description: Search string for filtering results.
-      schema:
-        type: string
-    count:
-      name: $count
-      in: query
-      description: Include count of items in the result set.
-      schema:
-        type: boolean
-    expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of relationships to expand and include in the response.
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      description: Number of items to skip in the result set.
-      schema:
-        type: integer
-        minimum: 0
-  responses:
-    Forbidden:
-      description: Forbidden. The caller does not have the required permissions.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    NotFound:
-      description: Not found. The requested resource does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    Unauthorized:
-      description: Unauthorized. The request requires valid authentication credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
-    ODataError:
-      description: An unexpected error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/odataError'
   schemas:
-    deviceAndAppManagementAssignmentTarget:
-      type: object
-      description: Base type for assignment targets.
-      properties:
-        '@odata.type':
-          type: string
-          description: The OData type of the assignment target.
-    deviceCompliancePolicy:
-      type: object
-      description: This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.
-      properties:
-        '@odata.type':
-          type: string
-          default: '#microsoft.graph.deviceCompliancePolicy'
-        id:
-          type: string
-          description: Key of the entity.
-        createdDateTime:
-          type: string
-          format: date-time
-          description: DateTime the object was created.
-          readOnly: true
-        description:
-          type: string
-          description: Admin provided description of the Device Configuration.
-        lastModifiedDateTime:
-          type: string
-          format: date-time
-          description: DateTime the object was last modified.
-          readOnly: true
-        displayName:
-          type: string
-          description: Admin provided name of the device configuration.
-        version:
-          type: integer
-          format: int32
-          description: Version of the device configuration.
-          readOnly: true
-    deviceCompliancePolicyAssignment:
-      type: object
-      description: Device compliance policy assignment.
-      properties:
-        '@odata.type':
-          type: string
-          default: '#microsoft.graph.deviceCompliancePolicyAssignment'
-        id:
-          type: string
-          description: Key of the entity.
-        target:
-          $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
     deviceComplianceScheduledActionForRule:
       type: object
       description: Scheduled action for a compliance rule.
@@ -438,6 +305,139 @@ components:
                   type: string
                   format: date-time
                   description: Date and time of the error.
+    deviceAndAppManagementAssignmentTarget:
+      type: object
+      description: Base type for assignment targets.
+      properties:
+        '@odata.type':
+          type: string
+          description: The OData type of the assignment target.
+    deviceCompliancePolicy:
+      type: object
+      description: This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceCompliancePolicy'
+        id:
+          type: string
+          description: Key of the entity.
+        createdDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was created.
+          readOnly: true
+        description:
+          type: string
+          description: Admin provided description of the Device Configuration.
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          description: DateTime the object was last modified.
+          readOnly: true
+        displayName:
+          type: string
+          description: Admin provided name of the device configuration.
+        version:
+          type: integer
+          format: int32
+          description: Version of the device configuration.
+          readOnly: true
+    deviceCompliancePolicyAssignment:
+      type: object
+      description: Device compliance policy assignment.
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.deviceCompliancePolicyAssignment'
+        id:
+          type: string
+          description: Key of the entity.
+        target:
+          $ref: '#/components/schemas/deviceAndAppManagementAssignmentTarget'
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression for filtering results.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      description: Search string for filtering results.
+      schema:
+        type: string
+    expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of relationships to expand and include in the response.
+      schema:
+        type: string
+    count:
+      name: $count
+      in: query
+      description: Include count of items in the result set.
+      schema:
+        type: boolean
+    top:
+      name: $top
+      in: query
+      description: Number of items to return in a result set.
+      schema:
+        type: integer
+        minimum: 0
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort the result set by.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of items to skip in the result set.
+      schema:
+        type: integer
+        minimum: 0
+    deviceCompliancePolicyId:
+      name: deviceCompliancePolicyId
+      in: path
+      required: true
+      description: The unique identifier of the device compliance policy.
+      schema:
+        type: string
+  responses:
+    ODataError:
+      description: An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Forbidden:
+      description: Forbidden. The caller does not have the required permissions.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    NotFound:
+      description: Not found. The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
+    Unauthorized:
+      description: Unauthorized. The request requires valid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/odataError'
   securitySchemes:
     oauth2:
       type: oauth2

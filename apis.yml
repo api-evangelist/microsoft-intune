@@ -35,6 +35,19 @@ modified: '2026-05-19'
 specificationVersion: '0.23'
 tags:
   - App Protection
+  - Microsoft Azure
+  - Compliance
+  - Device Configuration
+  - Endpoint Management
+  - Enrollment
+  - MAM
+  - MDM
+  - Microsoft Graph
+  - Mobile Application Management
+  - Mobile Device Management
+  - Security
+tags_raw:
+  - App Protection
   - Azure
   - Compliance
   - Device Configuration

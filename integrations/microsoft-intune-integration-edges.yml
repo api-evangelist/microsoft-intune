@@ -1,0 +1,414 @@
+edges:
+- partner_name: Android Enterprise (Google partner program)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://androidenterprisepartners.withgoogle.com/emm/
+  category: Android Enterprise solution partner
+  contract_reference:
+    register: Android Enterprise Solutions Directory (androidenterprisepartners.withgoogle.com /api/search/products)
+    standard: Android Enterprise Recommended
+    spec_file: null
+    role: android-enterprise-partner
+    registered_name: Microsoft
+    register_id: a2FHs000005cSQLMA2
+    matched_domain: microsoft.com
+    matched_by: domain+verified
+    product_types:
+    - EMM
+    products_sample:
+    - Intune
+    signal_note: listing = participation; certified_products = ONE entry per product type Google validated against
+      the Android Enterprise Recommended requirements (badge on the listing); the directory carries current validations
+      only, so lapsed is always false; partner_tier is the program badge (Gold / Silver), recorded, never counted
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+    certified_products:
+    - product: Android Enterprise Recommended (EMM)
+      product_type: EMM
+      lapsed: false
+      listings:
+      - Intune
+    verified_note: the Android Enterprise listing's product is 'Intune'; microsoft-intune is that product's repo
+      (apis.yml name 'Microsoft Intune'), the microsoft parent repo is out of market
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+  partner_tier: Gold partner
+- partner_name: Omnissa Workspace ONE UEM
+  app: Omnissa Workspace ONE UEM
+  partner: airwatch
+  partner_match: domain+verified
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners#supported-device-compliance-partners
+  category: Intune third-party device compliance partner
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Omnissa Workspace ONE UEM
+    matched_domain: omnissa.com
+    matched_by: domain+verified
+    listings: 1
+    sample_apps:
+    - Omnissa Workspace ONE UEM
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: BlackBerry UEM
+  app: BlackBerry UEM
+  partner: blackberry
+  partner_match: domain
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners#supported-device-compliance-partners
+  category: Intune third-party device compliance partner
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: BlackBerry UEM
+    matched_domain: blackberry.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - BlackBerry UEM
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Check Point Harmony Mobile
+  app: Integrate Check Point Harmony Mobile with Intune
+  partner: checkpoint
+  partner_match: domain+name-among-holders
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-checkpoint-harmony
+  category: Intune Mobile Threat Defense connector
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Check Point Harmony Mobile
+    matched_domain: checkpoint.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    sample_apps:
+    - Integrate Check Point Harmony Mobile with Intune
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Citrix Endpoint Management integration with Microsoft Endpoint Manager
+  app: Citrix Endpoint Management integration with Microsoft Endpoint Manager
+  partner: citrix
+  partner_match: domain
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners#supported-device-compliance-partners
+  category: Intune third-party device compliance partner
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Citrix Endpoint Management integration with Microsoft Endpoint Manager
+    matched_domain: citrix.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Citrix Endpoint Management integration with Microsoft Endpoint Manager
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: CrowdStrike Falcon for Mobile
+  app: Integrate CrowdStrike Falcon for Mobile with Microsoft Intune
+  partner: crowdstrike
+  partner_match: domain+name-among-holders
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-crowdstrike-falcon
+  category: Intune Mobile Threat Defense connector
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: CrowdStrike Falcon for Mobile
+    matched_domain: crowdstrike.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    sample_apps:
+    - Integrate CrowdStrike Falcon for Mobile with Microsoft Intune
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Fleet
+  app: Fleet
+  partner: fleet
+  partner_match: domain
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners#supported-device-compliance-partners
+  category: Intune third-party device compliance partner
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Fleet
+    matched_domain: fleetdm.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Fleet
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Ivanti Neurons for MDM
+  app: Ivanti Neurons for MDM
+  partner: ivanti
+  partner_match: domain+name-among-holders
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners#supported-device-compliance-partners
+  category: Intune third-party device compliance partner
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Ivanti Neurons for MDM
+    matched_domain: ivanti.com
+    matched_by: domain+name-among-holders
+    listings: 2
+    sample_apps:
+    - Ivanti EPMM
+    - Ivanti Neurons for MDM
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Jamf Pro
+  app: Jamf Pro
+  partner: jamf
+  partner_match: domain
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners#supported-device-compliance-partners
+  category: Intune third-party device compliance partner
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Jamf Pro
+    matched_domain: jamf.com
+    matched_by: domain
+    listings: 2
+    sample_apps:
+    - Integrate Jamf Mobile Threat Protection with Intune
+    - Jamf Pro
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+    identity_source: wikidata Q85770729 'Jamf' P856 https://www.jamf.com/ (wikidata P856, labelled provenance step;
+      Kin 2026-10-15 decision 1)
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Iru
+  app: Iru
+  partner: kandji
+  partner_match: domain+verified
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners#supported-device-compliance-partners
+  category: Intune third-party device compliance partner
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Iru
+    matched_domain: iru.com
+    matched_by: domain+verified
+    listings: 1
+    sample_apps:
+    - Iru
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Lookout Mobile Endpoint Security
+  app: Set up Lookout Mobile Endpoint Security integration with Intune
+  partner: lookout
+  partner_match: domain
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-lookout
+  category: Intune Mobile Threat Defense connector
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Lookout Mobile Endpoint Security
+    matched_domain: lookout.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Set up Lookout Mobile Endpoint Security integration with Intune
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Sophos Mobile
+  app: Integrate Sophos Mobile with Intune
+  partner: sophos
+  partner_match: domain
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-sophos
+  category: Intune Mobile Threat Defense connector
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Sophos Mobile
+    matched_domain: sophos.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Integrate Sophos Mobile with Intune
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Symantec Endpoint Protection Mobile
+  app: Set up Symantec Endpoint Protection Mobile integration with Intune
+  partner: symantec
+  partner_match: domain+name-among-holders
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-symantec
+  category: Intune Mobile Threat Defense connector
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Symantec Endpoint Protection Mobile
+    matched_domain: broadcom.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    sample_apps:
+    - Set up Symantec Endpoint Protection Mobile integration with Intune
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Trellix Mobile Security
+  app: Integrate Trellix Mobile Security with Intune
+  partner: trellix
+  partner_match: domain+name-among-holders
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-trellix
+  category: Intune Mobile Threat Defense connector
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Trellix Mobile Security
+    matched_domain: trellix.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    sample_apps:
+    - Integrate Trellix Mobile Security with Intune
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+- partner_name: Zimperium
+  app: Integrate Zimperium with Intune
+  partner: zimperium
+  partner_match: domain
+  type: docs
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-zimperium
+  category: Intune Mobile Threat Defense connector
+  contract_reference:
+    register: 'Microsoft Intune partner docs (learn.microsoft.com: third-party compliance partners + MTD connectors)'
+    spec_file: null
+    role: microsoft-intune-app
+    registered_name: Zimperium
+    matched_domain: zimperium.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Integrate Zimperium with Intune
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-device-management.py
+    detected: '2026-10-20'
+  detected_by: sweep-device-management.py
+  detected: '2026-10-20'
+marketplace_apps:
+- marketplace: own
+  channel: partner-built
+  app: microsoft-intune
+  url: https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners
+  app_count: 34
+  adapter: sweep-device-management.py:microsoft-intune
+  listed: 14
+  note: only domain-linked vendors / builders are written
+generated: '2026-10-20'
+method: searched
+source:
+- https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners
+- https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/overview
+- https://androidenterprisepartners.withgoogle.com/api/search/products?aesd_product_type=EMM
+- https://androidenterprisepartners.withgoogle.com/emm/
+checked:
+- https://androidenterprisepartners.withgoogle.com/api/search/products?aesd_product_type=EMM
+- https://androidenterprisepartners.withgoogle.com/emm/
+- https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners
+- https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/overview

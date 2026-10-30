@@ -1,4 +1,4 @@
-# Microsoft Intune (microsoft-intune)
+# Microsoft Intune
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,245 +66,177 @@
 
 Microsoft Intune is a cloud-based service that focuses on mobile device management (MDM) and mobile application management (MAM). It helps organizations control how their devices are used, including mobile phones, tablets, and laptops, and enables management of apps on those devices.
 
-**APIs.json:** [https://www.microsoft.com/en-us/security/business/microsoft-intune](https://www.microsoft.com/en-us/security/business/microsoft-intune)
+**Areas:** App Protection · Microsoft Azure · Compliance · Device Configuration · Endpoint Management · Enrollment · MAM · MDM · Microsoft Graph · Mobile Application Management · Mobile Device Management · Security
 
-## Tags
+## Microsoft Intune on APIs.io
 
-- App Protection
-- Azure
-- Compliance
-- Device Configuration
-- Endpoint Management
-- Enrollment
-- MAM
-- MDM
-- Microsoft Graph
-- Mobile Application Management
-- Mobile Device Management
-- Security
+Everything profiled for Microsoft Intune is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/microsoft-intune/](https://apis.io/providers/microsoft-intune/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (12)
 
-- **Created:** 2024
-- **Modified:** 2026-05-19
+- [Microsoft Intune API](https://apis.io/apis/microsoft-intune/microsoft-intune-api/) — The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune…
+- [Intune Data Warehouse API](https://apis.io/apis/microsoft-intune/intune-data-warehouse-api/) — The Intune Data Warehouse API provides access to your Intune data in a machine-readable format for use in your favorite analytics tool. You can use the API…
+- [Intune Device Management API](https://apis.io/apis/microsoft-intune/intune-device-management-api/) — The Microsoft Graph Device Management API enables programmatic management of devices enrolled in Intune, including listing managed devices, performing…
+- [Intune Device Configuration API](https://apis.io/apis/microsoft-intune/intune-device-configuration-api/) — The Microsoft Graph Device Configuration API allows you to define and deploy device configuration policies across enrolled devices, including operating…
+- [Intune Device Compliance API](https://apis.io/apis/microsoft-intune/intune-device-compliance-api/) — The Microsoft Graph Device Compliance API enables you to define and enforce device compliance policies, such as password complexity, encryption, and threat…
+- [Intune Device Enrollment API](https://apis.io/apis/microsoft-intune/intune-device-enrollment-api/) — The Microsoft Graph Device Enrollment API enables you to enroll organization-owned or corporate-owned devices for management with Intune, supporting various…
+- [Intune Mobile App Management API](https://apis.io/apis/microsoft-intune/intune-mobile-app-management-api/) — The Microsoft Graph Mobile App Management (MAM) API enables you to manage app protection policies, deploy apps to devices, configure app settings, and…
+- [Intune Reports Export API](https://apis.io/apis/microsoft-intune/intune-reports-export-api/) — The Intune Reports Export API enables you to export Intune reporting data using Microsoft Graph API export jobs. You can create export jobs to generate…
+- [Microsoft Intune Device Compliance Policies API](https://apis.io/apis/microsoft-intune/microsoft-intune-device-compliance-policies-api/) — Operations for managing device compliance policies. Compliance policies define rules and settings that a device must comply with to be considered compliant.
+- [Microsoft Intune Device Configurations API](https://apis.io/apis/microsoft-intune/microsoft-intune-device-configurations-api/) — Operations for managing device configuration profiles. Configuration profiles define settings that are applied to enrolled devices.
+- [Microsoft Intune Managed Devices API](https://apis.io/apis/microsoft-intune/microsoft-intune-managed-devices-api/) — Operations for managing devices enrolled in Intune. Includes listing, retrieving, creating, updating, and deleting managed device records.
+- [Microsoft Intune Remote Actions API](https://apis.io/apis/microsoft-intune/microsoft-intune-remote-actions-api/) — Remote actions that can be performed on managed devices, including retire, wipe, sync, remote lock, reset passcode, and reboot.
 
-## APIs
+### Published properties
 
-### Microsoft Intune API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Microsoft Graph API for Intune enables programmatic access to Intune information and actions for your tenant. The API performs the same Intune operations as those available through the Azure Portal.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.microsoft.com/en-us/graph/api/resources/intune-graph-overview](https://docs.microsoft.com/en-us/graph/api/resources/intune-graph-overview)
-- **Base URL:** `https://graph.microsoft.com/v1.0`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Microsoft Intune Agentic Access](https://apis.io/agentic-access/microsoft-intune/microsoft-intune-agentic-access/)
 
-- Applications
-- Compliance
-- Devices
-- Groups
-- Policies
-- Users
+#### JSON Schema (13)
 
-#### Properties
+The data models the API reads and writes.
 
-- [X-documentation](https://docs.microsoft.com/en-us/graph/api/resources/intune-graph-overview)
-- [X-openapi](https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml)
-- [X-openapi-intune](openapi/microsoft-intune-openapi.yml)
-- [X-json-schema-managed-device](json-schema/microsoft-intune-managed-device-schema.json)
-- [X-json-ld-context](json-ld/microsoft-intune-context.jsonld)
-- [X-authentication](https://docs.microsoft.com/en-us/graph/auth/)
-- [X-postman-collection](https://www.postman.com/microsoftgraph/workspace/microsoft-graph/overview)
-- [X-rate-limits](https://docs.microsoft.com/en-us/graph/throttling)
-- [X-change-log](https://docs.microsoft.com/en-us/graph/changelog)
-- [X-sdks](https://docs.microsoft.com/en-us/graph/sdks/sdks-overview)
-- [X-pricing](https://www.microsoft.com/en-us/security/business/microsoft-intune-pricing)
-- [X-getting-started](https://learn.microsoft.com/en-us/graph/intune-concept-overview)
-- [X-permissions](https://learn.microsoft.com/en-us/graph/permissions-reference)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [configurationManagerClientEnabledFeatures](https://apis.io/schemas/microsoft-intune/microsoft-intune-configurationmanagerclientenabledfeatures/)
+- [deviceActionResult](https://apis.io/schemas/microsoft-intune/microsoft-intune-deviceactionresult/)
+- [deviceAndAppManagementAssignmentTarget](https://apis.io/schemas/microsoft-intune/microsoft-intune-deviceandappmanagementassignmenttarget/)
+- [deviceComplianceActionItem](https://apis.io/schemas/microsoft-intune/microsoft-intune-devicecomplianceactionitem/)
+- [deviceCompliancePolicy](https://apis.io/schemas/microsoft-intune/microsoft-intune-devicecompliancepolicy/)
+- [deviceCompliancePolicyAssignment](https://apis.io/schemas/microsoft-intune/microsoft-intune-devicecompliancepolicyassignment/)
+- [deviceComplianceScheduledActionForRule](https://apis.io/schemas/microsoft-intune/microsoft-intune-devicecompliancescheduledactionforrule/)
+- [deviceConfiguration](https://apis.io/schemas/microsoft-intune/microsoft-intune-deviceconfiguration/)
+- [deviceConfigurationAssignment](https://apis.io/schemas/microsoft-intune/microsoft-intune-deviceconfigurationassignment/)
+- [deviceHealthAttestationState](https://apis.io/schemas/microsoft-intune/microsoft-intune-devicehealthattestationstate/)
+- [Microsoft Intune Managed Device](https://apis.io/schemas/microsoft-intune/microsoft-intune-managed-device/)
+- [managedDevice](https://apis.io/schemas/microsoft-intune/microsoft-intune-manageddevice/)
+- [odataError](https://apis.io/schemas/microsoft-intune/microsoft-intune-odataerror/)
 
-### Intune Data Warehouse API
+#### JSON Structure (1)
 
-The Intune Data Warehouse API provides access to your Intune data in a machine-readable format for use in your favorite analytics tool. You can use the API to generate reports that provide insight into your mobile environment.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://docs.microsoft.com/en-us/mem/intune/developer/reports-nav-create-intune-reports](https://docs.microsoft.com/en-us/mem/intune/developer/reports-nav-create-intune-reports)
-- **Base URL:** `https://api.manage.microsoft.com/`
+- [Microsoft Intune Structure](https://apis.io/json-structure/microsoft-intune/microsoft-intune-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- Analytics
-- Data Warehouse
-- Odata
-- Reporting
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Microsoft Intune Context](https://apis.io/jsonld/microsoft-intune/microsoft-intune-context/)
 
-- [X-documentation](https://docs.microsoft.com/en-us/mem/intune/developer/reports-nav-intune-data-warehouse)
-- [X-authentication](https://docs.microsoft.com/en-us/mem/intune/developer/reports-proc-data-rest)
-- [X-data-model](https://docs.microsoft.com/en-us/mem/intune/developer/reports-ref-data-model)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Intune Device Management API
+The provider's domain terms, defined.
 
-The Microsoft Graph Device Management API enables programmatic management of devices enrolled in Intune, including listing managed devices, performing remote actions such as wipe and retire, and retrieving device compliance state and configuration status.
+- [Microsoft Intune Domain Vocabulary](https://apis.io/vocabularies/microsoft-intune/microsoft-intune-vocabulary/)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0](https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0)
-- **Base URL:** `https://graph.microsoft.com/v1.0/deviceManagement`
+#### Collections (5)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Device Compliance
-- Devices
-- Managed Devices
-- Remote Actions
+- [Microsoft Intune Graph API](https://apis.io/collections/microsoft-intune/open-microsoft-intune/)
+- [Microsoft Intune Graph Device Compliance Policies API](https://apis.io/collections/microsoft-intune/open-microsoft-intune-device-compliance-policies-api/)
+- [Microsoft Intune Graph Device Compliance Policies Device Configurations API](https://apis.io/collections/microsoft-intune/open-microsoft-intune-device-configurations-api/)
+- [Microsoft Intune Graph Device Compliance Policies Managed Devices API](https://apis.io/collections/microsoft-intune/open-microsoft-intune-managed-devices-api/)
+- [Microsoft Intune Graph Device Compliance Policies Remote Actions API](https://apis.io/collections/microsoft-intune/open-microsoft-intune-remote-actions-api/)
 
-#### Properties
+#### Governance rules (1)
 
-- [X-documentation](https://learn.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0)
-- [X-openapi](openapi/microsoft-intune-openapi.yml)
-- [X-json-schema](json-schema/microsoft-intune-managed-device-schema.json)
-- [X-json-ld-context](json-ld/microsoft-intune-context.jsonld)
-- [X-list-endpoint](https://learn.microsoft.com/en-us/graph/api/intune-devices-manageddevice-list?view=graph-rest-1.0)
-- [X-getting-started](https://learn.microsoft.com/en-us/graph/intune-concept-overview)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Spectral rulesets for the provider's contracts.
 
-### Intune Device Configuration API
+- [Microsoft Intune — jsonschema rules](https://apis.io/rules/microsoft-intune/microsoft-intune-jsonschema-spectral-rules/)
 
-The Microsoft Graph Device Configuration API allows you to define and deploy device configuration policies across enrolled devices, including operating system platform and versioning, domain membership, and configuration setting management through configuration service providers (CSPs).
+#### Security (3)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0](https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0)
-- **Base URL:** `https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Microsoft Intune Authentication](https://apis.io/security/microsoft-intune/microsoft-intune-authentication/)
+- [Microsoft Intune Domain Security](https://apis.io/security/microsoft-intune/microsoft-intune-domain-security/)
+- [Microsoft Intune Vulnerability Disclosure](https://apis.io/security/microsoft-intune/microsoft-intune-vulnerability-disclosure/)
 
-- CSP
-- Device Configuration
-- Policies
-- Settings
+#### OAuth scopes (1)
 
-#### Properties
+The permissions the API asks for.
 
-- [X-documentation](https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0)
-- [X-openapi](openapi/microsoft-intune-openapi.yml)
-- [X-json-ld-context](json-ld/microsoft-intune-context.jsonld)
-- [X-graph-apis](https://learn.microsoft.com/en-us/intune/intune-service/developer/graph-apis-used-by-intune-device-configuration-windows)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Microsoft Intune Scopes](https://apis.io/scopes/microsoft-intune/microsoft-intune-scopes/)
 
-### Intune Device Compliance API
+#### Plans and pricing (1)
 
-The Microsoft Graph Device Compliance API enables you to define and enforce device compliance policies, such as password complexity, encryption, and threat protection levels, and retrieve compliance state for managed devices.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0](https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0)
-- **Base URL:** `https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies`
+- [Microsoft Intune Plans Pricing](https://apis.io/plans/microsoft-intune/microsoft-intune-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Compliance
-- Device Compliance
-- Policies
-- Security
+Published request limits.
 
-#### Properties
+- [Microsoft Intune Rate Limits](https://apis.io/rate-limits/microsoft-intune/microsoft-intune-rate-limits/)
 
-- [X-documentation](https://learn.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0)
-- [X-openapi](openapi/microsoft-intune-openapi.yml)
-- [X-json-ld-context](json-ld/microsoft-intune-context.jsonld)
-- [X-overview](https://learn.microsoft.com/en-us/intune/intune-service/protect/device-compliance-get-started)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-### Intune Device Enrollment API
+What the API costs to run, by operation.
 
-The Microsoft Graph Device Enrollment API enables you to enroll organization-owned or corporate-owned devices for management with Intune, supporting various enrollment methods depending on device type and organizational needs.
+- [Microsoft Intune Finops](https://apis.io/finops/microsoft-intune/microsoft-intune-finops/)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/intune-enrollment-conceptual?view=graph-rest-1.0](https://learn.microsoft.com/en-us/graph/api/resources/intune-enrollment-conceptual?view=graph-rest-1.0)
-- **Base URL:** `https://graph.microsoft.com/v1.0/deviceManagement`
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Corporate Devices
-- Enrollment
-- Onboarding
+- [Website](https://www.microsoft.com/)
+- [Blog](https://www.microsoft.com/en-us/security/blog/product/microsoft-intune/feed/)
 
-#### Properties
+## API Evangelist rating
 
-- [X-documentation](https://learn.microsoft.com/en-us/graph/api/resources/intune-enrollment-conceptual?view=graph-rest-1.0)
-- [X-onboarding](https://learn.microsoft.com/en-us/graph/api/resources/intune-onboarding-conceptual?view=graph-rest-1.0)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+**Kin Score 31.2** — thin · rubric 0.24.0 · scored 2026-10-17
 
-### Intune Mobile App Management API
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 61.4 |
+| Contract governance | 9.8 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 7.9 |
 
-The Microsoft Graph Mobile App Management (MAM) API enables you to manage app protection policies, deploy apps to devices, configure app settings, and manage app usage policies to protect organizational data within mobile applications.
+**Agent readiness 22.9** — agent-aware
 
-- **Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/intune-mam-conceptual?view=graph-rest-beta](https://learn.microsoft.com/en-us/graph/api/resources/intune-mam-conceptual?view=graph-rest-beta)
-- **Base URL:** `https://graph.microsoft.com/beta/deviceAppManagement`
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-#### Tags
+**Regulatory alignment 32.4** — Horizontal (data, software, accessibility, platform)
 
-- App Protection
-- Applications
-- MAM
-- Mobile App Management
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/microsoft-intune/](https://apis.io/providers/microsoft-intune/).
 
-#### Properties
+## How this profile is made
 
-- [X-documentation](https://learn.microsoft.com/en-us/graph/api/resources/intune-mam-conceptual?view=graph-rest-beta)
-- [X-app-protection-overview](https://learn.microsoft.com/en-us/intune/intune-service/apps/app-protection-policy)
-- [X-app-configuration](https://learn.microsoft.com/en-us/intune/intune-service/apps/app-configuration-policies-overview)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-### Intune Reports Export API
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Microsoft Intune: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-The Intune Reports Export API enables you to export Intune reporting data using Microsoft Graph API export jobs. You can create export jobs to generate reports that provide insight into device compliance, app usage, and other aspects of your managed environment.
+## Open an issue
 
-- **Human URL:** [https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/reports-export-graph-apis](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/reports-export-graph-apis)
-- **Base URL:** `https://graph.microsoft.com/v1.0/deviceManagement/reports`
-
-#### Tags
-
-- Analytics
-- Compliance Reports
-- Export
-- Reports
-
-#### Properties
-
-- [X-documentation](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/reports-export-graph-apis)
-- [X-available-reports](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/reports-export-graph-available-reports)
-- [X-create-export-job](https://learn.microsoft.com/en-us/graph/api/intune-reporting-devicemanagementexportjob-create?view=graph-rest-1.0)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/microsoft-intune-product)
-- [X-portal](https://endpoint.microsoft.com/)
-- [X-blog](https://techcommunity.microsoft.com/t5/microsoft-intune-blog/bg-p/MicrosoftEndpointManagerBlog)
-- [X-learning](https://docs.microsoft.com/en-us/learn/browse/?products=m365%2Cmem)
-- [X-privacy](https://privacy.microsoft.com/)
-- [X-terms-of-service](https://www.microsoft.com/en-us/legal/terms-of-use)
-- [X-status](https://status.azure.com/)
-- [X-github](https://github.com/microsoftgraph)
-- [X-github-samples](https://github.com/microsoft/mggraph-intune-samples)
-- [X-powershell-samples](https://github.com/microsoftgraph/powershell-intune-samples)
-- [X-developer-documentation](https://learn.microsoft.com/en-us/intune/intune-service/developer/intune-graph-apis)
-- [X-sdk](https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk)
-- [X-sdk-getting-started](https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk-get-started)
-- [X-app-wrapping-tool](https://learn.microsoft.com/en-us/intune/intune-service/developer/apps-prepare-mobile-application-management)
-- [X-community](https://techcommunity.microsoft.com/t5/microsoft-intune/ct-p/MicrosoftIntune)
-- [X-support](https://learn.microsoft.com/en-us/mem/get-support)
-- [X-twitter](https://twitter.com/MSIntune)
-- [X-whatsnew](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development)
-- [Integrations](https://www.microsoft.com/en-us/marketplace)
-
-## Maintainers
-
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/microsoft-intune/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
